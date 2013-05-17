@@ -12,7 +12,6 @@
 		DD3FD92A17464BB4003DE202 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD92917464BB4003DE202 /* Foundation.framework */; };
 		DD3FD92C17464BB4003DE202 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD92B17464BB4003DE202 /* CoreGraphics.framework */; };
 		DD3FD92F17464BB4003DE202 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD92E17464BB4003DE202 /* Podfile */; };
-		DD3FD93517464BB4003DE202 /* salesucreAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD93417464BB4003DE202 /* salesucreAPIClient.m */; };
 		DD3FD93917464BB4003DE202 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD93717464BB4003DE202 /* InfoPlist.strings */; };
 		DD3FD93B17464BB4003DE202 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD93A17464BB4003DE202 /* main.m */; };
 		DD3FD93E17464BB4003DE202 /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD93D17464BB4003DE202 /* SSAppDelegate.m */; };
@@ -24,8 +23,11 @@
 		DD3FD94F17465146003DE202 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD94E17465146003DE202 /* Default.png */; };
 		DD3FD9511746515B003DE202 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD9501746515B003DE202 /* Default@2x.png */; };
 		DD3FD953174652C8003DE202 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD952174652C8003DE202 /* Default-568h@2x.png */; };
-		DD3FD95B1746585F003DE202 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD95A1746585F003DE202 /* Parse.framework */; };
-		DD3FD95F174658EC003DE202 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD95E174658EC003DE202 /* libFlurry.a */; };
+		DD3FD96217465BBD003DE202 /* SSAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD96117465BBD003DE202 /* SSAPIClient.m */; };
+		DD3FD96517465CF0003DE202 /* NSDictionary+objectForKeyList.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD96417465CF0003DE202 /* NSDictionary+objectForKeyList.m */; };
+		DD3FD96817465D68003DE202 /* SSIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD96717465D68003DE202 /* SSIncrementalStore.m */; };
+		DD3FD96A1746612C003DE202 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD9691746612C003DE202 /* AudioToolbox.framework */; };
+		DD3FD971174664B5003DE202 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD970174664B5003DE202 /* libz.1.1.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +39,6 @@
 		DD3FD92B17464BB4003DE202 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DD3FD92E17464BB4003DE202 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 		DD3FD93117464BB4003DE202 /* salesucre-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "salesucre-Prefix.pch"; sourceTree = "<group>"; };
-		DD3FD93317464BB4003DE202 /* salesucreAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = salesucreAPIClient.h; path = Classes/salesucreAPIClient.h; sourceTree = "<group>"; };
-		DD3FD93417464BB4003DE202 /* salesucreAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = salesucreAPIClient.m; path = Classes/salesucreAPIClient.m; sourceTree = "<group>"; };
 		DD3FD93617464BB4003DE202 /* salesucre-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "salesucre-Info.plist"; sourceTree = "<group>"; };
 		DD3FD93817464BB4003DE202 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD3FD93A17464BB4003DE202 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,9 +54,14 @@
 		DD3FD952174652C8003DE202 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DD3FD9541746534E003DE202 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		DD3FD955174654C5003DE202 /* Theme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
-		DD3FD95A1746585F003DE202 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		DD3FD95D174658EC003DE202 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		DD3FD95E174658EC003DE202 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		DD3FD96017465BBD003DE202 /* SSAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAPIClient.h; sourceTree = "<group>"; };
+		DD3FD96117465BBD003DE202 /* SSAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAPIClient.m; sourceTree = "<group>"; };
+		DD3FD96317465CF0003DE202 /* NSDictionary+objectForKeyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+objectForKeyList.h"; sourceTree = "<group>"; };
+		DD3FD96417465CF0003DE202 /* NSDictionary+objectForKeyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+objectForKeyList.m"; sourceTree = "<group>"; };
+		DD3FD96617465D68003DE202 /* SSIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSIncrementalStore.h; sourceTree = "<group>"; };
+		DD3FD96717465D68003DE202 /* SSIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSIncrementalStore.m; sourceTree = "<group>"; };
+		DD3FD9691746612C003DE202 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DD3FD970174664B5003DE202 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +69,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3FD971174664B5003DE202 /* libz.1.1.3.dylib in Frameworks */,
+				BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */,
+				DD3FD96A1746612C003DE202 /* AudioToolbox.framework in Frameworks */,
 				DD3FD92817464BB4003DE202 /* UIKit.framework in Frameworks */,
 				DD3FD92A17464BB4003DE202 /* Foundation.framework in Frameworks */,
 				DD3FD92C17464BB4003DE202 /* CoreGraphics.framework in Frameworks */,
-				BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */,
-				DD3FD95B1746585F003DE202 /* Parse.framework in Frameworks */,
-				DD3FD95F174658EC003DE202 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +107,8 @@
 		DD3FD92617464BB4003DE202 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD3FD970174664B5003DE202 /* libz.1.1.3.dylib */,
+				DD3FD9691746612C003DE202 /* AudioToolbox.framework */,
 				DD3FD92717464BB4003DE202 /* UIKit.framework */,
 				DD3FD92917464BB4003DE202 /* Foundation.framework */,
 				DD3FD92B17464BB4003DE202 /* CoreGraphics.framework */,
@@ -116,6 +123,9 @@
 				DD3FD92E17464BB4003DE202 /* Podfile */,
 				DD3FD93C17464BB4003DE202 /* SSAppDelegate.h */,
 				DD3FD93D17464BB4003DE202 /* SSAppDelegate.m */,
+				DD3FD96317465CF0003DE202 /* NSDictionary+objectForKeyList.h */,
+				DD3FD96417465CF0003DE202 /* NSDictionary+objectForKeyList.m */,
+				DD3FD96F174663FA003DE202 /* Model */,
 				DD3FD93217464BB4003DE202 /* Networking */,
 				DD3FD95717465825003DE202 /* Vendor */,
 				DD3FD956174656C9003DE202 /* Artwork */,
@@ -143,8 +153,10 @@
 		DD3FD93217464BB4003DE202 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				DD3FD93317464BB4003DE202 /* salesucreAPIClient.h */,
-				DD3FD93417464BB4003DE202 /* salesucreAPIClient.m */,
+				DD3FD96017465BBD003DE202 /* SSAPIClient.h */,
+				DD3FD96117465BBD003DE202 /* SSAPIClient.m */,
+				DD3FD96617465D68003DE202 /* SSIncrementalStore.h */,
+				DD3FD96717465D68003DE202 /* SSIncrementalStore.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -159,35 +171,15 @@
 		DD3FD95717465825003DE202 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				DD3FD95917465836003DE202 /* Flurry */,
-				DD3FD95817465830003DE202 /* Parse */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
 		};
-		DD3FD95817465830003DE202 /* Parse */ = {
+		DD3FD96F174663FA003DE202 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DD3FD95A1746585F003DE202 /* Parse.framework */,
 			);
-			name = Parse;
-			sourceTree = "<group>";
-		};
-		DD3FD95917465836003DE202 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				DD3FD95C174658EC003DE202 /* Flurry */,
-			);
-			name = Flurry;
-			sourceTree = "<group>";
-		};
-		DD3FD95C174658EC003DE202 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				DD3FD95D174658EC003DE202 /* Flurry.h */,
-				DD3FD95E174658EC003DE202 /* libFlurry.a */,
-			);
-			path = Flurry;
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,9 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3FD93517464BB4003DE202 /* salesucreAPIClient.m in Sources */,
 				DD3FD93B17464BB4003DE202 /* main.m in Sources */,
 				DD3FD93E17464BB4003DE202 /* SSAppDelegate.m in Sources */,
+				DD3FD96217465BBD003DE202 /* SSAPIClient.m in Sources */,
+				DD3FD96517465CF0003DE202 /* NSDictionary+objectForKeyList.m in Sources */,
+				DD3FD96817465D68003DE202 /* SSIncrementalStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

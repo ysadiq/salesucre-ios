@@ -10,10 +10,13 @@ PODS:
   - BlockAlertsAnd-ActionSheets/TableAlertView (1.0.4)
   - CocoaLumberjack (HEAD based on 1.6.2)
   - Facebook-iOS-SDK (3.5.1)
+  - FlurrySDK (4.2.1)
   - InflectorKit (0.0.1)
   - iRate (1.7.5)
   - MGBox2 (HEAD based on 2.0.0)
   - MJPopupViewController (HEAD based on 0.4)
+  - Parse (1.2.9):
+    - Facebook-iOS-SDK (~> 3.5.1)
   - SVProgressHUD (HEAD based on 0.9)
   - TransformerKit (0.2.2)
 
@@ -24,9 +27,11 @@ DEPENDENCIES:
   - BlockAlertsAnd-ActionSheets
   - CocoaLumberjack (HEAD)
   - Facebook-iOS-SDK
+  - FlurrySDK
   - iRate
   - MGBox2 (HEAD)
   - MJPopupViewController (HEAD)
+  - Parse
   - SVProgressHUD (HEAD)
 
 SPEC CHECKSUMS:
@@ -36,10 +41,12 @@ SPEC CHECKSUMS:
   BlockAlertsAnd-ActionSheets: c0dc45ed0c2f53d38baa0f2793234e6def89a3be
   CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
   Facebook-iOS-SDK: 0dbd897e842cefeb012ec2eb8eba659ba6b96b12
+  FlurrySDK: ed65c2389c6028244cb0e57f31fe370cc1b17f22
   InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
   iRate: 8de5eaeca627c7708c8aec279eeb8daf2551c774
   MGBox2: 7c09e36c2271f9af16fdb5141a0ca554ecee4d8d
   MJPopupViewController: 4cd0badf3dae541017e0e16e2d2c7578d9224052
+  Parse: 9d763110e8cebe319243ee38dc3c34d3475b98d6
   SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
   TransformerKit: c07d1de4a661db2ca420092445750ab4ad67331a
 

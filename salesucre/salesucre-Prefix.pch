@@ -10,11 +10,14 @@
     #import "API.h"
     #import <CocoaLumberjack/DDLog.h>
     #import <CocoaLumberjack/DDTTYLogger.h>
-    #import "XclusivesAPIClient.h"
+    #import "SSAPIClient.h"
     #import "Theme.h"
     #import "Flurry.h"
+    #import "NSDictionary+objectForKeyList.h"
 #endif
 
+//---- CoreData Store Name ---- //
+#define kDataModelStoreName @"salesucre"
 
 // Usage:
 // SR_WEAK_SELF weakSelf = self;

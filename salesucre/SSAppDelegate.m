@@ -7,20 +7,100 @@
 //
 
 #import "SSAppDelegate.h"
+#import <CoreData/CoreData.h>
+#import "SSIncrementalStore.h"
 
 //---- 3rd Party ---- //
 #import <Parse/Parse.h>
+#import <iRate.h>
 #import "AFNetworkActivityIndicatorManager.h"
 
 @implementation SSAppDelegate
 
+@synthesize window;
+@synthesize navigationController = __navigationController;
+
+@synthesize managedObjectContext = __managedObjectContext;
+@synthesize managedObjectModel = __managedObjectModel;
+@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+
+
+void uncaughtExceptionHandler(NSException *exception) {
+    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
+
++ (void)initialize
+{
+    //overriding the default iRate strings
+    [iRate sharedInstance].applicationBundleID = @"com.olitintl.salesucre";
+    [iRate sharedInstance].appStoreID = [kAppStoreID integerValue];
+    [iRate sharedInstance].daysUntilPrompt = 5;
+    [iRate sharedInstance].usesUntilPrompt = 2;
+    
+    [iRate sharedInstance].messageTitle = @"Rate The App";
+    [iRate sharedInstance].message = @"We would appreciate if you rate us on the App Store!";
+    [iRate sharedInstance].cancelButtonLabel = @"No, Thanks";
+    [iRate sharedInstance].remindButtonLabel = @"Remind Me Later";
+    [iRate sharedInstance].rateButtonLabel = @"Rate It Now";
+#ifdef DEBUG
+    [iRate sharedInstance].previewMode  = YES;
+#else
+    [iRate sharedInstance].previewMode  = NO;
+#endif
+    
+}
+
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //--- Start Logger --//
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    
+    
+    // ---- Flurry ---- //
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    [Flurry setSessionReportsOnCloseEnabled:NO];
+    [Flurry startSession:kFlurryAPIKey];
+    [Flurry setSessionReportsOnPauseEnabled:YES];
+    
+    // ---- ParseSDK ---- //
+    [Parse setApplicationId:kParseAppId clientKey:kParseClientKey];
+    //[PFUser enableAutomaticUser];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [[PFInstallation currentInstallation] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error)
+            DDLogInfo(@"PFINstallation Saved");
+        else
+            DDLogError(@"PFINstallation could not be saved: %@", [error description]);
+    }];
+    
+    if ([PFUser currentUser] && [[PFUser currentUser] isAuthenticated])
+    {
+        //[[PFUser currentUser] setObject:[[PFInstallation currentInstallation] installationId] forKey:@"installationId"];
+        DDLogInfo(@"#user is authenticated");
+    }
+    else
+    {
+        [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
+            if (error) {
+                DDLogInfo(@"Anonymous login failed: %@", [error description]);
+            } else {
+                DDLogInfo(@"Anonymous user logged in.");
+            }
+        }];
+        DDLogError(@"[PFUser currentUser] is nil");
+    }
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+#ifdef DEBUG
+    [Parse errorMessagesEnabled:YES];
+#endif
+    
     NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:8 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     [NSURLCache setSharedURLCache:URLCache];
     
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     
     UIViewController *viewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
@@ -59,5 +139,87 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - Core Data
+
+- (void)saveContext {
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
+}
+
+// Returns the managed object context for the application.
+// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+- (NSManagedObjectContext *)managedObjectContext {
+    if (__managedObjectContext != nil) {
+        return __managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        __managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    
+    return __managedObjectContext;
+}
+
+// Returns the managed object model for the application.
+// If the model doesn't already exist, it is created from the application's model.
+- (NSManagedObjectModel *)managedObjectModel
+{
+    if (__managedObjectModel != nil) {
+        return __managedObjectModel;
+    }
+    
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:kDataModelStoreName withExtension:@"momd"];
+    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    
+    return __managedObjectModel;
+}
+
+// Returns the persistent store coordinator for the application.
+// If the coordinator doesn't already exist, it is created and the application's store added to it.
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (__persistentStoreCoordinator != nil) {
+        return __persistentStoreCoordinator;
+    }
+    
+    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    
+    AFIncrementalStore *incrementalStore = (AFIncrementalStore *)[__persistentStoreCoordinator addPersistentStoreWithType:[SSIncrementalStore type] configuration:nil URL:nil options:nil error:nil];
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"salesucre.sqlite"];
+    
+    NSDictionary *options = @{
+                              NSInferMappingModelAutomaticallyOption : @(YES),
+                              NSMigratePersistentStoresAutomaticallyOption: @(YES)
+                              };
+    
+    NSError *error = nil;
+    if (![incrementalStore.backingPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    NSLog(@"SQLite URL: %@", storeURL);
+    
+    return __persistentStoreCoordinator;
+}
+
+#pragma mark - Application's Documents directory
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory {
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
 
 @end
