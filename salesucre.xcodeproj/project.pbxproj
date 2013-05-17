@@ -24,6 +24,8 @@
 		DD3FD94F17465146003DE202 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD94E17465146003DE202 /* Default.png */; };
 		DD3FD9511746515B003DE202 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD9501746515B003DE202 /* Default@2x.png */; };
 		DD3FD953174652C8003DE202 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD3FD952174652C8003DE202 /* Default-568h@2x.png */; };
+		DD3FD95B1746585F003DE202 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD95A1746585F003DE202 /* Parse.framework */; };
+		DD3FD95F174658EC003DE202 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD95E174658EC003DE202 /* libFlurry.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,9 @@
 		DD3FD952174652C8003DE202 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DD3FD9541746534E003DE202 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		DD3FD955174654C5003DE202 /* Theme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
+		DD3FD95A1746585F003DE202 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		DD3FD95D174658EC003DE202 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		DD3FD95E174658EC003DE202 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,8 @@
 				DD3FD92A17464BB4003DE202 /* Foundation.framework in Frameworks */,
 				DD3FD92C17464BB4003DE202 /* CoreGraphics.framework in Frameworks */,
 				BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */,
+				DD3FD95B1746585F003DE202 /* Parse.framework in Frameworks */,
+				DD3FD95F174658EC003DE202 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +117,7 @@
 				DD3FD93C17464BB4003DE202 /* SSAppDelegate.h */,
 				DD3FD93D17464BB4003DE202 /* SSAppDelegate.m */,
 				DD3FD93217464BB4003DE202 /* Networking */,
+				DD3FD95717465825003DE202 /* Vendor */,
 				DD3FD956174656C9003DE202 /* Artwork */,
 				DD3FD93017464BB4003DE202 /* Supporting Files */,
 			);
@@ -146,6 +154,40 @@
 			children = (
 			);
 			name = Artwork;
+			sourceTree = "<group>";
+		};
+		DD3FD95717465825003DE202 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FD95917465836003DE202 /* Flurry */,
+				DD3FD95817465830003DE202 /* Parse */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		DD3FD95817465830003DE202 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FD95A1746585F003DE202 /* Parse.framework */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		DD3FD95917465836003DE202 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FD95C174658EC003DE202 /* Flurry */,
+			);
+			name = Flurry;
+			sourceTree = "<group>";
+		};
+		DD3FD95C174658EC003DE202 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				DD3FD95D174658EC003DE202 /* Flurry.h */,
+				DD3FD95E174658EC003DE202 /* libFlurry.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,10 +375,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/salesucre\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesucre/salesucre-Prefix.pch";
 				INFOPLIST_FILE = "salesucre/salesucre-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/salesucre/Flurry\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -346,10 +396,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/salesucre\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesucre/salesucre-Prefix.pch";
 				INFOPLIST_FILE = "salesucre/salesucre-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/salesucre/Flurry\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

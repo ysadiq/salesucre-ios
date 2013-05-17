@@ -8,6 +8,8 @@
 
 #import "SSAppDelegate.h"
 
+//---- 3rd Party ---- //
+#import <Parse/Parse.h>
 #import "AFNetworkActivityIndicatorManager.h"
 
 @implementation SSAppDelegate
@@ -19,6 +21,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [NSURLCache setSharedURLCache:URLCache];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
     
     UIViewController *viewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
