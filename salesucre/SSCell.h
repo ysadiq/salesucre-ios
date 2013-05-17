@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SSCategory.h"
+
 
 @interface SSCell : UITableViewCell
+
+- (void)setCateforiesData:(SSCategory *)currentCategory withLanguage:(NSString *)language;
 
 @end

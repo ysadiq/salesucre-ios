@@ -8,17 +8,25 @@
 
 #import "SSMenuViewController.h"
 #import "SSCell.h"
+#import <CoreData/CoreData.h>
 
+@interface SSMenuViewController () <NSFetchedResultsControllerDelegate> {
+    
+    NSFetchedResultsController *_fetchedResultsController;
+    
+}
 
-@interface SSMenuViewController ()
-
+- (void)refetchData;
 @end
 
 @implementation SSMenuViewController
 
 @synthesize tableView;
 
-
+- (void)refetchData
+{
+    [_fetchedResultsController performSelectorOnMainThread:@selector(performFetch:) withObject:nil waitUntilDone:YES modes:@[ NSRunLoopCommonModes ]];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,6 +40,33 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    DDLogInfo(@"menu did load");
+    
+    //language
+//    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+//    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];
+//    NSBundle* languageBundle_ = [NSBundle bundleWithPath:path];
+    
+    //[self performSelector:@selector(fetchCategoriesAvailableFromServer)];
+    
+    //---- AFIncrementalStore ---- //
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSCategory"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"weight" ascending:NO]];
+    fetchRequest.fetchLimit = 100;
+    
+    //---- NSPredicate ---- //
+    //    NSPredicate *p = [NSPredicate predicateWithFormat:@"categoryName LIKE 'Fashion'"];
+    //    [fetchRequest setPredicate:p];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc]
+                                 initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
+                                 sectionNameKeyPath:nil cacheName:@"SSCategory"];
+    
+    _fetchedResultsController.delegate = self;
+    [self refetchData];
+    
+    
+    [self.tableView registerClass:[SSCell class] forCellReuseIdentifier:@"SSCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,12 +79,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    //return 0;
+    DDLogError(@"number of rows: %i", [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects]);
+    return [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    //return 0;
+    return [[_fetchedResultsController sections] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,7 +97,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    static NSString *CellIdentifier = @"SSCell";
+    
+    SSCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    // cell setOutletsData
+    //[cell setCategoriesData:[dataCache_ valueForKey:[dataCacheKeys_ objectAtIndex:indexPath.row]] withLanguage:language_];
+    DDLogError(@"inside cellforrow");
+    @try {
+        [cell setCateforiesData:(SSCategory *)[_fetchedResultsController objectAtIndexPath:indexPath] withLanguage:@"en"];
+    }
+    @catch (NSException *exception) {
+        DDLogError(@"Exception: %@", exception);
+    }
+    
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,5 +123,12 @@
     
 }
 
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
+    [self.tableView reloadData];
+}
 
 @end

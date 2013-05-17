@@ -41,4 +41,10 @@
     //self.detailTextLabel.frame = detailTextLabelFrame;
 }
 
+#pragma mark Data Methods
+- (void)setCateforiesData:(SSCategory *)currentCategory withLanguage:(NSString *)language
+{
+    DDLogError(@"name: %@", [currentCategory name]);
+}
+
 @end

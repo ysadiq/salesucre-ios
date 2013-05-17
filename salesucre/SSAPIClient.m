@@ -84,7 +84,7 @@
                              withContext:(NSManagedObjectContext *)context
 {
     NSMutableURLRequest *mutableURLRequest = nil;
-    if ([fetchRequest.entityName isEqualToString:@"XclusivesCategory"]) {
+    if ([fetchRequest.entityName isEqualToString:@"SSCategory"]) {
         
         DDLogInfo(@"constructing request");
         //mutableURLRequest = [self requestWithMethod:@"GET" path:@"/api/rest/products" parameters:nil];
@@ -148,8 +148,8 @@
     NSMutableDictionary *mutablePropertyValues = [[super attributesForRepresentation:representation ofEntity:entity fromResponse:response] mutableCopy];
     //DDLogCVerbose(@"#dump: %@", [representation valueForKey:@"results"]);
     
-    if ([entity.name isEqualToString:@"XclusivesCategory"]) {
-        DDLogInfo(@"inside entity.name = XclusivesCategory");
+    if ([entity.name isEqualToString:@"SSCategory"]) {
+        DDLogInfo(@"inside entity.name = SSCategory");
         
         //---- change lastModified timestamp ---- //
         if ([[representation valueForKey:@"lastModified"] intValue] > [[_timestamps valueForKey:@"categories"] intValue])
@@ -162,7 +162,7 @@
         //---- end of timestamp ---- //
         
         [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"categoryId"];
-        [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"categoryName"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
         
         id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
         id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
@@ -188,15 +188,15 @@
         [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
         
         
-        if ([representation objectForKey:@"images"] && [[representation objectForKey:@"images"] count] > 0 )
-        {
-            NSDictionary *images = [[representation objectForKey:@"images"] objectAtIndex:0];
-            if ([images objectForKeyList:@"path", nil])
-            {
-                [mutablePropertyValues setValue:[images objectForKeyList:@"path", nil]
-                                         forKey:@"imageURL"];
-            }
-        }
+//        if ([representation objectForKey:@"images"] && [[representation objectForKey:@"images"] count] > 0 )
+//        {
+//            NSDictionary *images = [[representation objectForKey:@"images"] objectAtIndex:0];
+//            if ([images objectForKeyList:@"path", nil])
+//            {
+//                [mutablePropertyValues setValue:[images objectForKeyList:@"path", nil]
+//                                         forKey:@"imageURL"];
+//            }
+//        }
         
         
     }

@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class SSSplashViewController;
+
 @interface SSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIStoryboard *appStoryBoard;
+@property SSSplashViewController *splashView;
 
 // core data
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

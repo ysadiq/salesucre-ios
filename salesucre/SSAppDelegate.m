@@ -9,16 +9,26 @@
 #import "SSAppDelegate.h"
 #import <CoreData/CoreData.h>
 #import "SSIncrementalStore.h"
+#import "SSSplashViewController.h"
 
 //---- 3rd Party ---- //
 #import <Parse/Parse.h>
 #import <iRate.h>
 #import "AFNetworkActivityIndicatorManager.h"
 
+@interface SSAppDelegate ()
+
+@property UITabBarController *mainTabbar;
+
+@end
+
+
 @implementation SSAppDelegate
 
 @synthesize window;
 @synthesize appStoryBoard = _appStoryBoard;
+@synthesize splashView = _splashView;
+@synthesize mainTabbar = _mainTabbar;
 
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
@@ -43,7 +53,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     [iRate sharedInstance].remindButtonLabel = @"Remind Me Later";
     [iRate sharedInstance].rateButtonLabel = @"Rate It Now";
 #ifdef DEBUG
-    [iRate sharedInstance].previewMode  = YES;
+    [iRate sharedInstance].previewMode  = NO;
 #else
     [iRate sharedInstance].previewMode  = NO;
 #endif
@@ -108,6 +118,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    [self.window makeKeyAndVisible];
     
+    [self loadApplication];
+    
     return YES;
 }
 
@@ -145,9 +157,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         _appStoryBoard  = nil;
     }
     
-    splashView = [[XCSplashViewController alloc] initWithNibName:@"XCSplashViewController" bundle:[NSBundle mainBundle]];
+    _splashView = [[SSSplashViewController alloc] initWithNibName:@"SSSplashViewController" bundle:[NSBundle mainBundle]];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window setRootViewController:splashView];
+    [self.window setRootViewController:_splashView];
     [self.window makeKeyAndVisible];
     
     DDLogInfo(@"SplashView Added");
@@ -155,17 +167,88 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     //check if firstRun
     int firstRun = [[NSUserDefaults standardUserDefaults] integerForKey:@"firstRun"];
-    DDLogInfo(@"first run %d", firstRun);
-    if( (!firstRun) || (firstRun != 1))
-    {
-        
-        [self performSelector:@selector(detectLanguage)];
-        
-    }else{
-        
-        language_ = @"en";//[[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
-        [self performSelector:@selector(startApplicationWithLanguage:) withObject:language_ afterDelay:2.0];
+//    DDLogInfo(@"first run %d", firstRun);
+//    if( (!firstRun) || (firstRun != 1))
+//    {
+//        
+//        [self performSelector:@selector(detectLanguage)];
+//        
+//    }else{
+//        
+//        //language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+//        [self performSelector:@selector(startApplicationWithLanguage:) withObject:@"en" afterDelay:2.0];
+//    }
+    [self performSelector:@selector(startApplicationWithLanguage:) withObject:@"en" afterDelay:2.0];
+}
+
+- (void) startApplicationWithLanguage:(NSString *)language
+{
+    DDLogInfo(@"starting app with language: %@", language);
+    
+    [[SSAPIClient sharedInstance] setLanguage:language];
+    
+    // log Flurry language event
+    NSDictionary *languageParams =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     (id)language, @"Language",
+     nil];
+    
+    [Flurry logEvent:FLURRY_EVENT_LANGUAGE withParameters:languageParams];
+    
+    DDLogWarn(@"initiating storyboard");
+    NSString* storyboardId = @"mainTabbar";
+//    NSString* path= [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
+//    NSBundle* languageBundle_ = [NSBundle bundleWithPath:path];
+    
+    
+    
+    _appStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    _mainTabbar = (UITabBarController*)[_appStoryBoard instantiateViewControllerWithIdentifier:storyboardId];
+    
+    if([language isEqualToString:@"ar"]){
+        _mainTabbar.selectedViewController = [_mainTabbar.viewControllers objectAtIndex:3];
     }
+    
+    
+    
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    
+    [_splashView hideSplash];
+    _splashView = nil;
+    
+    
+    //[self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:kThemeDefaultBackground]] ];
+    
+    // customize appearence
+    //[self customizeAppearence];
+    
+    // Push Notification
+    /*
+     if ([self shouldViewNotifications])
+     {
+     if ([language isEqualToString:@"ar"])
+     {
+     [_mainTabbar setSelectedIndex:1];
+     }
+     else
+     {
+     [_mainTabbar setSelectedIndex:2];
+     }
+     [self setShouldViewNotifications:NO];
+     }
+     */
+    
+    self.window.rootViewController = _mainTabbar;
+    
+    
+    
+    
+    [[NSUserDefaults standardUserDefaults] setValue:language forKey:@"language" ];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    //[self.window makeKeyAndVisible];
 }
 
 #pragma mark - Core Data

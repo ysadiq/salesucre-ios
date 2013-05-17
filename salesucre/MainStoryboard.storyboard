@@ -8,7 +8,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Fpn-58-Hvq">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="TmS-1r-qyj" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabbar" definesPresentationContext="YES" id="TmS-1r-qyj" sceneMemberID="viewController">
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7u6-8y-iul">
@@ -53,6 +53,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="seJ-fY-mWg" id="USN-kS-J1O"/>
+                                    <outlet property="delegate" destination="seJ-fY-mWg" id="wep-Z6-K2i"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
