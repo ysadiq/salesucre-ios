@@ -1,7 +1,7 @@
 #import "salesucreAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-static NSString * const ksalesucreAPIBaseURLString = @"<# API Base URL #>";
+static NSString * const ksalesucreAPIBaseURLString = @"http://api.olitintl.com/APIPlatform/index.php/Version2/";
 
 @implementation salesucreAPIClient
 

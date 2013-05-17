@@ -7,4 +7,37 @@
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "API.h"
+    #import <CocoaLumberjack/DDLog.h>
+    #import <CocoaLumberjack/DDTTYLogger.h>
+    #import "XclusivesAPIClient.h"
+    #import "Theme.h"
+    #import "Flurry.h"
 #endif
+
+
+// Usage:
+// SR_WEAK_SELF weakSelf = self;
+#define SR_WEAK(obj) __typeof__(obj) __weak
+#define SR_WEAK_SELF SR_WEAK(self)
+
+// iPhone5 & 4" screen macro
+#define IS_4_INCH ( [ [ UIScreen mainScreen ] bounds ].size.height > 480 )
+
+#ifdef DEBUG
+static const int ddLogLevel = LOG_LEVEL_INFO;
+#else
+static const int ddLogLevel = LOG_LEVEL_ERROR;
+#endif
+
+// ---- Flurry Events ---- //
+#define FLURRY_EVENT_LANGUAGE @"Language"
+#define FLURRY_EVENT_LANGUAGE_SELECTION @"Language Selection"
+#define FLURRY_EVENT_CATEGORIES_VIEWD @"Categories Viewd"
+#define FLURRY_EVENT_CHAIN_VIEWD @"Chains Viewd"
+#define FLURRY_EVENT_CHAIN_INTERACTION @"Chain Interaction"
+#define FLURRY_EVENT_AROUNDME @"Around Me Usage"
+#define FLURRY_EVENT_NOTIFICATIONS_VIEWD @"Notifications Viewd"
+#define FLURRY_EVENT_NOTIFICATIONS_INTERACTIONS @"Notifications Interaction"
+#define FLURRY_EVENT_CUSTOMER_SERVICE @"Customer Service"
+#define FLURRY_EVENT_USER_DENIED_LOCATION_SERVICE @"User Denied Location Service"
