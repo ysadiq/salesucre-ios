@@ -18,7 +18,7 @@
 @implementation SSAppDelegate
 
 @synthesize window;
-@synthesize navigationController = __navigationController;
+@synthesize appStoryBoard = _appStoryBoard;
 
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
@@ -32,7 +32,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 + (void)initialize
 {
     //overriding the default iRate strings
-    [iRate sharedInstance].applicationBundleID = @"com.olitintl.salesucre";
+    [iRate sharedInstance].applicationBundleID = @"com.olit.salesucre";
     [iRate sharedInstance].appStoreID = [kAppStoreID integerValue];
     [iRate sharedInstance].daysUntilPrompt = 5;
     [iRate sharedInstance].usesUntilPrompt = 2;
@@ -69,9 +69,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [Parse setApplicationId:kParseAppId clientKey:kParseClientKey];
     //[PFUser enableAutomaticUser];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     [[PFInstallation currentInstallation] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error)
-            DDLogInfo(@"PFINstallation Saved");
+            DDLogInfo(@"PFInstallation Saved");
         else
             DDLogError(@"PFINstallation could not be saved: %@", [error description]);
     }];
@@ -103,12 +104,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     
     
-    UIViewController *viewController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    [self.window makeKeyAndVisible];
     
     return YES;
 }
@@ -138,6 +136,36 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - App Init
+- (void)loadApplication
+{
+    if(_appStoryBoard){
+        _appStoryBoard  = nil;
+    }
+    
+    splashView = [[XCSplashViewController alloc] initWithNibName:@"XCSplashViewController" bundle:[NSBundle mainBundle]];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:splashView];
+    [self.window makeKeyAndVisible];
+    
+    DDLogInfo(@"SplashView Added");
+    
+    
+    //check if firstRun
+    int firstRun = [[NSUserDefaults standardUserDefaults] integerForKey:@"firstRun"];
+    DDLogInfo(@"first run %d", firstRun);
+    if( (!firstRun) || (firstRun != 1))
+    {
+        
+        [self performSelector:@selector(detectLanguage)];
+        
+    }else{
+        
+        language_ = @"en";//[[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+        [self performSelector:@selector(startApplicationWithLanguage:) withObject:language_ afterDelay:2.0];
+    }
 }
 
 #pragma mark - Core Data

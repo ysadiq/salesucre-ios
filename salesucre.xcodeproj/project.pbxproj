@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 976D2775B86E407CA4B459DD /* libPods.a */; };
+		DD3DB5F5174687AE00F7D014 /* SSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F4174687AE00F7D014 /* SSCell.m */; };
+		DD3DB5F8174688B500F7D014 /* salesucre.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F6174688B500F7D014 /* salesucre.xcdatamodeld */; };
+		DD3DB5FB1746895C00F7D014 /* SSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5FA1746895C00F7D014 /* SSCategory.m */; };
+		DD3DB5FD17468A4200F7D014 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3DB5FC17468A4200F7D014 /* MainStoryboard.storyboard */; };
+		DD3DB60017468C4F00F7D014 /* SSMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5FF17468C4F00F7D014 /* SSMenuViewController.m */; };
+		DD3DB60417468E7C00F7D014 /* SSSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB60217468E7C00F7D014 /* SSSplashViewController.m */; };
+		DD3DB60717468FBC00F7D014 /* SSSplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3DB60617468FBC00F7D014 /* SSSplashViewController.xib */; };
 		DD3FD92817464BB4003DE202 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD92717464BB4003DE202 /* UIKit.framework */; };
 		DD3FD92A17464BB4003DE202 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD92917464BB4003DE202 /* Foundation.framework */; };
 		DD3FD92C17464BB4003DE202 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD92B17464BB4003DE202 /* CoreGraphics.framework */; };
@@ -33,6 +40,17 @@
 /* Begin PBXFileReference section */
 		77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		976D2775B86E407CA4B459DD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD3DB5F3174687AE00F7D014 /* SSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCell.h; sourceTree = "<group>"; };
+		DD3DB5F4174687AE00F7D014 /* SSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCell.m; sourceTree = "<group>"; };
+		DD3DB5F7174688B500F7D014 /* salesucre.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = salesucre.xcdatamodel; sourceTree = "<group>"; };
+		DD3DB5F91746895C00F7D014 /* SSCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCategory.h; sourceTree = "<group>"; };
+		DD3DB5FA1746895C00F7D014 /* SSCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCategory.m; sourceTree = "<group>"; };
+		DD3DB5FC17468A4200F7D014 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		DD3DB5FE17468C4E00F7D014 /* SSMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMenuViewController.h; sourceTree = "<group>"; };
+		DD3DB5FF17468C4F00F7D014 /* SSMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMenuViewController.m; sourceTree = "<group>"; };
+		DD3DB60117468E7C00F7D014 /* SSSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSplashViewController.h; sourceTree = "<group>"; };
+		DD3DB60217468E7C00F7D014 /* SSSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSplashViewController.m; sourceTree = "<group>"; };
+		DD3DB60617468FBC00F7D014 /* SSSplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SSSplashViewController.xib; sourceTree = "<group>"; };
 		DD3FD92417464BB4003DE202 /* salesucre.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = salesucre.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3FD92717464BB4003DE202 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DD3FD92917464BB4003DE202 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,11 +141,15 @@
 				DD3FD92E17464BB4003DE202 /* Podfile */,
 				DD3FD93C17464BB4003DE202 /* SSAppDelegate.h */,
 				DD3FD93D17464BB4003DE202 /* SSAppDelegate.m */,
-				DD3FD96317465CF0003DE202 /* NSDictionary+objectForKeyList.h */,
-				DD3FD96417465CF0003DE202 /* NSDictionary+objectForKeyList.m */,
+				DD3DB5FC17468A4200F7D014 /* MainStoryboard.storyboard */,
+				DD3DB5FE17468C4E00F7D014 /* SSMenuViewController.h */,
+				DD3DB5FF17468C4F00F7D014 /* SSMenuViewController.m */,
+				DD3DB60117468E7C00F7D014 /* SSSplashViewController.h */,
+				DD3DB60217468E7C00F7D014 /* SSSplashViewController.m */,
+				DD3DB60617468FBC00F7D014 /* SSSplashViewController.xib */,
 				DD3FD96F174663FA003DE202 /* Model */,
 				DD3FD93217464BB4003DE202 /* Networking */,
-				DD3FD95717465825003DE202 /* Vendor */,
+				DD3FD95717465825003DE202 /* Helpers */,
 				DD3FD956174656C9003DE202 /* Artwork */,
 				DD3FD93017464BB4003DE202 /* Supporting Files */,
 			);
@@ -168,16 +190,23 @@
 			name = Artwork;
 			sourceTree = "<group>";
 		};
-		DD3FD95717465825003DE202 /* Vendor */ = {
+		DD3FD95717465825003DE202 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DD3FD96317465CF0003DE202 /* NSDictionary+objectForKeyList.h */,
+				DD3FD96417465CF0003DE202 /* NSDictionary+objectForKeyList.m */,
 			);
-			name = Vendor;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		DD3FD96F174663FA003DE202 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD3DB5F3174687AE00F7D014 /* SSCell.h */,
+				DD3DB5F4174687AE00F7D014 /* SSCell.m */,
+				DD3DB5F6174688B500F7D014 /* salesucre.xcdatamodeld */,
+				DD3DB5F91746895C00F7D014 /* SSCategory.h */,
+				DD3DB5FA1746895C00F7D014 /* SSCategory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,6 +275,8 @@
 				DD3FD94F17465146003DE202 /* Default.png in Resources */,
 				DD3FD9511746515B003DE202 /* Default@2x.png in Resources */,
 				DD3FD953174652C8003DE202 /* Default-568h@2x.png in Resources */,
+				DD3DB5FD17468A4200F7D014 /* MainStoryboard.storyboard in Resources */,
+				DD3DB60717468FBC00F7D014 /* SSSplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +323,11 @@
 				DD3FD96217465BBD003DE202 /* SSAPIClient.m in Sources */,
 				DD3FD96517465CF0003DE202 /* NSDictionary+objectForKeyList.m in Sources */,
 				DD3FD96817465D68003DE202 /* SSIncrementalStore.m in Sources */,
+				DD3DB5F5174687AE00F7D014 /* SSCell.m in Sources */,
+				DD3DB5F8174688B500F7D014 /* salesucre.xcdatamodeld in Sources */,
+				DD3DB5FB1746895C00F7D014 /* SSCategory.m in Sources */,
+				DD3DB60017468C4F00F7D014 /* SSMenuViewController.m in Sources */,
+				DD3DB60417468E7C00F7D014 /* SSSplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +465,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD3DB5F6174688B500F7D014 /* salesucre.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD3DB5F7174688B500F7D014 /* salesucre.xcdatamodel */,
+			);
+			currentVersion = DD3DB5F7174688B500F7D014 /* salesucre.xcdatamodel */;
+			path = salesucre.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD3FD91C17464BB4003DE202 /* Project object */;
 }
