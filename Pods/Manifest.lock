@@ -1,0 +1,46 @@
+PODS:
+  - ActionSheetPicker2 (0.1)
+  - AFIncrementalStore (0.4.1):
+    - AFNetworking (>= 0.9.0)
+    - InflectorKit
+    - TransformerKit
+  - AFNetworking (HEAD based on 1.2.1)
+  - BlockAlertsAnd-ActionSheets (1.0.4):
+    - BlockAlertsAnd-ActionSheets/TableAlertView
+  - BlockAlertsAnd-ActionSheets/TableAlertView (1.0.4)
+  - CocoaLumberjack (HEAD based on 1.6.2)
+  - Facebook-iOS-SDK (3.5.1)
+  - InflectorKit (0.0.1)
+  - iRate (1.7.5)
+  - MGBox2 (HEAD based on 2.0.0)
+  - MJPopupViewController (HEAD based on 0.4)
+  - SVProgressHUD (HEAD based on 0.9)
+  - TransformerKit (0.2.2)
+
+DEPENDENCIES:
+  - ActionSheetPicker2 (~> 0.1)
+  - AFIncrementalStore
+  - AFNetworking (HEAD)
+  - BlockAlertsAnd-ActionSheets
+  - CocoaLumberjack (HEAD)
+  - Facebook-iOS-SDK
+  - iRate
+  - MGBox2 (HEAD)
+  - MJPopupViewController (HEAD)
+  - SVProgressHUD (HEAD)
+
+SPEC CHECKSUMS:
+  ActionSheetPicker2: 1a097a29ab437ea47356f3477e7a47e175a90445
+  AFIncrementalStore: bbb4f113ef0442aef8901c5b3df9ae646a598970
+  AFNetworking: d1ba5908b233189e424e101721acef7905b58efb
+  BlockAlertsAnd-ActionSheets: c0dc45ed0c2f53d38baa0f2793234e6def89a3be
+  CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
+  Facebook-iOS-SDK: 0dbd897e842cefeb012ec2eb8eba659ba6b96b12
+  InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
+  iRate: 8de5eaeca627c7708c8aec279eeb8daf2551c774
+  MGBox2: 7c09e36c2271f9af16fdb5141a0ca554ecee4d8d
+  MJPopupViewController: 4cd0badf3dae541017e0e16e2d2c7578d9224052
+  SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
+  TransformerKit: c07d1de4a661db2ca420092445750ab4ad67331a
+
+COCOAPODS: 0.19.1
