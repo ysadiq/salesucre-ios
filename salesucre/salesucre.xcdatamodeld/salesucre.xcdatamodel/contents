@@ -6,7 +6,7 @@
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSMenuItem" inverseName="categories" inverseEntity="SSMenuItem" syncable="YES"/>
+        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSMenuItem" inverseName="categories" inverseEntity="SSMenuItem" syncable="YES"/>
     </entity>
     <entity name="SSMenuItem" representedClassName="SSMenuItem" versionHashModifier="1.0" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -15,7 +15,7 @@
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="categories" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="item" inverseEntity="SSCategory" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="menuItems" inverseEntity="SSCategory" syncable="YES"/>
     </entity>
     <elements>
         <element name="SSCategory" positionX="-3375" positionY="-234" width="128" height="133"/>

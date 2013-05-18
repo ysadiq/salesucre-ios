@@ -96,6 +96,7 @@
                                 @"gt", @"op",
                                 [_timestamps valueForKey:@"categories"] , @"lastModified",
                                 @"lastModified", @"opKey",
+                                @"all", @"limit",
                                 nil];
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"categories" parameters:params];
@@ -110,6 +111,7 @@
                                 @"gt", @"op",
                                 [_timestamps valueForKey:@"categories"] , @"lastModified",
                                 @"lastModified", @"opKey",
+                                @"all", @"limit",
                                 nil];
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"menuItems" parameters:params];
@@ -232,7 +234,7 @@
         [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"itemId"];
         [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
         [mutablePropertyValues setValue:[representation valueForKey:@"description"] forKey:@"itemDescription"];
-        NSNumber *price = [NSNumber numberWithInt:[representation valueForKey:@"price"] ];
+        NSNumber *price = [NSNumber numberWithInt:[[representation valueForKey:@"price"] intValue] ];
         [mutablePropertyValues setValue:price forKey:@"price"];
         
         id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];

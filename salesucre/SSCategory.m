@@ -17,6 +17,6 @@
 @dynamic createdAt;
 @dynamic lastModified;
 @dynamic weight;
-@dynamic item;
+@dynamic menuItems;
 
 @end

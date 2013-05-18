@@ -48,6 +48,9 @@ NSFetchedResultsController *_fetchedResultsController;
     //    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];
     //    NSBundle* languageBundle_ = [NSBundle bundleWithPath:path];
     
+    //---- title ---- //
+    [self setTitle:[_currentcategory name]];
+    
     //---- AFIncrementalStore ---- //
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSMenuItem"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastModified" ascending:NO]];
@@ -55,8 +58,8 @@ NSFetchedResultsController *_fetchedResultsController;
     
     //---- NSPredicate ---- //
     DDLogInfo(@"currentCategory: %@", [_currentcategory categoryId]);
-//    NSPredicate *p = [NSPredicate predicateWithFormat:@"category.categoryId == %@",[_currentcategory categoryId]];
-//    [fetchRequest setPredicate:p];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"ANY categories.categoryId == %@", [_currentcategory categoryId] ];
+    [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
@@ -120,7 +123,8 @@ NSFetchedResultsController *_fetchedResultsController;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    SSMenuItem *item = (SSMenuItem *)[_fetchedResultsController objectAtIndexPath:indexPath];
+    DDLogInfo(@"current price: %i", [[item price] intValue]);
 }
 
 

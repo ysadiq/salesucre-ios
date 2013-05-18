@@ -44,6 +44,8 @@
 	// Do any additional setup after loading the view.
     DDLogInfo(@"menu did load");
     
+    [self setTitle:@"Menu"];
+    
     //language
 //    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
 //    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];

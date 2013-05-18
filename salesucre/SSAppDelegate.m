@@ -167,17 +167,19 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     //check if firstRun
     int firstRun = [[NSUserDefaults standardUserDefaults] integerForKey:@"firstRun"];
-//    DDLogInfo(@"first run %d", firstRun);
-//    if( (!firstRun) || (firstRun != 1))
-//    {
-//        
-//        [self performSelector:@selector(detectLanguage)];
-//        
-//    }else{
-//        
-//        //language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
-//        [self performSelector:@selector(startApplicationWithLanguage:) withObject:@"en" afterDelay:2.0];
-//    }
+    DDLogInfo(@"first run %d", firstRun);
+    if( (!firstRun) || (firstRun != 1))
+    {
+        
+        //[self performSelector:@selector(detectLanguage)];
+        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"lastModified"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }else{
+        
+        //language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+        //[self performSelector:@selector(startApplicationWithLanguage:) withObject:@"en" afterDelay:2.0];
+    }
     [self performSelector:@selector(startApplicationWithLanguage:) withObject:@"en" afterDelay:2.0];
 }
 

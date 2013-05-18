@@ -18,7 +18,7 @@
 @property NSDate * createdAt;
 @property NSDate * lastModified;
 @property NSNumber * weight;
-@property SSMenuItem *item;
+@property NSSet *menuItems;
 
 //- (void)addItemsObject:(SSMenuItem *)object;
 //- (void)addItems:(NSSet *)objects;
