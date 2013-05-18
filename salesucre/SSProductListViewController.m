@@ -132,7 +132,34 @@ NSFetchedResultsController *_fetchedResultsController;
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
+    DDLogInfo(@"reloading table");
+    //[self newLastModifiedValue];
     [self.tableView reloadData];
+}
+
+- (void)newLastModifiedValue
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SSMenuItem"
+                                              inManagedObjectContext:[_fetchedResultsController managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchLimit:100];
+    //[fetchRequest setResultType:NSDictionaryResultType];
+    [fetchRequest setPropertiesToFetch:[NSArray arrayWithObject:@"lastModified"]];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"lastModified"
+                                        ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    NSError *error = nil;
+    NSArray *fetchResults = [[_fetchedResultsController managedObjectContext]
+                             executeFetchRequest:fetchRequest
+                             error:&error];
+    
+    SSMenuItem *oldest = [fetchResults lastObject];
+    
+    DDLogInfo(@"before reloading table, max lastModified is :%@", [oldest lastModified]);
 }
 
 @end

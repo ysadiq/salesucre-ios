@@ -109,7 +109,8 @@
                                 //                                       kToken, @"oauth_token",
                                 _language, @"language",
                                 @"gt", @"op",
-                                [_timestamps valueForKey:@"categories"] , @"lastModified",
+                                //[_timestamps valueForKey:@"categories"] , @"lastModified",
+                                @1, @"lastModified",
                                 @"lastModified", @"opKey",
                                 @"all", @"limit",
                                 nil];
