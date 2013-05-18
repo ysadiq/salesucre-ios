@@ -7,7 +7,8 @@
 //
 
 #import "SSAPIClient.h"
-
+#import "SSCategory.h"
+#import "SSMenuItem.h"
 
 #define kAPIBaseURL @"http://api.olitintl.com/APIPlatform/index.php/Version2/"
 
@@ -51,7 +52,8 @@
         // 401 is invalid token response code
         
         _timestamps = [[NSMutableDictionary alloc] init];
-        [_timestamps setValue:@0 forKey:@"categories"];
+        [_timestamps setValue:@1 forKey:@"categories"];
+        [_timestamps setValue:@1 forKey:@"menuItems"];
         
         // retina scale
         // detect weather screen is retina or non-retina
@@ -97,6 +99,20 @@
                                 nil];
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"categories" parameters:params];
+    }
+    else if ([fetchRequest.entityName isEqualToString:@"SSMenuItem"])
+    {
+        DDLogInfo(@"constructing request");
+        //mutableURLRequest = [self requestWithMethod:@"GET" path:@"/api/rest/products" parameters:nil];
+        NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                //                                       kToken, @"oauth_token",
+                                _language, @"language",
+                                @"gt", @"op",
+                                [_timestamps valueForKey:@"categories"] , @"lastModified",
+                                @"lastModified", @"opKey",
+                                nil];
+        
+        mutableURLRequest = [self requestWithMethod:@"GET" path:@"menuItems" parameters:params];
     }
     else
     {
@@ -197,6 +213,48 @@
 //                                         forKey:@"imageURL"];
 //            }
 //        }
+        
+        
+    }
+    else if ([entity.name isEqualToString:@"SSMenuItem"])
+    {
+        DDLogInfo(@"inside entity.name: %@", entity.name);
+        //---- change lastModified timestamp ---- //
+        if ([[representation valueForKey:@"lastModified"] intValue] > [[_timestamps valueForKey:@"menuItems"] intValue])
+        {
+            DDLogInfo(@"new timestamp is higher, assigning new one");
+            [_timestamps setValue:[representation valueForKey:@"lastModified"] forKey:@"menuItems"];
+        }
+        
+        
+        //---- end of timestamp ---- //
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"itemId"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"description"] forKey:@"itemDescription"];
+        NSNumber *price = [NSNumber numberWithInt:[representation valueForKey:@"price"] ];
+        [mutablePropertyValues setValue:price forKey:@"price"];
+        
+        id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
+        id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
+        
+        if ( createdAtValue && ![createdAtValue isEqual:[NSNull null]] && [createdAtValue isKindOfClass:[NSString class]] )
+        {
+            //            [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+            //                                         transformedValue:createdAtValue ] forKey:@"createdAt"];
+            NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
+        }
+        else
+            DDLogWarn(@"a7a, %@", [createdAtValue class]);
+        
+        //        [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+        //                                         transformedValue:[representation valueForKey:lastModifiedValue] ] forKey:@"lastModified"];
+        if ( lastModifiedValue && ![lastModifiedValue isEqual:[NSNull null] ] && [lastModifiedValue isKindOfClass:[NSString class]] )
+        {
+            NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
+        }
         
         
     }

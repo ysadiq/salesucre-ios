@@ -1,34 +1,33 @@
 //
-//  SSMenuViewController.m
+//  SSProductListViewController.m
 //  salesucre
 //
-//  Created by Haitham Reda on 5/17/13.
+//  Created by Haitham Reda on 5/18/13.
 //  Copyright (c) 2013 Haitham Reda. All rights reserved.
 //
 
-#import "SSMenuViewController.h"
-#import "SSCell.h"
 #import "SSProductListViewController.h"
+#import "SSCell.h"
 
-@interface SSMenuViewController () <NSFetchedResultsControllerDelegate> {
-    
-    NSFetchedResultsController *_fetchedResultsController;
-    
+
+@interface SSProductListViewController () <NSFetchedResultsControllerDelegate> {
+
+NSFetchedResultsController *_fetchedResultsController;
+
 }
-
 - (void)refetchData;
 @end
 
-@implementation SSMenuViewController
+@implementation SSProductListViewController
 
-@synthesize tableView;
-@synthesize objectToSend;
-
+@synthesize tableView = _tableView;
+@synthesize currentcategory = _currentcategory;
 
 - (void)refetchData
 {
     [_fetchedResultsController performSelectorOnMainThread:@selector(performFetch:) withObject:nil waitUntilDone:YES modes:@[ NSRunLoopCommonModes ]];
 }
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,23 +41,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    DDLogInfo(@"menu did load");
+    DDLogInfo(@"products did load");
     
     //language
-//    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
-//    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];
-//    NSBundle* languageBundle_ = [NSBundle bundleWithPath:path];
-    
-    //[self performSelector:@selector(fetchCategoriesAvailableFromServer)];
+    //    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+    //    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];
+    //    NSBundle* languageBundle_ = [NSBundle bundleWithPath:path];
     
     //---- AFIncrementalStore ---- //
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSCategory"];
-    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"weight" ascending:NO]];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSMenuItem"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastModified" ascending:NO]];
     fetchRequest.fetchLimit = 100;
     
     //---- NSPredicate ---- //
-    //    NSPredicate *p = [NSPredicate predicateWithFormat:@"categoryName LIKE 'Fashion'"];
-    //    [fetchRequest setPredicate:p];
+    DDLogInfo(@"currentCategory: %@", [_currentcategory categoryId]);
+//    NSPredicate *p = [NSPredicate predicateWithFormat:@"category.categoryId == %@",[_currentcategory categoryId]];
+//    [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
@@ -109,9 +107,9 @@
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     // cell setOutletsData
     //[cell setCategoriesData:[dataCache_ valueForKey:[dataCacheKeys_ objectAtIndex:indexPath.row]] withLanguage:language_];
-
+    
     @try {
-        [cell setCateforiesData:(SSCategory *)[_fetchedResultsController objectAtIndexPath:indexPath] withLanguage:@"en"];
+        [cell setMenuItem:[_fetchedResultsController objectAtIndexPath:indexPath]];
     }
     @catch (NSException *exception) {
         DDLogError(@"Exception: %@", exception);
@@ -122,21 +120,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DDLogInfo(@"inside didselectrow");
-    [self setObjectToSend:[_fetchedResultsController objectAtIndexPath:indexPath] ];
     
-    [self performSegueWithIdentifier:@"001" sender:self];
 }
 
-#pragma mark - Storyboard
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"001"]) {
-        DDLogCVerbose(@"preparing segue");
-        SSProductListViewController *destinationVC = [segue destinationViewController];
-        [destinationVC setCurrentcategory:[self objectToSend]];
-    }
-}
 
 #pragma mark - NSFetchedResultsControllerDelegate
 

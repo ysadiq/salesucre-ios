@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="SSCategory" representedClassName="SSCategory" syncable="YES">
+    <entity name="SSCategory" representedClassName="SSCategory" versionHashModifier="1.0" syncable="YES">
         <attribute name="categoryId" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSMenuItem" inverseName="categories" inverseEntity="SSMenuItem" syncable="YES"/>
+    </entity>
+    <entity name="SSMenuItem" representedClassName="SSMenuItem" versionHashModifier="1.0" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="categories" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="item" inverseEntity="SSCategory" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SSCategory" positionX="-3375" positionY="-234" width="128" height="118"/>
+        <element name="SSCategory" positionX="-3375" positionY="-234" width="128" height="133"/>
+        <element name="SSMenuItem" positionX="-3656" positionY="-187" width="128" height="148"/>
     </elements>
 </model>

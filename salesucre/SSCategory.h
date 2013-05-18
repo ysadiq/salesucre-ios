@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class SSMenuItem;
 
 @interface SSCategory : NSManagedObject
 
@@ -17,5 +18,9 @@
 @property NSDate * createdAt;
 @property NSDate * lastModified;
 @property NSNumber * weight;
+@property SSMenuItem *item;
+
+//- (void)addItemsObject:(SSMenuItem *)object;
+//- (void)addItems:(NSSet *)objects;
 
 @end

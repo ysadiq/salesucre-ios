@@ -11,5 +11,6 @@
 @interface SSMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property id objectToSend;
 
 @end

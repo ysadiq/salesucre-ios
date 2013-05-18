@@ -7,6 +7,7 @@
 //
 
 #import "SSCategory.h"
+#import "SSMenuItem.h"
 
 
 @implementation SSCategory
@@ -16,5 +17,6 @@
 @dynamic createdAt;
 @dynamic lastModified;
 @dynamic weight;
+@dynamic item;
 
 @end

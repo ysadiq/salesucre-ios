@@ -9,7 +9,7 @@
 #ifndef salesucre_API_h
 #define salesucre_API_h
 
-#define kToken @"17321a96cb4d7b9ffc45da78319bfecd"
+#define kToken @"70da2179f8b4d48b2d652b3b4de2f7e4"
 
 #define kAppStoreID @"523209932"
 

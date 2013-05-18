@@ -44,7 +44,12 @@
 #pragma mark Data Methods
 - (void)setCateforiesData:(SSCategory *)currentCategory withLanguage:(NSString *)language
 {
-    DDLogError(@"name: %@", [currentCategory name]);
+    [[self textLabel] setText:[currentCategory name]];
+}
+
+- (void)setMenuItem:(SSMenuItem *)currentItem
+{
+    [self.textLabel setText:[currentItem name]];
 }
 
 @end

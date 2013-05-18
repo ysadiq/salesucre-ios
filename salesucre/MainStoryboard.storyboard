@@ -9,7 +9,7 @@
         <scene sceneID="Fpn-58-Hvq">
             <objects>
                 <tabBarController storyboardIdentifier="mainTabbar" definesPresentationContext="YES" id="TmS-1r-qyj" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7u6-8y-iul">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -66,16 +66,54 @@
                     <connections>
                         <outlet property="tableView" destination="IuI-SO-c8E" id="HTw-jS-zR3"/>
                         <outlet property="view" destination="fQM-aH-b1N" id="p6r-KU-Amr"/>
+                        <segue destination="PxE-PJ-mDH" kind="push" identifier="001" id="6uj-dj-822"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDs-EY-p9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="-115"/>
         </scene>
+        <!--Product List View Controller-->
+        <scene sceneID="QjY-lE-bZW">
+            <objects>
+                <viewController id="PxE-PJ-mDH" customClass="SSProductListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mT2-Ll-51P">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DJY-Pv-sI4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PxE-PJ-mDH" id="Wds-7z-eWc"/>
+                                    <outlet property="delegate" destination="PxE-PJ-mDH" id="V3b-LA-cwD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6si-5m-73B"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="DJY-Pv-sI4" id="Usl-Mk-umc"/>
+                        <outlet property="view" destination="mT2-Ll-51P" id="Ba5-Hk-eNA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNX-WT-gJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1170" y="-115"/>
+        </scene>
     </scenes>
     <classes>
         <class className="SSMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SSProductListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSProductListViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
