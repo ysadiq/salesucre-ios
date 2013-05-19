@@ -329,18 +329,17 @@
         DDLogInfo(@"entity.name: %@", entity.name);
         if ([representation objectForKey:@"street"])
         {
-            [mutablePropertyValues setValue:[representation valueForKey:@"street"] forKey:@"addressId"];
             [mutablePropertyValues setValue:[representation valueForKey:@"street"] forKey:@"street"];
         }
         else
         {
-            [mutablePropertyValues setValue:@"123456" forKey:@"addressId"];
             [mutablePropertyValues setValue:@" " forKey:@"street"];
         }
         if ([representation objectForKey:@"street2"])
         {
             [mutablePropertyValues setValue:[representation valueForKey:@"street2"] forKey:@"street2"];
         }
+        DDLogInfo(@"after parse: %@", mutablePropertyValues);
     }
     else if ([entity.name isEqualToString:@"SSDistrict"])
     {

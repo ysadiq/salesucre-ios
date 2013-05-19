@@ -7,7 +7,7 @@
 //
 
 #import "Branch.h"
-
+#import "SSAddress.h"
 
 @implementation Branch
 

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class SSAddress;
 
 @interface Branch : NSManagedObject
 
@@ -17,6 +18,6 @@
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) id location;
 @property (nonatomic, retain) NSArray * phones;
-@property (nonatomic, retain) NSManagedObject *address;
+@property (nonatomic, retain) SSAddress *address;
 
 @end
