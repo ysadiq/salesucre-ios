@@ -52,4 +52,10 @@
     [self.textLabel setText:[currentItem name]];
 }
 
+- (void)setBranchDetails:(Branch *)branch
+{
+    [self.textLabel setText:[branch branchId] ];
+
+}
+
 @end

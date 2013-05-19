@@ -13,6 +13,9 @@
 
 @interface SSAddress : NSManagedObject
 
+@property (nonatomic, retain) NSString * addressId;
+@property (nonatomic, retain) NSString * street;
+@property (nonatomic, retain) NSString * street2;
 @property (nonatomic, retain) NSManagedObject *city;
 @property (nonatomic, retain) NSManagedObject *district;
 @property (nonatomic, retain) Branch *branch;

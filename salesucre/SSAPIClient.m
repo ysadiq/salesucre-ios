@@ -124,7 +124,7 @@
                                 //                                       kToken, @"oauth_token",
                                 _language, @"language",
                                 @"gt", @"op",
-                                [_timestamps valueForKey:@"categories"] , @"lastModified",
+                                @1 , @"lastModified",
                                 @"lastModified", @"opKey",
                                 @"all", @"limit",
                                 nil];
@@ -277,8 +277,9 @@
     {
         DDLogInfo(@"entity.name = %@", entity.name);
         
+        DDLogInfo(@"_id: %@", [representation valueForKey:@"_id"] );
+                               
         [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"branchId"];
-        [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
         
         id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
         id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
@@ -322,6 +323,47 @@
             [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
         }
         
+    }
+    else if ([entity.name isEqualToString:@"SSAddress"])
+    {
+        DDLogInfo(@"entity.name: %@", entity.name);
+        if ([representation objectForKey:@"street"])
+        {
+            [mutablePropertyValues setValue:[representation valueForKey:@"street"] forKey:@"addressId"];
+            [mutablePropertyValues setValue:[representation valueForKey:@"street"] forKey:@"street"];
+        }
+        else
+        {
+            [mutablePropertyValues setValue:@"123456" forKey:@"addressId"];
+            [mutablePropertyValues setValue:@" " forKey:@"street"];
+        }
+        if ([representation objectForKey:@"street2"])
+        {
+            [mutablePropertyValues setValue:[representation valueForKey:@"street2"] forKey:@"street2"];
+        }
+    }
+    else if ([entity.name isEqualToString:@"SSDistrict"])
+    {
+        DDLogInfo(@"entity.name: %@", entity.name);
+        [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"districtId"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
+        
+        id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
+        id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
+        
+        if ( createdAtValue && ![createdAtValue isEqual:[NSNull null]] && [createdAtValue isKindOfClass:[NSString class]] )
+        {
+            //            [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+            //                                         transformedValue:createdAtValue ] forKey:@"createdAt"];
+            NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
+        }
+        if ( lastModifiedValue && ![lastModifiedValue isEqual:[NSNull null]] && [lastModifiedValue isKindOfClass:[NSString class]] )
+        {
+            NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
+        }
     }
     else {
         

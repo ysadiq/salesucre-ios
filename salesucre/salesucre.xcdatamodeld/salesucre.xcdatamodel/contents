@@ -15,6 +15,9 @@
         <relationship name="menuItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSMenuItem" inverseName="images" inverseEntity="SSMenuItem" syncable="YES"/>
     </entity>
     <entity name="SSAddress" representedClassName="SSAddress" syncable="YES">
+        <attribute name="addressId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="street" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="street2" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="branch" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Branch" inverseName="address" inverseEntity="Branch" syncable="YES"/>
         <relationship name="city" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSCity" inverseName="address" inverseEntity="SSCity" syncable="YES"/>
         <relationship name="district" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSDistrict" inverseName="address" inverseEntity="SSDistrict" syncable="YES"/>
@@ -61,8 +64,8 @@
         <element name="SSCategory" positionX="-3690" positionY="-747" width="128" height="148"/>
         <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="163"/>
         <element name="Images" positionX="-4230" positionY="-702" width="128" height="103"/>
-        <element name="SSAddress" positionX="-4167" positionY="-387" width="128" height="88"/>
+        <element name="SSAddress" positionX="-4167" positionY="-432" width="128" height="133"/>
         <element name="SSCity" positionX="-4016" positionY="-331" width="128" height="148"/>
-        <element name="SSDistrict" positionX="-4203" positionY="-261" width="128" height="148"/>
+        <element name="SSDistrict" positionX="-4212" positionY="-211" width="128" height="148"/>
     </elements>
 </model>

@@ -13,6 +13,7 @@
 		DD3D26C51748F6CB00A49116 /* SSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C41748F6CB00A49116 /* SSAddress.m */; };
 		DD3D26C81748F6CB00A49116 /* SSCity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C71748F6CB00A49116 /* SSCity.m */; };
 		DD3D26CB1748F6CB00A49116 /* SSDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26CA1748F6CB00A49116 /* SSDistrict.m */; };
+		DD3D26CE1748FBE700A49116 /* SSBranchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */; };
 		DD3DB5F5174687AE00F7D014 /* SSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F4174687AE00F7D014 /* SSCell.m */; };
 		DD3DB5F8174688B500F7D014 /* salesucre.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F6174688B500F7D014 /* salesucre.xcdatamodeld */; };
 		DD3DB5FB1746895C00F7D014 /* SSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5FA1746895C00F7D014 /* SSCategory.m */; };
@@ -57,6 +58,8 @@
 		DD3D26C71748F6CB00A49116 /* SSCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCity.m; sourceTree = "<group>"; };
 		DD3D26C91748F6CB00A49116 /* SSDistrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDistrict.h; sourceTree = "<group>"; };
 		DD3D26CA1748F6CB00A49116 /* SSDistrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDistrict.m; sourceTree = "<group>"; };
+		DD3D26CC1748FBE600A49116 /* SSBranchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBranchesViewController.h; sourceTree = "<group>"; };
+		DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBranchesViewController.m; sourceTree = "<group>"; };
 		DD3DB5F3174687AE00F7D014 /* SSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCell.h; sourceTree = "<group>"; };
 		DD3DB5F4174687AE00F7D014 /* SSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCell.m; sourceTree = "<group>"; };
 		DD3DB5F7174688B500F7D014 /* salesucre.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = salesucre.xcdatamodel; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				DD3DB5FF17468C4F00F7D014 /* SSMenuViewController.m */,
 				DDCEF6DC1746FAC800EFD1AF /* SSProductListViewController.h */,
 				DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */,
+				DD3D26CC1748FBE600A49116 /* SSBranchesViewController.h */,
+				DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */,
 				DD3FD96F174663FA003DE202 /* Model */,
 				DD3FD93217464BB4003DE202 /* Networking */,
 				DD3FD95717465825003DE202 /* Helpers */,
@@ -370,6 +375,7 @@
 				DD3D26C51748F6CB00A49116 /* SSAddress.m in Sources */,
 				DD3D26C81748F6CB00A49116 /* SSCity.m in Sources */,
 				DD3D26CB1748F6CB00A49116 /* SSDistrict.m in Sources */,
+				DD3D26CE1748FBE700A49116 /* SSBranchesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

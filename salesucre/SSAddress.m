@@ -12,6 +12,9 @@
 
 @implementation SSAddress
 
+@dynamic addressId;
+@dynamic street;
+@dynamic street2;
 @dynamic city;
 @dynamic district;
 @dynamic branch;
