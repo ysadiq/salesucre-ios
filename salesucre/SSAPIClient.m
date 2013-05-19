@@ -327,7 +327,7 @@
     else if ([entity.name isEqualToString:@"SSAddress"])
     {
         DDLogInfo(@"entity.name: %@", entity.name);
-        DDLogInfo(@"%@", representation);
+        
         if ([representation objectForKey:@"street"])
         {
             [mutablePropertyValues setValue:[representation valueForKey:@"street"] forKey:@"street"];
@@ -340,6 +340,8 @@
         {
             [mutablePropertyValues setValue:[representation valueForKey:@"street2"] forKey:@"street2"];
         }
+        [mutablePropertyValues setValue:@"123" forKey:@"id"];
+        
         DDLogInfo(@"after parse: %@", mutablePropertyValues);
     }
     else if ([entity.name isEqualToString:@"SSDistrict"])

@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) NSNumber * weight;
-@property (nonatomic, retain) SSCity *city;
-@property (nonatomic, retain) SSAddress *address;
+@property (nonatomic, retain) NSManagedObject * city;
+@property (nonatomic, retain) NSManagedObject * address;
 
 @end

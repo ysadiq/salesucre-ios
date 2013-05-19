@@ -368,6 +368,7 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
                 //NSLog(@"#ent: %@", representationOrArrayOfRepresentations);
                 [self insertOrUpdateObjectsFromRepresentations:representationOrArrayOfRepresentations ofEntity:fetchRequest.entity fromResponse:operation.response withContext:childContext error:error completionBlock:^(NSArray *managedObjects, NSArray *backingObjects) {
                 
+                    
                     NSSet *childObjects = [childContext registeredObjects];
                     
                     if (![[self backingManagedObjectContext] save:error] || ![childContext save:error]) {
