@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class SSAddress;
+@class SSDistrict;
 
 @interface SSCity : NSManagedObject
 
@@ -18,7 +19,7 @@
 @property (nonatomic, retain) NSNumber * weight;
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) NSDate * createdAt;
-@property (nonatomic, retain) NSManagedObject *district;
+@property (nonatomic, retain) SSDistrict *district;
 @property (nonatomic, retain) SSAddress *address;
 
 - (void)dumpCurrentCity;

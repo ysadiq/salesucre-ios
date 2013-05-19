@@ -8,7 +8,7 @@
 
 #import "SSCity.h"
 #import "SSAddress.h"
-
+#import "SSDistrict.h"
 
 @implementation SSCity
 
