@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 976D2775B86E407CA4B459DD /* libPods.a */; };
+		DD3D26BF1748F2D800A49116 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26BE1748F2D800A49116 /* Images.m */; };
+		DD3D26C21748F6CA00A49116 /* Branch.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C11748F6CA00A49116 /* Branch.m */; };
+		DD3D26C51748F6CB00A49116 /* SSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C41748F6CB00A49116 /* SSAddress.m */; };
+		DD3D26C81748F6CB00A49116 /* SSCity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C71748F6CB00A49116 /* SSCity.m */; };
+		DD3D26CB1748F6CB00A49116 /* SSDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26CA1748F6CB00A49116 /* SSDistrict.m */; };
 		DD3DB5F5174687AE00F7D014 /* SSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F4174687AE00F7D014 /* SSCell.m */; };
 		DD3DB5F8174688B500F7D014 /* salesucre.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F6174688B500F7D014 /* salesucre.xcdatamodeld */; };
 		DD3DB5FB1746895C00F7D014 /* SSCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5FA1746895C00F7D014 /* SSCategory.m */; };
@@ -42,6 +47,16 @@
 /* Begin PBXFileReference section */
 		77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		976D2775B86E407CA4B459DD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD3D26BD1748F2D800A49116 /* Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
+		DD3D26BE1748F2D800A49116 /* Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Images.m; sourceTree = "<group>"; };
+		DD3D26C01748F6CA00A49116 /* Branch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Branch.h; sourceTree = "<group>"; };
+		DD3D26C11748F6CA00A49116 /* Branch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Branch.m; sourceTree = "<group>"; };
+		DD3D26C31748F6CA00A49116 /* SSAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAddress.h; sourceTree = "<group>"; };
+		DD3D26C41748F6CB00A49116 /* SSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAddress.m; sourceTree = "<group>"; };
+		DD3D26C61748F6CB00A49116 /* SSCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCity.h; sourceTree = "<group>"; };
+		DD3D26C71748F6CB00A49116 /* SSCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCity.m; sourceTree = "<group>"; };
+		DD3D26C91748F6CB00A49116 /* SSDistrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDistrict.h; sourceTree = "<group>"; };
+		DD3D26CA1748F6CB00A49116 /* SSDistrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDistrict.m; sourceTree = "<group>"; };
 		DD3DB5F3174687AE00F7D014 /* SSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCell.h; sourceTree = "<group>"; };
 		DD3DB5F4174687AE00F7D014 /* SSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCell.m; sourceTree = "<group>"; };
 		DD3DB5F7174688B500F7D014 /* salesucre.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = salesucre.xcdatamodel; sourceTree = "<group>"; };
@@ -217,6 +232,16 @@
 				DD3DB5FA1746895C00F7D014 /* SSCategory.m */,
 				DDCEF6DF1747008C00EFD1AF /* SSMenuItem.h */,
 				DDCEF6E01747008C00EFD1AF /* SSMenuItem.m */,
+				DD3D26BD1748F2D800A49116 /* Images.h */,
+				DD3D26BE1748F2D800A49116 /* Images.m */,
+				DD3D26C91748F6CB00A49116 /* SSDistrict.h */,
+				DD3D26CA1748F6CB00A49116 /* SSDistrict.m */,
+				DD3D26C61748F6CB00A49116 /* SSCity.h */,
+				DD3D26C71748F6CB00A49116 /* SSCity.m */,
+				DD3D26C31748F6CA00A49116 /* SSAddress.h */,
+				DD3D26C41748F6CB00A49116 /* SSAddress.m */,
+				DD3D26C01748F6CA00A49116 /* Branch.h */,
+				DD3D26C11748F6CA00A49116 /* Branch.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -340,6 +365,11 @@
 				DD3DB60417468E7C00F7D014 /* SSSplashViewController.m in Sources */,
 				DDCEF6DE1746FAC800EFD1AF /* SSProductListViewController.m in Sources */,
 				DDCEF6E11747008C00EFD1AF /* SSMenuItem.m in Sources */,
+				DD3D26BF1748F2D800A49116 /* Images.m in Sources */,
+				DD3D26C21748F6CA00A49116 /* Branch.m in Sources */,
+				DD3D26C51748F6CB00A49116 /* SSAddress.m in Sources */,
+				DD3D26C81748F6CB00A49116 /* SSCity.m in Sources */,
+				DD3D26CB1748F6CB00A49116 /* SSDistrict.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

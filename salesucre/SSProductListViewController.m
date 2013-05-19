@@ -68,8 +68,10 @@ NSFetchedResultsController *_fetchedResultsController;
     _fetchedResultsController.delegate = self;
     [self refetchData];
     
-    
-    [self.tableView registerClass:[SSCell class] forCellReuseIdentifier:@"SSCell"];
+    if (kiOS6)
+    {
+        [self.tableView registerClass:[SSCell class] forCellReuseIdentifier:@"SSCell"];
+    }
 }
 
 - (void)didReceiveMemoryWarning

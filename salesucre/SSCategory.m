@@ -18,5 +18,6 @@
 @dynamic lastModified;
 @dynamic weight;
 @dynamic menuItems;
+@dynamic images;
 
 @end

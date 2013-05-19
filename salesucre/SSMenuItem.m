@@ -19,5 +19,6 @@
 @dynamic createdAt;
 @dynamic lastModified;
 @dynamic categories;
+@dynamic images;
 
 @end

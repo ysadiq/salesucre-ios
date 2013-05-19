@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class SSMenuItem;
+@class Images;
 
 @interface SSCategory : NSManagedObject
 
@@ -19,6 +20,7 @@
 @property NSDate * lastModified;
 @property NSNumber * weight;
 @property NSSet *menuItems;
+@property NSSet *images;
 
 //- (void)addItemsObject:(SSMenuItem *)object;
 //- (void)addItems:(NSSet *)objects;

@@ -117,6 +117,20 @@
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"menuItems" parameters:params];
     }
+    else if ([fetchRequest.entityName isEqualToString:@"Branch"])
+    {
+        //http://api.olitintl.com/APIPlatform/index.php/Version2/stores?oauth_token=70da2179f8b4d48b2d652b3b4de2f7e4
+        NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                //                                       kToken, @"oauth_token",
+                                _language, @"language",
+                                @"gt", @"op",
+                                [_timestamps valueForKey:@"categories"] , @"lastModified",
+                                @"lastModified", @"opKey",
+                                @"all", @"limit",
+                                nil];
+        
+        mutableURLRequest = [self requestWithMethod:@"GET" path:@"stores" parameters:params];
+    }
     else
     {
         DDLogError(@"no entity name found");
@@ -206,18 +220,6 @@
         
         [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
         
-        
-//        if ([representation objectForKey:@"images"] && [[representation objectForKey:@"images"] count] > 0 )
-//        {
-//            NSDictionary *images = [[representation objectForKey:@"images"] objectAtIndex:0];
-//            if ([images objectForKeyList:@"path", nil])
-//            {
-//                [mutablePropertyValues setValue:[images objectForKeyList:@"path", nil]
-//                                         forKey:@"imageURL"];
-//            }
-//        }
-        
-        
     }
     else if ([entity.name isEqualToString:@"SSMenuItem"])
     {
@@ -259,6 +261,66 @@
             [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
         }
         
+        
+    }
+    else if ([entity.name isEqualToString:@"Images"])
+    {
+        DDLogInfo(@"entity.name = %@", entity.name);
+        id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
+        
+        NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+        [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"path"] forKey:@"path"];
+    }
+    else if ([entity.name isEqualToString:@"Branch"])
+    {
+        DDLogInfo(@"entity.name = %@", entity.name);
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"branchId"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
+        
+        id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
+        id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
+        
+        if ( createdAtValue && ![createdAtValue isEqual:[NSNull null]] && [createdAtValue isKindOfClass:[NSString class]] )
+        {
+            //            [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+            //                                         transformedValue:createdAtValue ] forKey:@"createdAt"];
+            NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
+        }
+        if ( lastModifiedValue && ![lastModifiedValue isEqual:[NSNull null]] && [lastModifiedValue isKindOfClass:[NSString class]] )
+        {
+            NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
+        }
+        
+        [mutablePropertyValues setValue:[representation objectForKey:@"phones"] forKey:@"phones"];
+        
+    }
+    else if ([entity.name isEqualToString:@"SSCity"])
+    {
+        DDLogInfo(@"entity.name: %@", entity.name);
+        [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"cityId"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
+        
+        id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
+        id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
+        
+        if ( createdAtValue && ![createdAtValue isEqual:[NSNull null]] && [createdAtValue isKindOfClass:[NSString class]] )
+        {
+            //            [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+            //                                         transformedValue:createdAtValue ] forKey:@"createdAt"];
+            NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
+        }
+        if ( lastModifiedValue && ![lastModifiedValue isEqual:[NSNull null]] && [lastModifiedValue isKindOfClass:[NSString class]] )
+        {
+            NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
+        }
         
     }
     else {

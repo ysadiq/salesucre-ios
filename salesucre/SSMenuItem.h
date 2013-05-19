@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) NSSet *categories;
+@property (nonatomic, retain) NSSet *images;
 
 //- (void)addCategoryObject:(SSCategory *)object;
 

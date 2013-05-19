@@ -37,6 +37,9 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
+#define kiOS5 @"5.0"
+#define kiOS6 @"6.0"
+
 #define kDefaultLimit 50
 #define kDefaultOffset 0
 #define KAroundMeDefaultRadius 10
