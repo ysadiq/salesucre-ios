@@ -37,7 +37,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ActionSheetPicker2: 1a097a29ab437ea47356f3477e7a47e175a90445
   AFIncrementalStore: bbb4f113ef0442aef8901c5b3df9ae646a598970
-  AFNetworking: d1ba5908b233189e424e101721acef7905b58efb
+  AFNetworking: a44069e3c9c89867544f6639482f155c7e5f9b41
   BlockAlertsAnd-ActionSheets: c0dc45ed0c2f53d38baa0f2793234e6def89a3be
   CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
   Facebook-iOS-SDK: 0dbd897e842cefeb012ec2eb8eba659ba6b96b12
