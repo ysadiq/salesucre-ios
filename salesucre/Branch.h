@@ -18,6 +18,6 @@
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) id location;
 @property (nonatomic, retain) NSArray * phones;
-@property (nonatomic, retain) NSManagedObject *address;
+
 
 @end

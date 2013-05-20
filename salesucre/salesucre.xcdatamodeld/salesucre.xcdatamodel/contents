@@ -6,20 +6,12 @@
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="phones" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <relationship name="address" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSAddress" inverseName="branch" inverseEntity="SSAddress" syncable="YES"/>
     </entity>
     <entity name="Images" representedClassName="Images" syncable="YES">
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="images" inverseEntity="SSCategory" syncable="YES"/>
         <relationship name="menuItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSMenuItem" inverseName="images" inverseEntity="SSMenuItem" syncable="YES"/>
-    </entity>
-    <entity name="SSAddress" representedClassName="SSAddress" syncable="YES">
-        <attribute name="street" transient="YES" attributeType="String" syncable="YES"/>
-        <attribute name="street2" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="branch" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Branch" inverseName="address" inverseEntity="Branch" syncable="YES"/>
-        <relationship name="city" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSCity" inverseName="address" inverseEntity="SSCity" syncable="YES"/>
-        <relationship name="district" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSDistrict" inverseName="address" inverseEntity="SSDistrict" syncable="YES"/>
     </entity>
     <entity name="SSCategory" representedClassName="SSCategory" versionHashModifier="1.0" syncable="YES">
         <attribute name="categoryId" attributeType="String" indexed="YES" syncable="YES"/>
@@ -29,24 +21,6 @@
         <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="category" inverseEntity="Images" syncable="YES"/>
         <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSMenuItem" inverseName="categories" inverseEntity="SSMenuItem" syncable="YES"/>
-    </entity>
-    <entity name="SSCity" representedClassName="SSCity" syncable="YES">
-        <attribute name="cityId" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="address" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSAddress" inverseName="city" inverseEntity="SSAddress" syncable="YES"/>
-        <relationship name="district" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSDistrict" inverseName="city" inverseEntity="SSDistrict" syncable="YES"/>
-    </entity>
-    <entity name="SSDistrict" representedClassName="SSDistrict" syncable="YES">
-        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="districtId" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="address" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSAddress" inverseName="district" inverseEntity="SSAddress" syncable="YES"/>
-        <relationship name="city" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSCity" inverseName="district" inverseEntity="SSCity" syncable="YES"/>
     </entity>
     <entity name="SSMenuItem" representedClassName="SSMenuItem" versionHashModifier="1.0" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -59,12 +33,9 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="menuItem" inverseEntity="Images" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Branch" positionX="-4428" positionY="-468" width="128" height="133"/>
+        <element name="Branch" positionX="-4428" positionY="-468" width="128" height="118"/>
         <element name="Images" positionX="-4230" positionY="-702" width="128" height="103"/>
-        <element name="SSAddress" positionX="-4187" positionY="-423" width="128" height="118"/>
         <element name="SSCategory" positionX="-3690" positionY="-747" width="128" height="148"/>
-        <element name="SSCity" positionX="-4016" positionY="-331" width="128" height="148"/>
-        <element name="SSDistrict" positionX="-4383" positionY="-130" width="128" height="148"/>
         <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="163"/>
     </elements>
 </model>

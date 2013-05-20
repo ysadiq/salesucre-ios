@@ -10,9 +10,6 @@
 		BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 976D2775B86E407CA4B459DD /* libPods.a */; };
 		DD3D26BF1748F2D800A49116 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26BE1748F2D800A49116 /* Images.m */; };
 		DD3D26C21748F6CA00A49116 /* Branch.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C11748F6CA00A49116 /* Branch.m */; };
-		DD3D26C51748F6CB00A49116 /* SSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C41748F6CB00A49116 /* SSAddress.m */; };
-		DD3D26C81748F6CB00A49116 /* SSCity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26C71748F6CB00A49116 /* SSCity.m */; };
-		DD3D26CB1748F6CB00A49116 /* SSDistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26CA1748F6CB00A49116 /* SSDistrict.m */; };
 		DD3D26CE1748FBE700A49116 /* SSBranchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */; };
 		DD3DB5F5174687AE00F7D014 /* SSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F4174687AE00F7D014 /* SSCell.m */; };
 		DD3DB5F8174688B500F7D014 /* salesucre.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F6174688B500F7D014 /* salesucre.xcdatamodeld */; };
@@ -52,12 +49,6 @@
 		DD3D26BE1748F2D800A49116 /* Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Images.m; sourceTree = "<group>"; };
 		DD3D26C01748F6CA00A49116 /* Branch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Branch.h; sourceTree = "<group>"; };
 		DD3D26C11748F6CA00A49116 /* Branch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Branch.m; sourceTree = "<group>"; };
-		DD3D26C31748F6CA00A49116 /* SSAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAddress.h; sourceTree = "<group>"; };
-		DD3D26C41748F6CB00A49116 /* SSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAddress.m; sourceTree = "<group>"; };
-		DD3D26C61748F6CB00A49116 /* SSCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCity.h; sourceTree = "<group>"; };
-		DD3D26C71748F6CB00A49116 /* SSCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCity.m; sourceTree = "<group>"; };
-		DD3D26C91748F6CB00A49116 /* SSDistrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDistrict.h; sourceTree = "<group>"; };
-		DD3D26CA1748F6CB00A49116 /* SSDistrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDistrict.m; sourceTree = "<group>"; };
 		DD3D26CC1748FBE600A49116 /* SSBranchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBranchesViewController.h; sourceTree = "<group>"; };
 		DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBranchesViewController.m; sourceTree = "<group>"; };
 		DD3DB5F3174687AE00F7D014 /* SSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCell.h; sourceTree = "<group>"; };
@@ -239,12 +230,6 @@
 				DDCEF6E01747008C00EFD1AF /* SSMenuItem.m */,
 				DD3D26BD1748F2D800A49116 /* Images.h */,
 				DD3D26BE1748F2D800A49116 /* Images.m */,
-				DD3D26C91748F6CB00A49116 /* SSDistrict.h */,
-				DD3D26CA1748F6CB00A49116 /* SSDistrict.m */,
-				DD3D26C61748F6CB00A49116 /* SSCity.h */,
-				DD3D26C71748F6CB00A49116 /* SSCity.m */,
-				DD3D26C31748F6CA00A49116 /* SSAddress.h */,
-				DD3D26C41748F6CB00A49116 /* SSAddress.m */,
 				DD3D26C01748F6CA00A49116 /* Branch.h */,
 				DD3D26C11748F6CA00A49116 /* Branch.m */,
 			);
@@ -372,9 +357,6 @@
 				DDCEF6E11747008C00EFD1AF /* SSMenuItem.m in Sources */,
 				DD3D26BF1748F2D800A49116 /* Images.m in Sources */,
 				DD3D26C21748F6CA00A49116 /* Branch.m in Sources */,
-				DD3D26C51748F6CB00A49116 /* SSAddress.m in Sources */,
-				DD3D26C81748F6CB00A49116 /* SSCity.m in Sources */,
-				DD3D26CB1748F6CB00A49116 /* SSDistrict.m in Sources */,
 				DD3D26CE1748FBE700A49116 /* SSBranchesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
