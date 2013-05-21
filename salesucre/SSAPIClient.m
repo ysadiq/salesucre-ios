@@ -52,10 +52,6 @@
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
         // 401 is invalid token response code
         
-        _timestamps = [[NSMutableDictionary alloc] init];
-        [_timestamps setValue:@1 forKey:@"categories"];
-        [_timestamps setValue:@1 forKey:@"menuItems"];
-        
         // retina scale
         // detect weather screen is retina or non-retina
         CGFloat screenScale = [[UIScreen mainScreen] scale];
@@ -81,22 +77,49 @@
     return [NSURL URLWithString:operationURLString];
 }
 
+- (void)prepareTimestamps
+{
+    _timestamps = [[[NSUserDefaults standardUserDefaults] objectForKey:@"timestamps"] mutableCopy];
+    DDLogInfo(@"timestamp after init: %@", _timestamps);
+}
+
+- (BOOL)saveTimestampsIfChanged
+{
+    NSDictionary *temp = [[NSUserDefaults standardUserDefaults] objectForKey:@"timestamps"];
+    
+    if ([_timestamps isEqualToDictionary:temp]) {
+        DDLogInfo(@"#timestamps not changed");
+        return YES;
+    }
+    else
+    {
+        DDLogWarn(@"changing timestamps");
+        [[NSUserDefaults standardUserDefaults] setObject:[_timestamps copy] forKey:@"timestamps"];
+        BOOL retVal = [[NSUserDefaults standardUserDefaults] synchronize];
+        return retVal;
+    }
+}
+
 #pragma mark - AFIncrementalStore
 
 - (NSURLRequest *)requestForFetchRequest:(NSFetchRequest *)fetchRequest
                              withContext:(NSManagedObjectContext *)context
 {
     NSMutableURLRequest *mutableURLRequest = nil;
+    
     if ([fetchRequest.entityName isEqualToString:@"SSCategory"]) {
         
         DDLogInfo(@"constructing request");
+        
+        NSString * time = [NSString stringWithFormat:@"%i",[[_timestamps valueForKey:@"categories"] intValue] ];
+        DDLogInfo(@"timest: %@", time);
+        
         //mutableURLRequest = [self requestWithMethod:@"GET" path:@"/api/rest/products" parameters:nil];
         NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                //                                       kToken, @"oauth_token",
                                 _language, @"language",
                                 @"gt", @"op",
-                                [_timestamps valueForKey:@"categories"] , @"lastModified",
                                 @"lastModified", @"opKey",
+                                time , @"lastModified",
                                 @"all", @"limit",
                                 nil];
         
@@ -105,13 +128,13 @@
     else if ([fetchRequest.entityName isEqualToString:@"SSMenuItem"])
     {
         DDLogInfo(@"constructing request");
-        //mutableURLRequest = [self requestWithMethod:@"GET" path:@"/api/rest/products" parameters:nil];
+        NSString * time = [NSString stringWithFormat:@"%i",[[_timestamps valueForKey:@"menuItems"] intValue] ];
+        DDLogInfo(@"timest: %@", time);
+        
         NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                //                                       kToken, @"oauth_token",
-                                _language, @"language",
+                                _language , @"language",
                                 @"gt", @"op",
-                                //[_timestamps valueForKey:@"categories"] , @"lastModified",
-                                @1, @"lastModified",
+                                time , @"lastModified",
                                 @"lastModified", @"opKey",
                                 @"all", @"limit",
                                 nil];
@@ -120,12 +143,15 @@
     }
     else if ([fetchRequest.entityName isEqualToString:@"Branch"])
     {
+        
+        NSString * time = [NSString stringWithFormat:@"%i",[[_timestamps valueForKey:@"branches"] intValue] ];
+        DDLogInfo(@"timest: %@", time);
+        
         //http://api.olitintl.com/APIPlatform/index.php/Version2/stores?oauth_token=70da2179f8b4d48b2d652b3b4de2f7e4
         NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                //                                       kToken, @"oauth_token",
                                 _language, @"language",
                                 @"gt", @"op",
-                                @1 , @"lastModified",
+                                time , @"lastModified",
                                 @"lastModified", @"opKey",
                                 @"all", @"limit",
                                 nil];
@@ -231,6 +257,10 @@
             DDLogInfo(@"new timestamp is higher, assigning new one");
             [_timestamps setValue:[representation valueForKey:@"lastModified"] forKey:@"menuItems"];
         }
+        else
+        {
+            DDLogInfo(@"old timestamp is heighr: %i", [[representation valueForKey:@"lastModified"] intValue]);
+        }
         
         
         //---- end of timestamp ---- //
@@ -280,6 +310,17 @@
         
                                
         [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"branchId"];
+        
+        //---- change lastModified timestamp ---- //
+        if ([[representation valueForKey:@"lastModified"] intValue] > [[_timestamps valueForKey:@"branches"] intValue])
+        {
+            DDLogInfo(@"new timestamp is higher, assigning new one");
+            [_timestamps setValue:[representation valueForKey:@"lastModified"] forKey:@"branches"];
+        }
+        else
+        {
+            DDLogInfo(@"old timestamp is heighr: %i", [[representation valueForKey:@"lastModified"] intValue]);
+        }
         
         // ---- Street, City & District ---- //
         DDLogInfo(@"street: %@", [representation objectForKeyList:@"address",@"street",nil]);

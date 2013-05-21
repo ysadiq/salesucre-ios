@@ -133,6 +133,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    BOOL retVal = [[SSAPIClient sharedInstance] saveTimestampsIfChanged];
+    if (retVal)
+        DDLogInfo(@"new timestamp saved");
+    else
+        DDLogError(@"error saving timestamps");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -148,6 +153,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    BOOL retVal = [[SSAPIClient sharedInstance] saveTimestampsIfChanged];
+    if (retVal)
+        DDLogInfo(@"new timestamp saved");
+    else
+        DDLogError(@"error saving timestamps");
 }
 
 #pragma mark - App Init
@@ -172,8 +182,20 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     {
         
         //[self performSelector:@selector(detectLanguage)];
-        [[NSUserDefaults standardUserDefaults] setValue:@"1" forKey:@"lastModified"];
+        DDLogInfo(@"setting new timestamps");
+        NSString *currentTimestamp = [NSString stringWithFormat:@"%@",@1] ;
+        DDLogInfo(@"timestamp: %i", [currentTimestamp intValue]);
+        
+        NSMutableDictionary *stamps = [[NSMutableDictionary alloc] init];
+        [stamps setValue:currentTimestamp forKey:@"categories"];
+        [stamps setValue:currentTimestamp forKey:@"branches"];
+        [stamps setValue:currentTimestamp forKey:@"menuItems"];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[stamps mutableCopy] forKey:@"timestamps"];
+        [[NSUserDefaults standardUserDefaults] setValue:@1 forKey:@"firstRun"];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        DDLogInfo(@"successfully set timestamps");
+        
         
     }else{
         
@@ -188,6 +210,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     DDLogInfo(@"starting app with language: %@", language);
     
     [[SSAPIClient sharedInstance] setLanguage:language];
+    [[SSAPIClient sharedInstance] prepareTimestamps];
     
     // log Flurry language event
     NSDictionary *languageParams =

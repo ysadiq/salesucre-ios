@@ -27,6 +27,8 @@ typedef void(^XclusivesAFResponseBlock)(id data);
 @property (nonatomic, strong) NSMutableDictionary *timestamps;
 
 + (id)sharedInstance;
+- (void)prepareTimestamps;
+- (BOOL)saveTimestampsIfChanged;
 
 - (NSURL *)imageFullURLFromString:(NSString *)string withWidth:(int)width andHeight:(int)height;
 @end

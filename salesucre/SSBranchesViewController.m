@@ -140,7 +140,7 @@
     
     
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 32.0f)];
-    [header setBackgroundColor:[UIColor brownColor]];
+    [header setBackgroundColor:[UIColor orangeColor]];
     
     [header addSubview:title];
     
