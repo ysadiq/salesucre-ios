@@ -125,6 +125,7 @@
     Branch *branch = (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath];
     DDLogInfo(@"current name: %@", [branch branchId]);
     [self setBranchToPass: (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath] ];
+    [self performSegueWithIdentifier:@"011" sender:self];
 }
 
 #pragma mark - Tableview headers
@@ -156,7 +157,8 @@
 {
     if ([[segue identifier] isEqualToString:@"011"])
     {
-#warning put some code here
+        SSBranchDetailsViewController *vc = [segue destinationViewController];
+        [vc setCurrentBranch:_branchToPass];
     }
 }
 

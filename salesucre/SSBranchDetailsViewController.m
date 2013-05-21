@@ -7,6 +7,7 @@
 //
 
 #import "SSBranchDetailsViewController.h"
+#import "Branch.h"
 
 @interface SSBranchDetailsViewController ()
 
@@ -14,6 +15,7 @@
 
 @implementation SSBranchDetailsViewController
 
+@synthesize currentBranch = _currentBranch;
 @synthesize map = _map;
 @synthesize textView = _textView;
 @synthesize callButton = _callButton;
@@ -31,6 +33,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    DDLogInfo(@"current branch: %@", _currentBranch.distirctName);
 }
 
 - (void)didReceiveMemoryWarning
