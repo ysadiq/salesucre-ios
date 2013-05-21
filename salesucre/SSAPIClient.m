@@ -246,10 +246,12 @@
         }
         
         // ---- deletedAt ---- //
+        id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
         if ([representation valueForKey:@"deletedAt"])
         {
             DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
-            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+            NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
         [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
@@ -270,10 +272,12 @@
         }
         
         // ---- deletedAt ---- //
+        id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
         if ([representation valueForKey:@"deletedAt"])
         {
-            DDLogWarn(@"#deletedAt detected , menuItem: %@", [representation valueForKey:@"name"]);
-            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+            DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
+            NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
         //---- end of timestamp ---- //
@@ -336,10 +340,12 @@
         }
         
         // ---- deletedAt ---- //
+        id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
         if ([representation valueForKey:@"deletedAt"])
         {
-            DDLogWarn(@"#deletedAt detected , branch@ : %@", [representation valueForKey:@"street"]);
-            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+            DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
+            NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
         // ---- Street, City & District ---- //
