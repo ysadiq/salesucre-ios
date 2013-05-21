@@ -80,12 +80,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     //[PFUser enableAutomaticUser];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
-    [[PFInstallation currentInstallation] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error)
-            DDLogInfo(@"PFInstallation Saved");
-        else
-            DDLogError(@"PFINstallation could not be saved: %@", [error description]);
-    }];
+//    [[PFInstallation currentInstallation] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error)
+//            DDLogInfo(@"PFInstallation Saved");
+//        else
+//            DDLogError(@"PFINstallation could not be saved: %@", [error description]);
+//    }];
     
     if ([PFUser currentUser] && [[PFUser currentUser] isAuthenticated])
     {

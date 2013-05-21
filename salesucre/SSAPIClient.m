@@ -320,6 +320,19 @@
         }
         
         [mutablePropertyValues setValue:[representation objectForKey:@"phones"] forKey:@"phones"];
+        
+        // ---- location ---- //
+        if ([representation objectForKeyList:@"location",nil] \
+            && [representation objectForKeyList:@"location",@"loc",nil])
+        {
+            DDLogWarn(@"location found, assign");
+            [mutablePropertyValues setValue:[representation objectForKeyList:@"location",@"loc",@"lat",nil] forKey:@"latitude"];
+            [mutablePropertyValues setValue:[representation objectForKeyList:@"location",@"loc",@"lon",nil] forKey:@"longitude"];
+        }
+        else
+        {
+            DDLogError(@"location not found, %@", [representation objectForKeyList:@"address",nil]);
+        }
     }
     else {
         

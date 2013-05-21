@@ -45,7 +45,11 @@
     
     //---- AFIncrementalStore ---- //
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Branch"];
-    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"districtWeight" ascending:NO]];
+    
+    NSSortDescriptor *sCity = [[NSSortDescriptor alloc] initWithKey:@"cityWeight" ascending:NO];
+    NSSortDescriptor *sDistrict = [[NSSortDescriptor alloc] initWithKey:@"districtWeight" ascending:NO];
+    
+    fetchRequest.sortDescriptors = [NSArray arrayWithObjects:sCity,sDistrict,nil];
     fetchRequest.fetchLimit = 100;
     
     //---- NSPredicate ---- //
@@ -54,7 +58,7 @@
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
-                                 sectionNameKeyPath:nil cacheName:@"Branch"];
+                                 sectionNameKeyPath:@"cityName" cacheName:@"Branch"];
     
     _fetchedResultsController.delegate = self;
     [self refetchData];
@@ -120,6 +124,24 @@
     DDLogInfo(@"current name: %@", [branch branchId]);
 }
 
+#pragma mark - Tableview headers
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 32.0f)];
+    [title setFont:[UIFont boldSystemFontOfSize:18] ];
+    [title setTextAlignment:NSTextAlignmentCenter];
+    [title setTextColor:[UIColor whiteColor]];
+    [title setBackgroundColor:[UIColor clearColor]];
+    [title setText:[[[_fetchedResultsController sections] objectAtIndex:section] name] ];
+    
+    
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 32.0f)];
+    [header setBackgroundColor:[UIColor brownColor]];
+    
+    [header addSubview:title];
+    
+    return header;
+}
 
 #pragma mark - NSFetchedResultsControllerDelegate
 

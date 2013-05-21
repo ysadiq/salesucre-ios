@@ -14,7 +14,6 @@
 @dynamic branchId;
 @dynamic createdAt;
 @dynamic lastModified;
-@dynamic location;
 @dynamic phones;
 @dynamic cityId;
 @dynamic cityName;
@@ -24,6 +23,7 @@
 @dynamic districtWeight;
 @dynamic street;
 @dynamic street2;
-
+@dynamic latitude;
+@dynamic longitude;
 
 @end

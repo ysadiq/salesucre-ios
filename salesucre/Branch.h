@@ -16,7 +16,6 @@
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * lastModified;
 
-@property (nonatomic, retain) id location;
 @property (nonatomic, retain) id phones;
 
 @property (nonatomic, retain) NSString * cityId;
@@ -29,5 +28,9 @@
 
 @property (nonatomic, retain) NSString * street;
 @property (nonatomic, retain) NSString * street2;
+
+@property (nonatomic, assign) double latitude;
+@property (nonatomic, assign) double longitude;
+
 
 @end
