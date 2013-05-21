@@ -394,6 +394,14 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>LICENSE</string>
+			<key>Title</key>
+			<string>KIImagePager</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright 2012, Matt Greenfield  
 All rights reserved.
 
