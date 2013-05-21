@@ -365,7 +365,7 @@ withAttributeAndRelationshipValuesFromManagedObject:(NSManagedObject *)managedOb
             childContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
                         
             [childContext performBlockAndWait:^{
-                NSLog(@"#ent: %@", [context registeredObjects]);
+               // NSLog(@"#ent: %@", [context registeredObjects]);
                 
                 [self insertOrUpdateObjectsFromRepresentations:representationOrArrayOfRepresentations ofEntity:fetchRequest.entity fromResponse:operation.response withContext:childContext error:error completionBlock:^(NSArray *managedObjects, NSArray *backingObjects) {
                 
