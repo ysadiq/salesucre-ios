@@ -18,7 +18,12 @@
 @dynamic phones;
 @dynamic cityId;
 @dynamic cityName;
+@dynamic cityWeight;
 @dynamic districtId;
 @dynamic distirctName;
+@dynamic districtWeight;
+@dynamic street;
+@dynamic street2;
+
 
 @end

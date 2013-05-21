@@ -280,12 +280,28 @@
         
                                
         [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"branchId"];
-        // ---- City & District ---- //
-        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"city",@"_id"] forKey:@"cityId"];
-        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"city",@"name"] forKey:@"cityName"];
         
-        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"district",@"_id"] forKey:@"districtId"];
-        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"district",@"name"] forKey:@"distirctName"];
+        // ---- Street, City & District ---- //
+        DDLogInfo(@"street: %@", [representation objectForKeyList:@"address",@"street",nil]);
+        
+        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"street",nil] forKey:@"street"];
+        if ([representation objectForKeyList:@"address",@"street2",nil])
+        {
+            [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"street2",nil] forKey:@"street2"];
+        }
+        else
+        {
+            [mutablePropertyValues setValue:nil forKey:@"street2"];
+        }
+        
+        
+        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"city",@"_id",nil] forKey:@"cityId"];
+        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"city",@"name",nil] forKey:@"cityName"];
+        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"city",@"weight",nil] forKey:@"cityWeight"];
+        
+        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"district",@"_id",nil] forKey:@"districtId"];
+        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"district",@"name",nil] forKey:@"distirctName"];
+        [mutablePropertyValues setValue:[representation objectForKeyList:@"address",@"district",@"weight",nil] forKey:@"districtWeight"];
         
         id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
         id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
@@ -304,7 +320,6 @@
         }
         
         [mutablePropertyValues setValue:[representation objectForKey:@"phones"] forKey:@"phones"];
-        DDLogInfo(@"#after: %@", mutablePropertyValues);
     }
     else {
         

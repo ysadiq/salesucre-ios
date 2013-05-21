@@ -4,12 +4,16 @@
         <attribute name="branchId" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="cityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityWeight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="distirctName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="districtId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="districtWeight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="phones" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street2" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Images" representedClassName="Images" syncable="YES">
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
@@ -37,7 +41,7 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="menuItem" inverseEntity="Images" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Branch" positionX="-4419" positionY="-547" width="128" height="178"/>
+        <element name="Branch" positionX="-4419" positionY="-547" width="128" height="238"/>
         <element name="Images" positionX="-4230" positionY="-702" width="128" height="103"/>
         <element name="SSCategory" positionX="-3690" positionY="-747" width="128" height="148"/>
         <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="163"/>

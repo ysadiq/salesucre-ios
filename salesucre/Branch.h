@@ -15,11 +15,19 @@
 @property (nonatomic, retain) NSString * branchId;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * lastModified;
+
 @property (nonatomic, retain) id location;
 @property (nonatomic, retain) id phones;
+
 @property (nonatomic, retain) NSString * cityId;
 @property (nonatomic, retain) NSString * cityName;
+@property (nonatomic, assign) int cityWeight;
+
 @property (nonatomic, retain) NSString * districtId;
 @property (nonatomic, retain) NSString * distirctName;
+@property (nonatomic, assign) int districtWeight;
+
+@property (nonatomic, retain) NSString * street;
+@property (nonatomic, retain) NSString * street2;
 
 @end

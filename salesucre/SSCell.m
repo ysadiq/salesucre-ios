@@ -54,7 +54,7 @@
 
 - (void)setBranchDetails:(Branch *)branch
 {
-    [self.textLabel setText:[branch branchId] ];
+    [self.textLabel setText:branch.distirctName ];
 
 }
 
