@@ -214,6 +214,9 @@
 		DD3FD956174656C9003DE202 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				DDF7B8E3174C1C7000A93E51 /* navigationbar */,
+				DDF7B8E2174C1C6700A93E51 /* tabbar */,
+				DDF7B8E1174C1C5900A93E51 /* general */,
 			);
 			name = Artwork;
 			sourceTree = "<group>";
@@ -243,6 +246,27 @@
 				DD3D26BE1748F2D800A49116 /* Images.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		DDF7B8E1174C1C5900A93E51 /* general */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = general;
+			sourceTree = "<group>";
+		};
+		DDF7B8E2174C1C6700A93E51 /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = tabbar;
+			sourceTree = "<group>";
+		};
+		DDF7B8E3174C1C7000A93E51 /* navigationbar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = navigationbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
