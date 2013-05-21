@@ -17,6 +17,7 @@
 @dynamic itemDescription;
 @dynamic price;
 @dynamic createdAt;
+@dynamic deletedAt;
 @dynamic lastModified;
 @dynamic categories;
 @dynamic images;

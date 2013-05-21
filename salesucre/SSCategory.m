@@ -16,6 +16,7 @@
 @dynamic name;
 @dynamic createdAt;
 @dynamic lastModified;
+@dynamic deletedAt;
 @dynamic weight;
 @dynamic menuItems;
 @dynamic images;

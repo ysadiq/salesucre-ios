@@ -59,8 +59,8 @@
     fetchRequest.fetchLimit = 100;
     
     //---- NSPredicate ---- //
-    //    NSPredicate *p = [NSPredicate predicateWithFormat:@"categoryName LIKE 'Fashion'"];
-    //    [fetchRequest setPredicate:p];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"deletedAt = nil"];
+    [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]

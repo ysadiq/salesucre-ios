@@ -18,6 +18,7 @@
 @property NSString * name;
 @property NSDate * createdAt;
 @property NSDate * lastModified;
+@property NSDate * deletedAt;
 @property NSNumber * weight;
 @property NSSet *menuItems;
 @property NSSet *images;

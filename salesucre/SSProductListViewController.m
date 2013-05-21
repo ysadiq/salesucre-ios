@@ -58,7 +58,7 @@ NSFetchedResultsController *_fetchedResultsController;
     
     //---- NSPredicate ---- //
     DDLogInfo(@"currentCategory: %@", [_currentcategory categoryId]);
-    NSPredicate *p = [NSPredicate predicateWithFormat:@"ANY categories.categoryId == %@", [_currentcategory categoryId] ];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"ANY categories.categoryId == %@ AND deletedAt = nil", [_currentcategory categoryId] ];
     [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]

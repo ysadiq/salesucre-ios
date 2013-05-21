@@ -13,6 +13,7 @@
 
 @dynamic branchId;
 @dynamic createdAt;
+@dynamic deletedAt;
 @dynamic lastModified;
 @dynamic phones;
 @dynamic cityId;

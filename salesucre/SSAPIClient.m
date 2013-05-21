@@ -245,6 +245,13 @@
             [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
         }
         
+        // ---- deletedAt ---- //
+        if ([representation valueForKey:@"deletedAt"])
+        {
+            DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
+            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+        }
+        
         [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
         
     }
@@ -262,6 +269,12 @@
             DDLogInfo(@"old timestamp is heighr: %i", [[representation valueForKey:@"lastModified"] intValue]);
         }
         
+        // ---- deletedAt ---- //
+        if ([representation valueForKey:@"deletedAt"])
+        {
+            DDLogWarn(@"#deletedAt detected , menuItem: %@", [representation valueForKey:@"name"]);
+            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+        }
         
         //---- end of timestamp ---- //
         
@@ -320,6 +333,13 @@
         else
         {
             DDLogInfo(@"old timestamp is heighr: %i", [[representation valueForKey:@"lastModified"] intValue]);
+        }
+        
+        // ---- deletedAt ---- //
+        if ([representation valueForKey:@"deletedAt"])
+        {
+            DDLogWarn(@"#deletedAt detected , branch@ : %@", [representation valueForKey:@"street"]);
+            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
         }
         
         // ---- Street, City & District ---- //

@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * itemDescription;
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) NSDate * deletedAt;
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) NSSet *categories;
 @property (nonatomic, retain) NSSet *images;

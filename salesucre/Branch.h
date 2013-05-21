@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSString * branchId;
 @property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) NSDate * deletedAt;
 @property (nonatomic, retain) NSDate * lastModified;
 
 @property (nonatomic, retain) id phones;
