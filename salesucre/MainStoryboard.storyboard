@@ -195,14 +195,53 @@
                     <connections>
                         <outlet property="tableView" destination="DJY-Pv-sI4" id="Usl-Mk-umc"/>
                         <outlet property="view" destination="mT2-Ll-51P" id="Ba5-Hk-eNA"/>
+                        <segue destination="Gws-DC-FhV" kind="push" identifier="002" id="led-Lb-nNc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNX-WT-gJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="-115"/>
+            <point key="canvasLocation" x="1198" y="-115"/>
+        </scene>
+        <!--Product Details View Controller-->
+        <scene sceneID="rlS-1Q-gC7">
+            <objects>
+                <viewController id="Gws-DC-FhV" customClass="SSProductDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sa3-Vc-Nf2">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Qvc-dS-Lsw" customClass="KIImagePager">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.79005039267724597" blue="0.61610615704722771" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gws-DC-FhV" id="Pxe-cz-BZU"/>
+                                    <outlet property="delegate" destination="Gws-DC-FhV" id="ccd-r8-1wg"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BLv-ph-uHe"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imagePager" destination="Qvc-dS-Lsw" id="6Gp-sH-RSw"/>
+                        <outlet property="view" destination="Sa3-Vc-Nf2" id="cbj-86-MWf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCS-jH-QEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="-115"/>
         </scene>
     </scenes>
     <classes>
+        <class className="KIImagePager" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KIImagePager.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
         <class className="SSBranchDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBranchDetailsViewController.h"/>
             <relationships>
@@ -221,6 +260,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMenuViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SSProductDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSProductDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imagePager" candidateClass="KIImagePager"/>
             </relationships>
         </class>
         <class className="SSProductListViewController" superclassName="UIViewController">

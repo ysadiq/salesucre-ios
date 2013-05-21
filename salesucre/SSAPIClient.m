@@ -77,6 +77,15 @@
     return [NSURL URLWithString:operationURLString];
 }
 
+- (NSString *)imagePagerCompatibleString:(NSString *)image withWidth:(int)width andHeight:(int)height
+{
+    NSString *operationURLString = [NSString
+                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center",kAPIHostName, kAPIImagePostfix ,image, width * _retinaScale , height * _retinaScale ];
+    operationURLString = [operationURLString stringByReplacingOccurrencesOfString:@"/vol/" withString:@"/var/"];
+    
+    return operationURLString;
+}
+
 - (void)prepareTimestamps
 {
     _timestamps = [[[NSUserDefaults standardUserDefaults] objectForKey:@"timestamps"] mutableCopy];

@@ -42,6 +42,7 @@
 		DDB8189A174B9552008E0D38 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB81899174B9552008E0D38 /* MapKit.framework */; };
 		DDCEF6DE1746FAC800EFD1AF /* SSProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */; };
 		DDCEF6E11747008C00EFD1AF /* SSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCEF6E01747008C00EFD1AF /* SSMenuItem.m */; };
+		DDF7B8E6174C30F900A93E51 /* SSProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProductListViewController.m; sourceTree = "<group>"; };
 		DDCEF6DF1747008C00EFD1AF /* SSMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMenuItem.h; sourceTree = "<group>"; };
 		DDCEF6E01747008C00EFD1AF /* SSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMenuItem.m; sourceTree = "<group>"; };
+		DDF7B8E4174C30F900A93E51 /* SSProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProductDetailsViewController.h; sourceTree = "<group>"; };
+		DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProductDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				DD3DB5FF17468C4F00F7D014 /* SSMenuViewController.m */,
 				DDCEF6DC1746FAC800EFD1AF /* SSProductListViewController.h */,
 				DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */,
+				DDF7B8E4174C30F900A93E51 /* SSProductDetailsViewController.h */,
+				DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */,
 				DD3D26CC1748FBE600A49116 /* SSBranchesViewController.h */,
 				DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */,
 				DDB81896174B91B8008E0D38 /* SSBranchDetailsViewController.h */,
@@ -392,6 +397,7 @@
 				DD3D26CE1748FBE700A49116 /* SSBranchesViewController.m in Sources */,
 				DD8989FA174B7B82005F3257 /* Branch.m in Sources */,
 				DDB81898174B91B8008E0D38 /* SSBranchDetailsViewController.m in Sources */,
+				DDF7B8E6174C30F900A93E51 /* SSProductDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

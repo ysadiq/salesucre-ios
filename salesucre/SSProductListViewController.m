@@ -8,7 +8,7 @@
 
 #import "SSProductListViewController.h"
 #import "SSCell.h"
-
+#import "SSProductDetailsViewController.h"
 
 @interface SSProductListViewController () <NSFetchedResultsControllerDelegate> {
 
@@ -22,6 +22,7 @@ NSFetchedResultsController *_fetchedResultsController;
 
 @synthesize tableView = _tableView;
 @synthesize currentcategory = _currentcategory;
+@synthesize productToPass = _productToPass;
 
 - (void)refetchData
 {
@@ -127,8 +128,21 @@ NSFetchedResultsController *_fetchedResultsController;
 {
     SSMenuItem *item = (SSMenuItem *)[_fetchedResultsController objectAtIndexPath:indexPath];
     DDLogInfo(@"current price: %i", [[item price] intValue]);
+    _productToPass = (SSMenuItem *)[_fetchedResultsController objectAtIndexPath:indexPath];
+    
+    [self setHidesBottomBarWhenPushed:YES];
+    [self performSegueWithIdentifier:@"002" sender:self];
 }
 
+#pragma mark - Segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"002"])
+    {
+        SSProductDetailsViewController *vc = [segue destinationViewController];
+        [vc setSelectedItem:_productToPass];
+    }
+}
 
 #pragma mark - NSFetchedResultsControllerDelegate
 
