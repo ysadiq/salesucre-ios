@@ -8,6 +8,7 @@
 
 #import "SSBranchesViewController.h"
 #import "SSCell.h"
+#import "SSBranchDetailsViewController.h"
 
 @interface SSBranchesViewController () <NSFetchedResultsControllerDelegate> {
     
@@ -21,6 +22,7 @@
 @implementation SSBranchesViewController
 
 @synthesize tableView;
+@synthesize branchToPass = _branchToPass;
 
 - (void)refetchData
 {
@@ -122,6 +124,7 @@
 {
     Branch *branch = (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath];
     DDLogInfo(@"current name: %@", [branch branchId]);
+    [self setBranchToPass: (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath] ];
 }
 
 #pragma mark - Tableview headers
@@ -141,6 +144,20 @@
     [header addSubview:title];
     
     return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 32.0;
+}
+
+#pragma mark - Segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"011"])
+    {
+#warning put some code here
+    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate

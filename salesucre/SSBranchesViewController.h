@@ -12,5 +12,6 @@
 @interface SSBranchesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property id branchToPass;
 
 @end
