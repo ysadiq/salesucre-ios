@@ -16,5 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet KIImagePager *imagePager;
 @property (nonatomic, strong) SSMenuItem *selectedItem;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end

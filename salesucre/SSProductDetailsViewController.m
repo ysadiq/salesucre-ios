@@ -9,6 +9,7 @@
 #import "SSProductDetailsViewController.h"
 #import "SSMenuItem.h"
 #import "Images.h"
+#import "UIColor+Helpers.h"
 
 #import <KIImagePager.h>
 
@@ -21,6 +22,7 @@
 @synthesize imagePager = _imagePager;
 @synthesize selectedItem = _selectedItem;
 @synthesize imagesURL = _imagesURL;
+@synthesize textView = _textView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,20 +33,34 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _imagePager.frame = CGRectMake(0.0f,0.0f,320.0f,170.0f);
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
-    _imagePager.pageControl.pageIndicatorTintColor = [UIColor brownColor];
+    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    _imagePager.pageControl.pageIndicatorTintColor = [UIColor grayColor];
 
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    
     DDLogInfo(@"#images: %@", [_selectedItem images]);
-
+    DDLogInfo(@"frame: %@", NSStringFromCGRect(_imagePager.frame) );
+    
+    DDLogInfo(@"description: %@", _selectedItem.itemDescription);
+    if ( (![_selectedItem.itemDescription isEqual:[NSNull null]] ) && ([_selectedItem.itemDescription length] > 0) )
+    {
+        [_textView setText:_selectedItem.itemDescription];
+    }
     
     SR_WEAK_SELF wself = self;
     
@@ -53,7 +69,7 @@
     for ( Images *img in [_selectedItem.images allObjects])
     {
         NSString *currImage = [img path];
-        NSString *URLToAdd = [[SSAPIClient sharedInstance] imagePagerCompatibleString:currImage withWidth:320 andHeight:175];
+        NSString *URLToAdd = [[SSAPIClient sharedInstance] imagePagerCompatibleString:currImage withWidth:320 andHeight:170];
         DDLogInfo(@"adding image: %@", URLToAdd);
         [[wself imagesURL] addObject:[URLToAdd copy] ];
     }
@@ -86,7 +102,7 @@
 
 - (UIImage *) placeHolderImageForImagePager
 {
-    return [UIImage imageNamed:@"Default"];
+    return [UIImage imageNamed:@"gallery-placeholder"];
 }
 
 

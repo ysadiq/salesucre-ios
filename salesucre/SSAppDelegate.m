@@ -243,11 +243,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [_splashView hideSplash];
     _splashView = nil;
     
-    
-    //[self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:kThemeDefaultBackground]] ];
-    
     // customize appearence
-    //[self customizeAppearence];
+    [self customizeAppearence];
     
     // Push Notification
     /*
@@ -274,6 +271,25 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     //[self.window makeKeyAndVisible];
+}
+
+#pragma mark - Appearence
+- (void)customizeAppearence
+{
+    
+    // main background view
+    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:THEME_APP_BACKGROUND]]];
+    
+    //---- Tabbar ---- //
+    [_mainTabbar.tabBar setBackgroundImage:[UIImage imageNamed:THEME_TABBAR_BACKGROUND] ];
+    //[_mainTabbar.tabBar setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:kThemeTabBarSelectionIndicator]] ];
+    //[_mainTabbar.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tabbarTintImage.png"]];
+    
+    //---- Navigation Bar ---- //
+    // navigation bar
+    UINavigationBar *nav = [UINavigationBar appearance];
+    [nav setBackgroundImage:[UIImage imageNamed:THEME_NAVBAR_BACKGROUND] forBarMetrics:UIBarMetricsDefault];
+    
 }
 
 #pragma mark - Core Data

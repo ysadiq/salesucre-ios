@@ -214,8 +214,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
-    DDLogInfo(@"reloading table");
-    //[self newLastModifiedValue];
+    DDLogInfo(@"tableview endUpdates");
     [self.tableView endUpdates];
     //[self.tableView reloadData];
 }
