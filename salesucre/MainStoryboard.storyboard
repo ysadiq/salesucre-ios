@@ -20,6 +20,7 @@
                         <segue destination="T7J-HZ-Rr3" kind="relationship" relationship="viewControllers" id="K7l-oP-6MS"/>
                         <segue destination="DLz-EU-dZM" kind="relationship" relationship="viewControllers" id="boI-Lv-5MJ"/>
                         <segue destination="d3L-Hz-Gwc" kind="relationship" relationship="viewControllers" id="p38-rY-Dil"/>
+                        <segue destination="vXS-Ul-Vub" kind="relationship" relationship="viewControllers" id="jnM-5b-Vot"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bc-hE-05F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,6 +172,39 @@
             </objects>
             <point key="canvasLocation" x="732" y="1110"/>
         </scene>
+        <!--Navigation Controller - More-->
+        <scene sceneID="4zB-Fg-RBU">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="vXS-Ul-Vub" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="More" id="wOW-jU-oaD"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGu-uj-LZy">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WdK-GT-xCx" kind="relationship" relationship="rootViewController" id="IyV-RG-rMt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcK-me-xks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="1700"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Dtg-fU-MbV">
+            <objects>
+                <viewController id="WdK-GT-xCx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yxa-cM-Z6r">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L07-ba-yTT"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUC-lm-qiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="1698"/>
+        </scene>
         <!--Branch Details View Controller-->
         <scene sceneID="PPM-oL-l5D">
             <objects>
@@ -195,7 +229,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium." id="Ojf-jI-81Y">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="Ojf-jI-81Y">
                                 <rect key="frame" x="9" y="266" width="216" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

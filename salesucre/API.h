@@ -18,6 +18,8 @@
 #define kAPIImagePostfix @"/APIPlatform/index.php/getImage?"
 #define KAroundMeDefaultDefinitions @"name,location,address.street,chainId"
 
+#define kDefaultFetchLimit @200
+
 // ---- External SDK ---- //
 #define kFlurryAPIKey @"KF8RMYTJMX64RSJ2QVRT"
 

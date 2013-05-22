@@ -10,9 +10,9 @@
 
 @interface SSSplashViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UIView *modalView;
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activity;
-@property (nonatomic, weak) IBOutlet UIImageView *splashImage;
+@property (nonatomic, strong) IBOutlet UIView *modalView;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activity;
+@property (nonatomic, strong) IBOutlet UIImageView *splashImage;
 
 - (void)showSplash;
 - (void)hideSplash;

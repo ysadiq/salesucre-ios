@@ -52,7 +52,7 @@
     NSSortDescriptor *sDistrict = [[NSSortDescriptor alloc] initWithKey:@"districtWeight" ascending:NO];
     
     fetchRequest.sortDescriptors = [NSArray arrayWithObjects:sCity,sDistrict,nil];
-    fetchRequest.fetchLimit = 100;
+    fetchRequest.fetchLimit = [kDefaultFetchLimit integerValue];
     
     //---- NSPredicate ---- //
     NSPredicate *p = [NSPredicate predicateWithFormat:@"deletedAt = nil"];

@@ -14,9 +14,7 @@
 
 @implementation SSSplashViewController
 
-@synthesize modalView;
-@synthesize splashImage = _splashImage;
-@synthesize activity = _activity;
+@synthesize activity, modalView, splashImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +26,7 @@
         self.view.frame = CGRectMake(0.0f, 0.0f, 320.0f, [UIScreen mainScreen].bounds.size.height);
         self.splashImage.frame =CGRectMake(0.0f, 0.0f, 320.0f, [UIScreen mainScreen].bounds.size.height);
         DDLogInfo(@"splash image height: %f", self.splashImage.frame.size.height);
-        if (IS_4_INCH)
+        if ([UIScreen mainScreen].bounds.size.height > 480)
         {
             [self.splashImage setImage:[UIImage imageNamed:@"Default-568h"]];
         }
@@ -49,6 +47,13 @@
     DDLogWarn(@"splash is visible");
     [self showSplash];
 }
+- (void)viewDidUnload
+{
+    [self setActivity:nil];
+    [self setModalView:nil];
+    [self setSplashImage:nil];
+    [super viewDidUnload];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -56,32 +61,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload
-{
-    [self setActivity:nil];
-    [self setSplashImage:nil];
-    [self setModalView:nil];
-    
-    [super viewDidUnload];
-}
-
-#pragma mark - Splash
-
 - (void)showSplash
 {
-    [_splashImage setImage: [UIImage imageNamed:@"Default"] ];
-    [self.modalView addSubview:_splashImage];
+    
+    [self.splashImage setImage: [UIImage imageNamed:@"Default"] ];
+    [self.modalView addSubview:self.splashImage];
     //[[HRProgressView progressPanel] showLoadingPanel ];
     
-    _activity  = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activity  = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
-    //[_activity setFrame:CGRectMake(142.0f, [[UIScreen mainScreen] bounds].size.height - 220.0, 20.0f, 20.0f) ];
+    [self.activity setFrame:CGRectMake(142.0f, [[UIScreen mainScreen] bounds].size.height - 220.0, 20.0f, 20.0f) ];
     
     
     DDLogInfo(@"Start Animating");
-    [_activity startAnimating];
-    [self.modalView addSubview:_activity];
-    _activity = nil;
+    [self.activity startAnimating];
+    [self.modalView addSubview:self.activity];
 }
 
 - (void)hideSplash
@@ -99,5 +93,4 @@
     self.modalView = nil;
     DDLogInfo(@"All Clear here");
 }
-
 @end

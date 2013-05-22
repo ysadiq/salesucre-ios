@@ -35,6 +35,21 @@
 	// Do any additional setup after loading the view.
     
     DDLogInfo(@"current branch: %@", _currentBranch.distirctName);
+    
+    NSString *text = [NSString stringWithFormat:@"%@\n", _currentBranch.distirctName];
+    
+    if (_currentBranch.street)
+    {
+        text = [text stringByAppendingFormat:@"%@\n",_currentBranch.street];
+    }
+
+    if (_currentBranch.street2)
+    {
+        text = [text stringByAppendingString:_currentBranch.street2];
+    }
+    
+    [_textView setText:text];
+    
     CLLocationCoordinate2D coordinate;
     coordinate.latitude = _currentBranch.latitude;
     coordinate.longitude = _currentBranch.longitude;
