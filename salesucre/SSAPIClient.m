@@ -167,6 +167,23 @@
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"stores" parameters:params];
     }
+    else if ([fetchRequest.entityName isEqualToString:@"SSNotification"])
+    {
+        /*
+        curl -X GET \
+        -H "X-Parse-Application-Id: 73HJhonGfFxg4ZcSP6oY4e1k7OoyP4Xiw0ea2nl4" \
+        -H "X-Parse-REST-API-Key: S8gawjiwXYEKIz97FeT5kOKITVLkN1ALqBo8iKJO" \
+        https://api.parse.com/1/classes/SSNotifications/
+         */
+        DDLogInfo(@"inside entity.name: %@", fetchRequest.entityName);
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.parse.com/1/classes/SSNotifications/"]];
+        [self setDefaultHeader:@"X-Parse-Application-Id" value:kParseAppId];
+        [self setDefaultHeader:@"X-Parse-REST-API-Key" value:kParseRESTAPIKey];
+        
+        mutableURLRequest = request;
+
+    }
     else
     {
         DDLogError(@"no entity name found");
@@ -409,6 +426,16 @@
         {
             DDLogError(@"location not found, %@", [representation objectForKeyList:@"address",nil]);
         }
+    }
+    else if ([entity.name isEqualToString:@"SSNotification"])
+    {
+        DDLogInfo(@"entity.name: %@", entity.name);
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"content"] forKey:@"content"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"showUP"] forKey:@"showUP"];
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"createdAt"] forKey:@"createdAt"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"updatedAt"] forKey:@"lastModified"];
     }
     else {
         

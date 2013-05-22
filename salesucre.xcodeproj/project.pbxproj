@@ -51,6 +51,9 @@
 		DDB8189A174B9552008E0D38 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB81899174B9552008E0D38 /* MapKit.framework */; };
 		DDCEF6DE1746FAC800EFD1AF /* SSProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */; };
 		DDCEF6E11747008C00EFD1AF /* SSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCEF6E01747008C00EFD1AF /* SSMenuItem.m */; };
+		DDF251E3174D072500386B8B /* SSNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF251E2174D072500386B8B /* SSNotificationsViewController.m */; };
+		DDF251E6174D0BCF00386B8B /* SSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF251E5174D0BCF00386B8B /* SSNotification.m */; };
+		DDF251E9174D0DE500386B8B /* SSNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF251E8174D0DE500386B8B /* SSNotificationCell.m */; };
 		DDF7B8E6174C30F900A93E51 /* SSProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +123,12 @@
 		DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProductListViewController.m; sourceTree = "<group>"; };
 		DDCEF6DF1747008C00EFD1AF /* SSMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMenuItem.h; sourceTree = "<group>"; };
 		DDCEF6E01747008C00EFD1AF /* SSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMenuItem.m; sourceTree = "<group>"; };
+		DDF251E1174D072500386B8B /* SSNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNotificationsViewController.h; sourceTree = "<group>"; };
+		DDF251E2174D072500386B8B /* SSNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNotificationsViewController.m; sourceTree = "<group>"; };
+		DDF251E4174D0BCF00386B8B /* SSNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNotification.h; sourceTree = "<group>"; };
+		DDF251E5174D0BCF00386B8B /* SSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNotification.m; sourceTree = "<group>"; };
+		DDF251E7174D0DE500386B8B /* SSNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNotificationCell.h; sourceTree = "<group>"; };
+		DDF251E8174D0DE500386B8B /* SSNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNotificationCell.m; sourceTree = "<group>"; };
 		DDF7B8E4174C30F900A93E51 /* SSProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProductDetailsViewController.h; sourceTree = "<group>"; };
 		DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProductDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +208,8 @@
 				DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */,
 				DDB81896174B91B8008E0D38 /* SSBranchDetailsViewController.h */,
 				DDB81897174B91B8008E0D38 /* SSBranchDetailsViewController.m */,
+				DDF251E1174D072500386B8B /* SSNotificationsViewController.h */,
+				DDF251E2174D072500386B8B /* SSNotificationsViewController.m */,
 				DD3FD96F174663FA003DE202 /* Model */,
 				DD3FD93217464BB4003DE202 /* Networking */,
 				DD3FD95717465825003DE202 /* Helpers */,
@@ -261,7 +272,11 @@
 			children = (
 				DD3DB5F3174687AE00F7D014 /* SSCell.h */,
 				DD3DB5F4174687AE00F7D014 /* SSCell.m */,
+				DDF251E7174D0DE500386B8B /* SSNotificationCell.h */,
+				DDF251E8174D0DE500386B8B /* SSNotificationCell.m */,
 				DD3DB5F6174688B500F7D014 /* salesucre.xcdatamodeld */,
+				DDF251E4174D0BCF00386B8B /* SSNotification.h */,
+				DDF251E5174D0BCF00386B8B /* SSNotification.m */,
 				DD3DB5F91746895C00F7D014 /* SSCategory.h */,
 				DD3DB5FA1746895C00F7D014 /* SSCategory.m */,
 				DDCEF6DF1747008C00EFD1AF /* SSMenuItem.h */,
@@ -436,6 +451,9 @@
 				DDB81898174B91B8008E0D38 /* SSBranchDetailsViewController.m in Sources */,
 				DDF7B8E6174C30F900A93E51 /* SSProductDetailsViewController.m in Sources */,
 				DD9184C7174CC30200441245 /* UIColor+Helpers.m in Sources */,
+				DDF251E3174D072500386B8B /* SSNotificationsViewController.m in Sources */,
+				DDF251E6174D0BCF00386B8B /* SSNotification.m in Sources */,
+				DDF251E9174D0DE500386B8B /* SSNotificationCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

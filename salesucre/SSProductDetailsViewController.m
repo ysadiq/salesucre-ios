@@ -53,7 +53,6 @@
 	// Do any additional setup after loading the view.
     [self.view setBackgroundColor:[UIColor clearColor]];
     
-    DDLogInfo(@"#images: %@", [_selectedItem images]);
     DDLogInfo(@"frame: %@", NSStringFromCGRect(_imagePager.frame) );
     
     DDLogInfo(@"description: %@", _selectedItem.itemDescription);
@@ -102,7 +101,7 @@
 
 - (UIImage *) placeHolderImageForImagePager
 {
-    return [UIImage imageNamed:@"gallery-placeholder"];
+    return [UIImage imageNamed:THEME_GALLERY_PLACEHOLDER];
 }
 
 
