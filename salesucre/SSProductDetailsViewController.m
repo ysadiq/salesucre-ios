@@ -43,8 +43,8 @@
 {
     [super viewDidAppear:animated];
     
-    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
-    _imagePager.pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+    _imagePager.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
 
 }
 - (void)viewDidLoad
@@ -96,7 +96,7 @@
 
 - (UIViewContentMode) contentModeForImage:(NSUInteger)image
 {
-    return UIViewContentModeCenter;
+    return UIViewContentModeScaleAspectFit;
 }
 
 - (UIImage *) placeHolderImageForImagePager

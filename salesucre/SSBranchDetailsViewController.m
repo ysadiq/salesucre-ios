@@ -29,6 +29,13 @@
     }
     return self;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_map setFrame:CGRectMake(0.0f, 0.0f, 320.0f, 252.0f)];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

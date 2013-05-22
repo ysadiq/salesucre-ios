@@ -20,6 +20,6 @@
 #define THEME_NAVBAR_BACKGROUND @"navbar-background.png"
 
 //---- Cell ---- //
-
+#define THEME_CELL_BACKGROUND @"cell-background.png"
 
 #endif

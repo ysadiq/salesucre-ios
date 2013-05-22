@@ -7,6 +7,7 @@
 //
 
 #import "SSCell.h"
+#import "UIColor+Helpers.h"
 
 @implementation SSCell
 
@@ -16,7 +17,7 @@
     if (self) {
         // Initialization code
         
-        
+        [self addBackground];
     }
     return self;
 }
@@ -29,6 +30,13 @@
 }
 
 #pragma mark - UIView
+- (void)addBackground
+{
+//    UIImage *bg = [UIImage imageNamed:THEME_CELL_BACKGROUND];
+//    UIImageView *imgView = [[UIImageView alloc] initWithImage:bg];
+//    self.backgroundView = imgView;
+    self.backgroundColor = [UIColor UIColorFromHex:0xF8F4ED];
+}
 
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -44,16 +52,19 @@
 #pragma mark Data Methods
 - (void)setCateforiesData:(SSCategory *)currentCategory withLanguage:(NSString *)language
 {
+    [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [[self textLabel] setText:[currentCategory name]];
 }
 
 - (void)setMenuItem:(SSMenuItem *)currentItem
 {
+    [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [self.textLabel setText:[currentItem name]];
 }
 
 - (void)setBranchDetails:(Branch *)branch
 {
+    [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [self.textLabel setText:branch.distirctName ];
 
 }

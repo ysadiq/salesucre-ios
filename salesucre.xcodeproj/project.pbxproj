@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 976D2775B86E407CA4B459DD /* libPods.a */; };
-		DD1723F8174CDA9D005EB25A /* tabbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723F6174CDA9D005EB25A /* tabbar-background.png */; };
-		DD1723F9174CDA9D005EB25A /* tabbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723F7174CDA9D005EB25A /* tabbar-background@2x.png */; };
 		DD1723FC174CDB18005EB25A /* app-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FA174CDB18005EB25A /* app-background.png */; };
 		DD1723FD174CDB18005EB25A /* app-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FB174CDB18005EB25A /* app-background@2x.png */; };
-		DD172400174CE951005EB25A /* navbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FE174CE951005EB25A /* navbar-background.png */; };
-		DD172401174CE951005EB25A /* navbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FF174CE951005EB25A /* navbar-background@2x.png */; };
+		DD27C999174D61880069CCFF /* cell-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C997174D61880069CCFF /* cell-background.png */; };
+		DD27C99A174D61880069CCFF /* cell-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C998174D61880069CCFF /* cell-background@2x.png */; };
+		DD27C9AA174D79520069CCFF /* navbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C9A8174D79520069CCFF /* navbar-background.png */; };
+		DD27C9AB174D79520069CCFF /* navbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C9A9174D79520069CCFF /* navbar-background@2x.png */; };
 		DD3D26BF1748F2D800A49116 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26BE1748F2D800A49116 /* Images.m */; };
 		DD3D26CE1748FBE700A49116 /* SSBranchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */; };
 		DD3DB5F5174687AE00F7D014 /* SSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3DB5F4174687AE00F7D014 /* SSCell.m */; };
@@ -54,6 +54,8 @@
 		DDF251E3174D072500386B8B /* SSNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF251E2174D072500386B8B /* SSNotificationsViewController.m */; };
 		DDF251E6174D0BCF00386B8B /* SSNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF251E5174D0BCF00386B8B /* SSNotification.m */; };
 		DDF251E9174D0DE500386B8B /* SSNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF251E8174D0DE500386B8B /* SSNotificationCell.m */; };
+		DDF2B9BE174D7CC800545849 /* tabbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF2B9BC174D7CC800545849 /* tabbar-background.png */; };
+		DDF2B9BF174D7CC800545849 /* tabbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF2B9BD174D7CC800545849 /* tabbar-background@2x.png */; };
 		DDF7B8E6174C30F900A93E51 /* SSProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */; };
 		DDFF4226174D41EC008A495A /* SSBranchLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFF4225174D41EC008A495A /* SSBranchLocation.m */; };
 /* End PBXBuildFile section */
@@ -61,12 +63,12 @@
 /* Begin PBXFileReference section */
 		77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		976D2775B86E407CA4B459DD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1723F6174CDA9D005EB25A /* tabbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background.png"; sourceTree = "<group>"; };
-		DD1723F7174CDA9D005EB25A /* tabbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background@2x.png"; sourceTree = "<group>"; };
 		DD1723FA174CDB18005EB25A /* app-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-background.png"; sourceTree = "<group>"; };
 		DD1723FB174CDB18005EB25A /* app-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-background@2x.png"; sourceTree = "<group>"; };
-		DD1723FE174CE951005EB25A /* navbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background.png"; sourceTree = "<group>"; };
-		DD1723FF174CE951005EB25A /* navbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background@2x.png"; sourceTree = "<group>"; };
+		DD27C997174D61880069CCFF /* cell-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background.png"; sourceTree = "<group>"; };
+		DD27C998174D61880069CCFF /* cell-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background@2x.png"; sourceTree = "<group>"; };
+		DD27C9A8174D79520069CCFF /* navbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background.png"; sourceTree = "<group>"; };
+		DD27C9A9174D79520069CCFF /* navbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background@2x.png"; sourceTree = "<group>"; };
 		DD3D26BD1748F2D800A49116 /* Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
 		DD3D26BE1748F2D800A49116 /* Images.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Images.m; sourceTree = "<group>"; };
 		DD3D26CC1748FBE600A49116 /* SSBranchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBranchesViewController.h; sourceTree = "<group>"; };
@@ -130,6 +132,8 @@
 		DDF251E5174D0BCF00386B8B /* SSNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNotification.m; sourceTree = "<group>"; };
 		DDF251E7174D0DE500386B8B /* SSNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNotificationCell.h; sourceTree = "<group>"; };
 		DDF251E8174D0DE500386B8B /* SSNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNotificationCell.m; sourceTree = "<group>"; };
+		DDF2B9BC174D7CC800545849 /* tabbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background.png"; sourceTree = "<group>"; };
+		DDF2B9BD174D7CC800545849 /* tabbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-background@2x.png"; sourceTree = "<group>"; };
 		DDF7B8E4174C30F900A93E51 /* SSProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSProductDetailsViewController.h; sourceTree = "<group>"; };
 		DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSProductDetailsViewController.m; sourceTree = "<group>"; };
 		DDFF4224174D41EC008A495A /* SSBranchLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBranchLocation.h; sourceTree = "<group>"; };
@@ -154,6 +158,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD27C996174D61790069CCFF /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DD27C997174D61880069CCFF /* cell-background.png */,
+				DD27C998174D61880069CCFF /* cell-background@2x.png */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		DD27C99B174D681C0069CCFF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD3DB5FE17468C4E00F7D014 /* SSMenuViewController.h */,
+				DD3DB5FF17468C4F00F7D014 /* SSMenuViewController.m */,
+				DDCEF6DC1746FAC800EFD1AF /* SSProductListViewController.h */,
+				DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */,
+				DDF7B8E4174C30F900A93E51 /* SSProductDetailsViewController.h */,
+				DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */,
+				DD3D26CC1748FBE600A49116 /* SSBranchesViewController.h */,
+				DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */,
+				DDB81896174B91B8008E0D38 /* SSBranchDetailsViewController.h */,
+				DDB81897174B91B8008E0D38 /* SSBranchDetailsViewController.m */,
+				DDF251E1174D072500386B8B /* SSNotificationsViewController.h */,
+				DDF251E2174D072500386B8B /* SSNotificationsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		DD3FD91B17464BB4003DE202 = {
 			isa = PBXGroup;
 			children = (
@@ -201,18 +233,7 @@
 				DD3DB60117468E7C00F7D014 /* SSSplashViewController.h */,
 				DD3DB60217468E7C00F7D014 /* SSSplashViewController.m */,
 				DD3DB60617468FBC00F7D014 /* SSSplashViewController.xib */,
-				DD3DB5FE17468C4E00F7D014 /* SSMenuViewController.h */,
-				DD3DB5FF17468C4F00F7D014 /* SSMenuViewController.m */,
-				DDCEF6DC1746FAC800EFD1AF /* SSProductListViewController.h */,
-				DDCEF6DD1746FAC800EFD1AF /* SSProductListViewController.m */,
-				DDF7B8E4174C30F900A93E51 /* SSProductDetailsViewController.h */,
-				DDF7B8E5174C30F900A93E51 /* SSProductDetailsViewController.m */,
-				DD3D26CC1748FBE600A49116 /* SSBranchesViewController.h */,
-				DD3D26CD1748FBE700A49116 /* SSBranchesViewController.m */,
-				DDB81896174B91B8008E0D38 /* SSBranchDetailsViewController.h */,
-				DDB81897174B91B8008E0D38 /* SSBranchDetailsViewController.m */,
-				DDF251E1174D072500386B8B /* SSNotificationsViewController.h */,
-				DDF251E2174D072500386B8B /* SSNotificationsViewController.m */,
+				DD27C99B174D681C0069CCFF /* ViewControllers */,
 				DD3FD96F174663FA003DE202 /* Model */,
 				DD3FD93217464BB4003DE202 /* Networking */,
 				DD3FD95717465825003DE202 /* Helpers */,
@@ -252,6 +273,7 @@
 		DD3FD956174656C9003DE202 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
+				DD27C996174D61790069CCFF /* TableView */,
 				DDF7B8E3174C1C7000A93E51 /* navigationbar */,
 				DDF7B8E2174C1C6700A93E51 /* tabbar */,
 				DDF7B8E1174C1C5900A93E51 /* general */,
@@ -308,8 +330,8 @@
 		DDF7B8E2174C1C6700A93E51 /* tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				DD1723F6174CDA9D005EB25A /* tabbar-background.png */,
-				DD1723F7174CDA9D005EB25A /* tabbar-background@2x.png */,
+				DDF2B9BC174D7CC800545849 /* tabbar-background.png */,
+				DDF2B9BD174D7CC800545849 /* tabbar-background@2x.png */,
 			);
 			name = tabbar;
 			sourceTree = "<group>";
@@ -317,8 +339,8 @@
 		DDF7B8E3174C1C7000A93E51 /* navigationbar */ = {
 			isa = PBXGroup;
 			children = (
-				DD1723FE174CE951005EB25A /* navbar-background.png */,
-				DD1723FF174CE951005EB25A /* navbar-background@2x.png */,
+				DD27C9A8174D79520069CCFF /* navbar-background.png */,
+				DD27C9A9174D79520069CCFF /* navbar-background@2x.png */,
 			);
 			name = navigationbar;
 			sourceTree = "<group>";
@@ -391,12 +413,14 @@
 				DD3DB60717468FBC00F7D014 /* SSSplashViewController.xib in Resources */,
 				DD9184C3174CC03000441245 /* gallery-placeholder.png in Resources */,
 				DD9184C4174CC03000441245 /* gallery-placeholder@2x.png in Resources */,
-				DD1723F8174CDA9D005EB25A /* tabbar-background.png in Resources */,
-				DD1723F9174CDA9D005EB25A /* tabbar-background@2x.png in Resources */,
 				DD1723FC174CDB18005EB25A /* app-background.png in Resources */,
 				DD1723FD174CDB18005EB25A /* app-background@2x.png in Resources */,
-				DD172400174CE951005EB25A /* navbar-background.png in Resources */,
-				DD172401174CE951005EB25A /* navbar-background@2x.png in Resources */,
+				DD27C999174D61880069CCFF /* cell-background.png in Resources */,
+				DD27C99A174D61880069CCFF /* cell-background@2x.png in Resources */,
+				DD27C9AA174D79520069CCFF /* navbar-background.png in Resources */,
+				DD27C9AB174D79520069CCFF /* navbar-background@2x.png in Resources */,
+				DDF2B9BE174D7CC800545849 /* tabbar-background.png in Resources */,
+				DDF2B9BF174D7CC800545849 /* tabbar-background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
