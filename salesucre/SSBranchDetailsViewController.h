@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class Branch;
 
-@interface SSBranchDetailsViewController : UIViewController
+@interface SSBranchDetailsViewController : UIViewController <MKMapViewDelegate>
 
 @property (strong, nonatomic) Branch *currentBranch;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
+
+
+
 
 @end

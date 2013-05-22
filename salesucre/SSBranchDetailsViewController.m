@@ -8,6 +8,7 @@
 
 #import "SSBranchDetailsViewController.h"
 #import "Branch.h"
+#import "SSBranchLocation.h"
 
 @interface SSBranchDetailsViewController ()
 
@@ -34,6 +35,32 @@
 	// Do any additional setup after loading the view.
     
     DDLogInfo(@"current branch: %@", _currentBranch.distirctName);
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = _currentBranch.latitude;
+    coordinate.longitude = _currentBranch.longitude;
+    
+    
+    MKCoordinateRegion region = { {0.0,0.0} , {0.0,0.0} };
+    region.center.latitude = coordinate.latitude;
+    region.center.longitude = coordinate.longitude;
+    region.span.longitudeDelta = 0.02f;
+    region.span.latitudeDelta = 0.02f;
+    [_map setRegion:region animated:YES];
+    
+    SSBranchLocation *pin = [[SSBranchLocation alloc] initWithCoordinates:coordinate
+                                                                   branch:_currentBranch.distirctName
+                                                                  address:_currentBranch.street];
+    
+    
+    [_map addAnnotation:pin];
+    [_map selectAnnotation:pin animated:YES];
+    [_map setZoomEnabled:YES];
+    [_map setScrollEnabled:YES];
+    [_map setDelegate:self];
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

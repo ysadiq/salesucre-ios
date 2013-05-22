@@ -118,6 +118,7 @@ NSFetchedResultsController *_fetchedResultsController;
     //[cell setCategoriesData:[dataCache_ valueForKey:[dataCacheKeys_ objectAtIndex:indexPath.row]] withLanguage:language_];
     
     @try {
+        
         [cell setMenuItem:[_fetchedResultsController objectAtIndexPath:indexPath]];
     }
     @catch (NSException *exception) {

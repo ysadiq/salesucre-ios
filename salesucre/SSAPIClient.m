@@ -177,9 +177,18 @@
          */
         DDLogInfo(@"inside entity.name: %@", fetchRequest.entityName);
         
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.parse.com/1/classes/SSNotifications/"]];
+        NSURL *notificationURL = [NSURL URLWithString:@"https://api.parse.com/1/classes/SSNotifications"];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:notificationURL];
+        
+
         [self setDefaultHeader:@"X-Parse-Application-Id" value:kParseAppId];
         [self setDefaultHeader:@"X-Parse-REST-API-Key" value:kParseRESTAPIKey];
+        [request setHTTPMethod:@"GET"];
+        
+        
+        DDLogInfo(@"%@", [self defaultValueForHeader:@"X-Parse-Application-Id"]);
+        DDLogInfo(@"%@", [self defaultValueForHeader:@"X-Parse-REST-API-Key"]);
+        DDLogInfo(@"request: %@", request);
         
         mutableURLRequest = request;
 
