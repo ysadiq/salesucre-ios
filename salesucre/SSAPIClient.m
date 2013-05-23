@@ -245,7 +245,7 @@
     
     if ([entity.name isEqualToString:@"SSCategory"]) {
         DDLogInfo(@"inside entity.name = SSCategory");
-        
+#pragma mark - Parsing SSCategory
         //---- change lastModified timestamp ---- //
         if ([[representation valueForKey:@"lastModified"] intValue] > [[_timestamps valueForKey:@"categories"] intValue])
         {
@@ -294,6 +294,7 @@
     }
     else if ([entity.name isEqualToString:@"SSMenuItem"])
     {
+        #pragma mark - Parsing SSenuItem
         DDLogInfo(@"inside entity.name: %@", entity.name);
         //---- change lastModified timestamp ---- //
         if ([[representation valueForKey:@"lastModified"] intValue] > [[_timestamps valueForKey:@"menuItems"] intValue])
@@ -348,6 +349,7 @@
     }
     else if ([entity.name isEqualToString:@"Images"])
     {
+        #pragma mark - Parsing Images
         DDLogInfo(@"entity.name = %@", entity.name);
         id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
         
@@ -358,6 +360,7 @@
     }
     else if ([entity.name isEqualToString:@"Branch"])
     {
+        #pragma mark - Parsing Branch
         DDLogInfo(@"entity.name = %@", entity.name);
         
                                
@@ -438,6 +441,7 @@
     }
     else if ([entity.name isEqualToString:@"SSNotification"])
     {
+        #pragma mark - Parsing SSNotification
         DDLogInfo(@"entity.name: %@", entity.name);
         
         [mutablePropertyValues setValue:[representation valueForKey:@"content"] forKey:@"content"];

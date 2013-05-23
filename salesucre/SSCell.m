@@ -8,6 +8,7 @@
 
 #import "SSCell.h"
 #import "UIColor+Helpers.h"
+#import "Images.h"
 
 @implementation SSCell
 
@@ -54,6 +55,14 @@
 {
     [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [[self textLabel] setText:[currentCategory name]];
+    
+    NSArray *imgs = [[currentCategory images] allObjects];
+    
+    [imgs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        DDLogInfo(@"current image: %@", [(Images *)[imgs objectAtIndex:idx] path]);
+    }];
+    
+
 }
 
 - (void)setMenuItem:(SSMenuItem *)currentItem

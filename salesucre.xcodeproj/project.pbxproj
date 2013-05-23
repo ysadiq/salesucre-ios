@@ -43,6 +43,8 @@
 		DD3FD971174664B5003DE202 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD970174664B5003DE202 /* libz.1.1.3.dylib */; };
 		DD4B51D4174E2D530011EBE0 /* cell-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4B51D2174E2D530011EBE0 /* cell-background.png */; };
 		DD4B51D5174E2D530011EBE0 /* cell-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4B51D3174E2D530011EBE0 /* cell-background@2x.png */; };
+		DD4B51D8174E36B30011EBE0 /* salesucre-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4B51D6174E36B30011EBE0 /* salesucre-logo.png */; };
+		DD4B51D9174E36B30011EBE0 /* salesucre-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4B51D7174E36B30011EBE0 /* salesucre-logo@2x.png */; };
 		DD8989FA174B7B82005F3257 /* Branch.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8989F9174B7B82005F3257 /* Branch.m */; };
 		DD9184C3174CC03000441245 /* gallery-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9184C1174CC03000441245 /* gallery-placeholder.png */; };
 		DD9184C4174CC03000441245 /* gallery-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9184C2174CC03000441245 /* gallery-placeholder@2x.png */; };
@@ -113,6 +115,8 @@
 		DD3FD970174664B5003DE202 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		DD4B51D2174E2D530011EBE0 /* cell-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background.png"; sourceTree = "<group>"; };
 		DD4B51D3174E2D530011EBE0 /* cell-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background@2x.png"; sourceTree = "<group>"; };
+		DD4B51D6174E36B30011EBE0 /* salesucre-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "salesucre-logo.png"; sourceTree = "<group>"; };
+		DD4B51D7174E36B30011EBE0 /* salesucre-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "salesucre-logo@2x.png"; sourceTree = "<group>"; };
 		DD8989F8174B7B82005F3257 /* Branch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Branch.h; sourceTree = "<group>"; };
 		DD8989F9174B7B82005F3257 /* Branch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Branch.m; sourceTree = "<group>"; };
 		DD9184C1174CC03000441245 /* gallery-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallery-placeholder.png"; sourceTree = "<group>"; };
@@ -319,6 +323,8 @@
 		DDF7B8E1174C1C5900A93E51 /* general */ = {
 			isa = PBXGroup;
 			children = (
+				DD4B51D6174E36B30011EBE0 /* salesucre-logo.png */,
+				DD4B51D7174E36B30011EBE0 /* salesucre-logo@2x.png */,
 				DD1723FA174CDB18005EB25A /* app-background.png */,
 				DD1723FB174CDB18005EB25A /* app-background@2x.png */,
 				DD9184C1174CC03000441245 /* gallery-placeholder.png */,
@@ -421,6 +427,8 @@
 				DDF2B9BF174D7CC800545849 /* tabbar-background@2x.png in Resources */,
 				DD4B51D4174E2D530011EBE0 /* cell-background.png in Resources */,
 				DD4B51D5174E2D530011EBE0 /* cell-background@2x.png in Resources */,
+				DD4B51D8174E36B30011EBE0 /* salesucre-logo.png in Resources */,
+				DD4B51D9174E36B30011EBE0 /* salesucre-logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
