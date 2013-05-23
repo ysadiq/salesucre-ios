@@ -19,9 +19,10 @@
 //---- Navigation Bar ---- //
 #define THEME_NAVBAR_BACKGROUND @"navbar-background.png"
 
-//---- Cell ---- //
+//---- TableView & Cell ---- //
 #define kDefaultCellHeight @63.0
 #define THEME_CELL_BACKGROUND @"cell-background.png"
 #define THEME_CELL_IMAGE_PLACEHOLDER @"salesucre-logo.png"
+#define THEME_SECTION_HEADER_VIEW @"section-header-view-background.png"
 
 #endif

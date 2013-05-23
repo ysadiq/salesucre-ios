@@ -44,6 +44,8 @@
 	// Do any additional setup after loading the view.
     
     [self setTitle:@"Branches"];
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
     
     //---- AFIncrementalStore ---- //
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Branch"];
@@ -140,12 +142,14 @@
     [title setFont:[UIFont boldSystemFontOfSize:18] ];
     [title setTextAlignment:NSTextAlignmentCenter];
     [title setTextColor:[UIColor whiteColor]];
+    [title setShadowColor:[UIColor lightGrayColor]];
+    [title setShadowOffset:CGSizeMake(0.0f, 1.0f)];
     [title setBackgroundColor:[UIColor clearColor]];
     [title setText:[[[_fetchedResultsController sections] objectAtIndex:section] name] ];
     
     
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 32.0f)];
-    [header setBackgroundColor:[UIColor orangeColor]];
+    header.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:THEME_SECTION_HEADER_VIEW]];
     
     [header addSubview:title];
     

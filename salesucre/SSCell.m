@@ -83,6 +83,8 @@
 
 - (void)setMenuItem:(SSMenuItem *)currentItem
 {
+    [self.textLabel setBackgroundColor:[UIColor clearColor]];
+    [self.detailTextLabel setBackgroundColor:[UIColor clearColor]];
     [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [self.textLabel setText:[currentItem name]];
 }
