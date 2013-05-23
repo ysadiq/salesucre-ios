@@ -77,6 +77,15 @@
     return [NSURL URLWithString:operationURLString];
 }
 
+- (NSString *)imagePagerCompatibleString:(NSString *)image withWidth:(int)width andHeight:(int)height
+{
+    NSString *operationURLString = [NSString
+                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center",kAPIHostName, kAPIImagePostfix ,image, width * _retinaScale , height * _retinaScale ];
+    operationURLString = [operationURLString stringByReplacingOccurrencesOfString:@"/vol/" withString:@"/var/"];
+    
+    return operationURLString;
+}
+
 - (void)prepareTimestamps
 {
     _timestamps = [[[NSUserDefaults standardUserDefaults] objectForKey:@"timestamps"] mutableCopy];
@@ -157,6 +166,32 @@
                                 nil];
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"stores" parameters:params];
+    }
+    else if ([fetchRequest.entityName isEqualToString:@"SSNotification"])
+    {
+        /*
+        curl -X GET \
+        -H "X-Parse-Application-Id: 73HJhonGfFxg4ZcSP6oY4e1k7OoyP4Xiw0ea2nl4" \
+        -H "X-Parse-REST-API-Key: S8gawjiwXYEKIz97FeT5kOKITVLkN1ALqBo8iKJO" \
+        https://api.parse.com/1/classes/SSNotifications/
+         */
+        DDLogInfo(@"inside entity.name: %@", fetchRequest.entityName);
+        
+        NSURL *notificationURL = [NSURL URLWithString:@"https://api.parse.com/1/classes/SSNotifications"];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:notificationURL];
+        
+
+        [self setDefaultHeader:@"X-Parse-Application-Id" value:kParseAppId];
+        [self setDefaultHeader:@"X-Parse-REST-API-Key" value:kParseRESTAPIKey];
+        [request setHTTPMethod:@"GET"];
+        
+        
+        DDLogInfo(@"%@", [self defaultValueForHeader:@"X-Parse-Application-Id"]);
+        DDLogInfo(@"%@", [self defaultValueForHeader:@"X-Parse-REST-API-Key"]);
+        DDLogInfo(@"request: %@", request);
+        
+        mutableURLRequest = request;
+
     }
     else
     {
@@ -246,10 +281,12 @@
         }
         
         // ---- deletedAt ---- //
+        id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
         if ([representation valueForKey:@"deletedAt"])
         {
             DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
-            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+            NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
         [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
@@ -270,10 +307,12 @@
         }
         
         // ---- deletedAt ---- //
+        id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
         if ([representation valueForKey:@"deletedAt"])
         {
-            DDLogWarn(@"#deletedAt detected , menuItem: %@", [representation valueForKey:@"name"]);
-            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+            DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
+            NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
         //---- end of timestamp ---- //
@@ -336,10 +375,12 @@
         }
         
         // ---- deletedAt ---- //
+        id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
         if ([representation valueForKey:@"deletedAt"])
         {
-            DDLogWarn(@"#deletedAt detected , branch@ : %@", [representation valueForKey:@"street"]);
-            [mutablePropertyValues setValue:[representation valueForKey:@"deletedAt"] forKey:@"deletedAt"];
+            DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
+            NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
         // ---- Street, City & District ---- //
@@ -394,6 +435,16 @@
         {
             DDLogError(@"location not found, %@", [representation objectForKeyList:@"address",nil]);
         }
+    }
+    else if ([entity.name isEqualToString:@"SSNotification"])
+    {
+        DDLogInfo(@"entity.name: %@", entity.name);
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"content"] forKey:@"content"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"showUP"] forKey:@"showUP"];
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"createdAt"] forKey:@"createdAt"];
+        [mutablePropertyValues setValue:[representation valueForKey:@"updatedAt"] forKey:@"lastModified"];
     }
     else {
         

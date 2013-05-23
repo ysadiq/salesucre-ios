@@ -19,6 +19,8 @@
                     <connections>
                         <segue destination="T7J-HZ-Rr3" kind="relationship" relationship="viewControllers" id="K7l-oP-6MS"/>
                         <segue destination="DLz-EU-dZM" kind="relationship" relationship="viewControllers" id="boI-Lv-5MJ"/>
+                        <segue destination="d3L-Hz-Gwc" kind="relationship" relationship="viewControllers" id="p38-rY-Dil"/>
+                        <segue destination="vXS-Ul-Vub" kind="relationship" relationship="viewControllers" id="jnM-5b-Vot"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bc-hE-05F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -123,6 +125,86 @@
             </objects>
             <point key="canvasLocation" x="694" y="516"/>
         </scene>
+        <!--Navigation Controller - Notifications-->
+        <scene sceneID="z1v-W3-Wug">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="d3L-Hz-Gwc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notifications" id="OnC-7g-7Nf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W4P-Rc-svb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xyl-90-vAl" kind="relationship" relationship="rootViewController" id="kOL-eu-L1G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSl-pd-2A0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256" y="1111"/>
+        </scene>
+        <!--Notifications View Controller-->
+        <scene sceneID="qQX-og-wsm">
+            <objects>
+                <viewController id="Xyl-90-vAl" customClass="SSNotificationsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y28-Ha-QeR">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8Pj-1O-aQC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xyl-90-vAl" id="UOE-TD-SQB"/>
+                                    <outlet property="delegate" destination="Xyl-90-vAl" id="YOB-jK-Msg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IKP-Qp-btP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="8Pj-1O-aQC" id="Vmu-p6-EAS"/>
+                        <outlet property="view" destination="y28-Ha-QeR" id="D35-lT-dRy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KSw-TX-YJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="1110"/>
+        </scene>
+        <!--Navigation Controller - More-->
+        <scene sceneID="4zB-Fg-RBU">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="vXS-Ul-Vub" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="More" id="wOW-jU-oaD"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGu-uj-LZy">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WdK-GT-xCx" kind="relationship" relationship="rootViewController" id="IyV-RG-rMt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcK-me-xks" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="1700"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Dtg-fU-MbV">
+            <objects>
+                <viewController id="WdK-GT-xCx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yxa-cM-Z6r">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L07-ba-yTT"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUC-lm-qiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="1698"/>
+        </scene>
         <!--Branch Details View Controller-->
         <scene sceneID="PPM-oL-l5D">
             <objects>
@@ -147,7 +229,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium." id="Ojf-jI-81Y">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="Ojf-jI-81Y">
                                 <rect key="frame" x="9" y="266" width="216" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -195,14 +277,63 @@
                     <connections>
                         <outlet property="tableView" destination="DJY-Pv-sI4" id="Usl-Mk-umc"/>
                         <outlet property="view" destination="mT2-Ll-51P" id="Ba5-Hk-eNA"/>
+                        <segue destination="Gws-DC-FhV" kind="push" identifier="002" id="led-Lb-nNc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNX-WT-gJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="-115"/>
+            <point key="canvasLocation" x="1198" y="-115"/>
+        </scene>
+        <!--Product Details View Controller-->
+        <scene sceneID="rlS-1Q-gC7">
+            <objects>
+                <viewController id="Gws-DC-FhV" customClass="SSProductDetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sa3-Vc-Nf2">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="Qvc-dS-Lsw" customClass="KIImagePager">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cyan="0.10000000000000001" magenta="0.10000000000000001" yellow="0.14999999999999999" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gws-DC-FhV" id="Pxe-cz-BZU"/>
+                                    <outlet property="delegate" destination="Gws-DC-FhV" id="ccd-r8-1wg"/>
+                                </connections>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" id="V20-VQ-Dif">
+                                <rect key="frame" x="20" y="259" width="280" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BLv-ph-uHe"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="imagePager" destination="Qvc-dS-Lsw" id="6Gp-sH-RSw"/>
+                        <outlet property="textView" destination="V20-VQ-Dif" id="u67-Mq-eXw"/>
+                        <outlet property="view" destination="Sa3-Vc-Nf2" id="cbj-86-MWf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCS-jH-QEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="-115"/>
         </scene>
     </scenes>
     <classes>
+        <class className="KIImagePager" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KIImagePager.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
         <class className="SSBranchDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBranchDetailsViewController.h"/>
             <relationships>
@@ -221,6 +352,19 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSMenuViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SSNotificationsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSNotificationsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SSProductDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSProductDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imagePager" candidateClass="KIImagePager"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="SSProductListViewController" superclassName="UIViewController">

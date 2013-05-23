@@ -31,4 +31,6 @@ typedef void(^XclusivesAFResponseBlock)(id data);
 - (BOOL)saveTimestampsIfChanged;
 
 - (NSURL *)imageFullURLFromString:(NSString *)string withWidth:(int)width andHeight:(int)height;
+- (NSString *)imagePagerCompatibleString:(NSString *)image withWidth:(int)width andHeight:(int)height;
+
 @end

@@ -57,5 +57,7 @@ install_resource 'BlockAlertsAnd-ActionSheets/BlockAlertsDemo/images/AlertView/a
 install_resource 'BlockAlertsAnd-ActionSheets/BlockAlertsDemo/images/AlertView/alert-window@2x.png'
 install_resource 'Facebook-iOS-SDK/src/FacebookSDKResources.bundle'
 install_resource 'Facebook-iOS-SDK/src/FBUserSettingsViewResources.bundle'
+install_resource 'KIImagePager/KIImagePager/KIImagePager/KICamera.png'
+install_resource 'KIImagePager/KIImagePager/KIImagePager/KICamera@2x.png'
 install_resource 'SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle'
 install_resource 'iRate/iRate/iRate.bundle'

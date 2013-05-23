@@ -13,6 +13,7 @@ PODS:
   - FlurrySDK (4.2.1)
   - InflectorKit (0.0.1)
   - iRate (1.7.5)
+  - KIImagePager (0.0.2)
   - MGBox2 (HEAD based on 2.0.0)
   - MJPopupViewController (HEAD based on 0.4)
   - Parse (1.2.9):
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Facebook-iOS-SDK
   - FlurrySDK
   - iRate
+  - KIImagePager
   - MGBox2 (HEAD)
   - MJPopupViewController (HEAD)
   - Parse
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   FlurrySDK: ed65c2389c6028244cb0e57f31fe370cc1b17f22
   InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
   iRate: 8de5eaeca627c7708c8aec279eeb8daf2551c774
+  KIImagePager: 29fedf1aaa77fa341bd694b41749956efc8ff65a
   MGBox2: 7c09e36c2271f9af16fdb5141a0ca554ecee4d8d
   MJPopupViewController: 4cd0badf3dae541017e0e16e2d2c7578d9224052
   Parse: 9d763110e8cebe319243ee38dc3c34d3475b98d6

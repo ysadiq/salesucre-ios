@@ -1,33 +1,32 @@
 //
-//  SSBranchesViewController.m
+//  SSNotificationsViewController.m
 //  salesucre
 //
-//  Created by Haitham Reda on 5/19/13.
+//  Created by Haitham Reda on 5/22/13.
 //  Copyright (c) 2013 Haitham Reda. All rights reserved.
 //
 
-#import "SSBranchesViewController.h"
-#import "SSCell.h"
-#import "SSBranchDetailsViewController.h"
+#import "SSNotificationsViewController.h"
+#import "SSNotificationCell.h"
+#import "SSNotification.h"
 
-@interface SSBranchesViewController () <NSFetchedResultsControllerDelegate> {
+@interface SSNotificationsViewController () <NSFetchedResultsControllerDelegate> {
     
     NSFetchedResultsController *_fetchedResultsController;
     
 }
+
 - (void)refetchData;
 @end
 
 
-@implementation SSBranchesViewController
-
-@synthesize tableView;
-@synthesize branchToPass = _branchToPass;
+@implementation SSNotificationsViewController
 
 - (void)refetchData
 {
     [_fetchedResultsController performSelectorOnMainThread:@selector(performFetch:) withObject:nil waitUntilDone:YES modes:@[ NSRunLoopCommonModes ]];
 }
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,32 +42,27 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self setTitle:@"Branches"];
-    
     //---- AFIncrementalStore ---- //
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Branch"];
-    
-    NSSortDescriptor *sCity = [[NSSortDescriptor alloc] initWithKey:@"cityWeight" ascending:NO];
-    NSSortDescriptor *sDistrict = [[NSSortDescriptor alloc] initWithKey:@"districtWeight" ascending:NO];
-    
-    fetchRequest.sortDescriptors = [NSArray arrayWithObjects:sCity,sDistrict,nil];
-    fetchRequest.fetchLimit = [kDefaultFetchLimit integerValue];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSNotification"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastModified" ascending:NO]];
+    fetchRequest.fetchLimit = 100;
     
     //---- NSPredicate ---- //
-    NSPredicate *p = [NSPredicate predicateWithFormat:@"deletedAt = nil"];
-    [fetchRequest setPredicate:p];
+//    NSPredicate *p = [NSPredicate predicateWithFormat:@"ANY categories.categoryId == %@ AND deletedAt = nil", [_currentcategory categoryId] ];
+//    [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
-                                 sectionNameKeyPath:@"cityName" cacheName:@"Branch"];
+                                 sectionNameKeyPath:nil cacheName:@"SSNotification"];
     
     _fetchedResultsController.delegate = self;
     [self refetchData];
     
     if (kiOS6)
     {
-        [self.tableView registerClass:[SSCell class] forCellReuseIdentifier:@"SSCell"];
+        [self.tableView registerClass:[SSNotificationCell class] forCellReuseIdentifier:@"SSNCell"];
     }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,14 +88,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 77.0f;
+    return [SSNotificationCell heightForCellWithNotificaction:[_fetchedResultsController objectAtIndexPath:indexPath]];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"SSCell";
+    static NSString *CellIdentifier = @"SSNCell";
     
-    SSCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SSNotificationCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -111,9 +106,10 @@
     //[cell setCategoriesData:[dataCache_ valueForKey:[dataCacheKeys_ objectAtIndex:indexPath.row]] withLanguage:language_];
     
     @try {
-        [cell setBranchDetails:[_fetchedResultsController objectAtIndexPath:indexPath]];
+        [cell setNotification:[_fetchedResultsController objectAtIndexPath:indexPath] ];
     }
     @catch (NSException *exception) {
+        DDLogError(@"method: %s, line: %i", __PRETTY_FUNCTION__, __LINE__);
         DDLogError(@"Exception: %@", exception);
     }
     
@@ -121,50 +117,15 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    Branch *updatedBranch = [_fetchedResultsController objectAtIndexPath:indexPath];
-    [(SSCell *)cell setBranchDetails:updatedBranch];
+    SSNotification *not = (SSNotification *)[_fetchedResultsController objectAtIndexPath:indexPath];
+    [(SSNotificationCell *)cell setNotification:not];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Branch *branch = (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath];
-    DDLogInfo(@"current name: %@", [branch branchId]);
-    [self setBranchToPass: (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath] ];
-    [self performSegueWithIdentifier:@"011" sender:self];
-}
-
-#pragma mark - Tableview headers
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 32.0f)];
-    [title setFont:[UIFont boldSystemFontOfSize:18] ];
-    [title setTextAlignment:NSTextAlignmentCenter];
-    [title setTextColor:[UIColor whiteColor]];
-    [title setBackgroundColor:[UIColor clearColor]];
-    [title setText:[[[_fetchedResultsController sections] objectAtIndex:section] name] ];
+    DDLogInfo(@"index: %i selected", indexPath.row);
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 32.0f)];
-    [header setBackgroundColor:[UIColor orangeColor]];
-    
-    [header addSubview:title];
-    
-    return header;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 32.0;
-}
-
-#pragma mark - Segue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"011"])
-    {
-        SSBranchDetailsViewController *vc = [segue destinationViewController];
-        [vc setCurrentBranch:_branchToPass];
-    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
@@ -218,34 +179,6 @@
     [self.tableView endUpdates];
     //[self.tableView reloadData];
 }
-
-- (void)newLastModifiedValue
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Branch"
-                                              inManagedObjectContext:[_fetchedResultsController managedObjectContext]];
-    [fetchRequest setEntity:entity];
-    [fetchRequest setFetchLimit:100];
-    //[fetchRequest setResultType:NSDictionaryResultType];
-    [fetchRequest setPropertiesToFetch:[NSArray arrayWithObject:@"lastModified"]];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"lastModified"
-                                        ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    
-    NSError *error = nil;
-    NSArray *fetchResults = [[_fetchedResultsController managedObjectContext]
-                             executeFetchRequest:fetchRequest
-                             error:&error];
-    
-    SSMenuItem *oldest = [fetchResults lastObject];
-    
-    DDLogInfo(@"before reloading table, max lastModified is :%@", [oldest lastModified]);
-}
-
-#pragma mark - Tableview Animation
-
 
 
 @end
