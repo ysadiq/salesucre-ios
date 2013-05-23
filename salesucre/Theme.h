@@ -22,5 +22,6 @@
 //---- Cell ---- //
 #define kDefaultCellHeight @63.0
 #define THEME_CELL_BACKGROUND @"cell-background.png"
+#define THEME_CELL_IMAGE_PLACEHOLDER @"salesucre-logo.png"
 
 #endif
