@@ -15,6 +15,7 @@
 #import <Parse/Parse.h>
 #import <iRate.h>
 #import "AFNetworkActivityIndicatorManager.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface SSAppDelegate ()
 
@@ -35,9 +36,6 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 
-void uncaughtExceptionHandler(NSException *exception) {
-    [Flurry logError:@"Uncaught" message:@"Crash!" exception:exception];
-}
 
 + (void)initialize
 {
@@ -68,9 +66,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     
+    // ---- Crashlytics ---- //
+    [Crashlytics startWithAPIKey:@"665d47e6931df693ab4bb152e397ac09982a11a4"];
     
     // ---- Flurry ---- //
-    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     [Flurry setSessionReportsOnCloseEnabled:NO];
     [Flurry startSession:kFlurryAPIKey];
     [Flurry setSessionReportsOnPauseEnabled:YES];

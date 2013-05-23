@@ -61,8 +61,8 @@
     fetchRequest.fetchLimit = 100;
     
     //---- NSPredicate ---- //
-    NSPredicate *p = [NSPredicate predicateWithFormat:@"deletedAt = nil"];
-    [fetchRequest setPredicate:p];
+//    NSPredicate *p = [NSPredicate predicateWithFormat:@"deletedAt = nil"];
+//    [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
@@ -127,6 +127,26 @@
 
 - (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     SSCategory *updatedCategory = [_fetchedResultsController objectAtIndexPath:indexPath];
+    if ([updatedCategory deletedAt])
+    {
+        DDLogWarn(@"#deletedAt category detected, deleting now: %@", updatedCategory.name);
+        NSManagedObjectContext *currentContext = [_fetchedResultsController managedObjectContext];
+        [currentContext deleteObject:updatedCategory];
+        
+        NSError *error;
+        if ([currentContext hasChanges] && ![currentContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        else
+        {
+            DDLogInfo(@"saved with success after deletion");
+        }
+
+    }
+        
     [(SSCell *)cell setCateforiesData:updatedCategory withLanguage:@"en"];
 }
 
@@ -183,7 +203,6 @@
             [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         case NSFetchedResultsChangeUpdate:
-            
             [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
             break;
         case NSFetchedResultsChangeMove:
