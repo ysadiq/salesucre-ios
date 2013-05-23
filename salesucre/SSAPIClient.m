@@ -356,6 +356,7 @@
         NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
         [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
         
+        [mutablePropertyValues setValue:[representation valueForKey:@"label"] forKey:@"label"];
         [mutablePropertyValues setValue:[representation valueForKey:@"path"] forKey:@"path"];
     }
     else if ([entity.name isEqualToString:@"Branch"])

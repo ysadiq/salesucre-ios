@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) NSString * path;
+@property (nonatomic, retain) NSString * label;
 @property (nonatomic, retain) SSMenuItem *menuItem;
 @property (nonatomic, retain) SSCategory *category;
 

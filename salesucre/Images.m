@@ -15,6 +15,7 @@
 
 @dynamic lastModified;
 @dynamic path;
+@dynamic label;
 @dynamic menuItem;
 @dynamic category;
 

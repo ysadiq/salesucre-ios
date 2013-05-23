@@ -18,6 +18,7 @@
         <attribute name="street2" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Images" representedClassName="Images" syncable="YES">
+        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="images" inverseEntity="SSCategory" syncable="YES"/>
@@ -52,7 +53,7 @@
     </entity>
     <elements>
         <element name="Branch" positionX="-4419" positionY="-547" width="128" height="268"/>
-        <element name="Images" positionX="-4230" positionY="-702" width="128" height="103"/>
+        <element name="Images" positionX="-4230" positionY="-702" width="128" height="118"/>
         <element name="SSCategory" positionX="-3690" positionY="-747" width="128" height="163"/>
         <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="178"/>
         <element name="SSNotification" positionX="-4212" positionY="-439" width="128" height="103"/>
