@@ -32,10 +32,10 @@
 #pragma mark - UIView
 - (void)addBackground
 {
-//    UIImage *bg = [UIImage imageNamed:THEME_CELL_BACKGROUND];
-//    UIImageView *imgView = [[UIImageView alloc] initWithImage:bg];
-//    self.backgroundView = imgView;
-    self.backgroundColor = [UIColor UIColorFromHex:0xF8F4ED];
+    UIImage *bg = [UIImage imageNamed:THEME_CELL_BACKGROUND];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:bg];
+    self.backgroundView = imgView;
+//    self.backgroundColor = [UIColor UIColorFromHex:0xF8F4ED];
 }
 
 - (void)layoutSubviews {

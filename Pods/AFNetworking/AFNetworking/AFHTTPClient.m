@@ -221,6 +221,10 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
     return [[self alloc] initWithBaseURL:url];
 }
 
+- (id)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ Failed to call designated initializer. Invoke `initWithBaseURL:` instead.", NSStringFromClass([self class])] userInfo:nil];
+}
+
 - (id)initWithBaseURL:(NSURL *)url {
     NSParameterAssert(url);
 
@@ -1067,11 +1071,22 @@ static const NSUInteger AFMultipartBodyStreamProviderDefaultBufferLength = 4096;
 
 #pragma mark - NSStreamDelegate
 
-- (void)stream:(NSStream __unused *)stream
-   handleEvent:(NSStreamEvent)eventCode
-{
+
+// This retry works around a nasty problem in which mutli-part uploads will fail due to the stream delegate being sent a `NSStreamEventHasSpaceAvailable` event before the input stream has finished opening.
+// This workaround simply replays the event after allowing the run-loop to cycle, providing enough time for the input stream to finish opening. It appears that this bug is in the CFNetwork layer.
+// See: https://github.com/AFNetworking/AFNetworking/issues/948
+- (void)retryWrite:(NSStream *)stream {
+    [self stream:stream handleEvent:NSStreamEventHasSpaceAvailable];
+}
+
+- (void)stream:(NSStream *)stream
+   handleEvent:(NSStreamEvent)eventCode {
     if (eventCode & NSStreamEventHasSpaceAvailable) {
-        [self handleOutputStreamSpaceAvailable];
+        if (self.inputStream.streamStatus < NSStreamStatusOpen) {
+            [self performSelector:@selector(retryWrite:) withObject:stream afterDelay:0.1];
+        } else {
+            [self handleOutputStreamSpaceAvailable];
+        }
     }
 }
 
@@ -1125,13 +1140,10 @@ static const NSUInteger AFMultipartBodyStreamProviderDefaultBufferLength = 4096;
     [outputStream close];
     outputStream.delegate = nil;
     
-    /*
-     Workaround for a race condition in CFStream _CFStreamCopyRunLoopsAndModes. This outputstream needs to be retained just a little longer.
-     
-     See: https://github.com/AFNetworking/AFNetworking/issues/907
-     */
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    // Workaround for a race condition in CFStream _CFStreamCopyRunLoopsAndModes. This outputstream needs to be retained just a little longer.
+    // See: https://github.com/AFNetworking/AFNetworking/issues/907
+    NSTimeInterval delay = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
         outputStream.delegate = nil;
     });

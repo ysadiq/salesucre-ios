@@ -70,7 +70,7 @@
     
     self.activity  = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
-    [self.activity setFrame:CGRectMake(142.0f, [[UIScreen mainScreen] bounds].size.height - 220.0, 20.0f, 20.0f) ];
+    [self.activity setFrame:CGRectMake(142.0f, [[UIScreen mainScreen] bounds].size.height - 80.0, 20.0f, 20.0f) ];
     
     
     DDLogInfo(@"Start Animating");

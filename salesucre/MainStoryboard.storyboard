@@ -35,6 +35,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Fk-up-Oi6">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="seJ-fY-mWg" kind="relationship" relationship="rootViewController" id="FLR-q8-KQJ"/>

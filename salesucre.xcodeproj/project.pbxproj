@@ -10,8 +10,6 @@
 		BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 976D2775B86E407CA4B459DD /* libPods.a */; };
 		DD1723FC174CDB18005EB25A /* app-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FA174CDB18005EB25A /* app-background.png */; };
 		DD1723FD174CDB18005EB25A /* app-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FB174CDB18005EB25A /* app-background@2x.png */; };
-		DD27C999174D61880069CCFF /* cell-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C997174D61880069CCFF /* cell-background.png */; };
-		DD27C99A174D61880069CCFF /* cell-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C998174D61880069CCFF /* cell-background@2x.png */; };
 		DD27C9AA174D79520069CCFF /* navbar-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C9A8174D79520069CCFF /* navbar-background.png */; };
 		DD27C9AB174D79520069CCFF /* navbar-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD27C9A9174D79520069CCFF /* navbar-background@2x.png */; };
 		DD3D26BF1748F2D800A49116 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3D26BE1748F2D800A49116 /* Images.m */; };
@@ -43,6 +41,8 @@
 		DD3FD96817465D68003DE202 /* SSIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD96717465D68003DE202 /* SSIncrementalStore.m */; };
 		DD3FD96A1746612C003DE202 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD9691746612C003DE202 /* AudioToolbox.framework */; };
 		DD3FD971174664B5003DE202 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FD970174664B5003DE202 /* libz.1.1.3.dylib */; };
+		DD4B51D4174E2D530011EBE0 /* cell-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4B51D2174E2D530011EBE0 /* cell-background.png */; };
+		DD4B51D5174E2D530011EBE0 /* cell-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4B51D3174E2D530011EBE0 /* cell-background@2x.png */; };
 		DD8989FA174B7B82005F3257 /* Branch.m in Sources */ = {isa = PBXBuildFile; fileRef = DD8989F9174B7B82005F3257 /* Branch.m */; };
 		DD9184C3174CC03000441245 /* gallery-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9184C1174CC03000441245 /* gallery-placeholder.png */; };
 		DD9184C4174CC03000441245 /* gallery-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9184C2174CC03000441245 /* gallery-placeholder@2x.png */; };
@@ -65,8 +65,6 @@
 		976D2775B86E407CA4B459DD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1723FA174CDB18005EB25A /* app-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-background.png"; sourceTree = "<group>"; };
 		DD1723FB174CDB18005EB25A /* app-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-background@2x.png"; sourceTree = "<group>"; };
-		DD27C997174D61880069CCFF /* cell-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background.png"; sourceTree = "<group>"; };
-		DD27C998174D61880069CCFF /* cell-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background@2x.png"; sourceTree = "<group>"; };
 		DD27C9A8174D79520069CCFF /* navbar-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background.png"; sourceTree = "<group>"; };
 		DD27C9A9174D79520069CCFF /* navbar-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-background@2x.png"; sourceTree = "<group>"; };
 		DD3D26BD1748F2D800A49116 /* Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
@@ -113,6 +111,8 @@
 		DD3FD96717465D68003DE202 /* SSIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSIncrementalStore.m; sourceTree = "<group>"; };
 		DD3FD9691746612C003DE202 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DD3FD970174664B5003DE202 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		DD4B51D2174E2D530011EBE0 /* cell-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background.png"; sourceTree = "<group>"; };
+		DD4B51D3174E2D530011EBE0 /* cell-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background@2x.png"; sourceTree = "<group>"; };
 		DD8989F8174B7B82005F3257 /* Branch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Branch.h; sourceTree = "<group>"; };
 		DD8989F9174B7B82005F3257 /* Branch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Branch.m; sourceTree = "<group>"; };
 		DD9184C1174CC03000441245 /* gallery-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallery-placeholder.png"; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 		DD27C996174D61790069CCFF /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				DD27C997174D61880069CCFF /* cell-background.png */,
-				DD27C998174D61880069CCFF /* cell-background@2x.png */,
+				DD4B51D2174E2D530011EBE0 /* cell-background.png */,
+				DD4B51D3174E2D530011EBE0 /* cell-background@2x.png */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -415,12 +415,12 @@
 				DD9184C4174CC03000441245 /* gallery-placeholder@2x.png in Resources */,
 				DD1723FC174CDB18005EB25A /* app-background.png in Resources */,
 				DD1723FD174CDB18005EB25A /* app-background@2x.png in Resources */,
-				DD27C999174D61880069CCFF /* cell-background.png in Resources */,
-				DD27C99A174D61880069CCFF /* cell-background@2x.png in Resources */,
 				DD27C9AA174D79520069CCFF /* navbar-background.png in Resources */,
 				DD27C9AB174D79520069CCFF /* navbar-background@2x.png in Resources */,
 				DDF2B9BE174D7CC800545849 /* tabbar-background.png in Resources */,
 				DDF2B9BF174D7CC800545849 /* tabbar-background@2x.png in Resources */,
+				DD4B51D4174E2D530011EBE0 /* cell-background.png in Resources */,
+				DD4B51D5174E2D530011EBE0 /* cell-background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
