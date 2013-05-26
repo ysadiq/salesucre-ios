@@ -22,7 +22,8 @@
 //---- TableView & Cell ---- //
 #define kDefaultCellHeight @63.0
 #define THEME_CELL_BACKGROUND @"cell-background.png"
-#define THEME_CELL_IMAGE_PLACEHOLDER @"salesucre-logo.png"
+#define THEME_SALESUCRE_LOGO @"salesucre-logo.png"
+#define THEME_CELL_IMAGE_PLACEHOLDER @"thumbnail-placeholder.png"
 #define THEME_SECTION_HEADER_VIEW @"section-header-view-background.png"
 
 #endif
