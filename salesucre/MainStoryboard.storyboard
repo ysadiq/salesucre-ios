@@ -85,6 +85,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w1X-fD-hM9">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="eJ3-Vi-fYU" kind="relationship" relationship="rootViewController" id="z3o-g8-eUc"/>
@@ -133,6 +134,7 @@
                     <tabBarItem key="tabBarItem" title="Notifications" id="OnC-7g-7Nf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W4P-Rc-svb">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Xyl-90-vAl" kind="relationship" relationship="rootViewController" id="kOL-eu-L1G"/>
@@ -181,6 +183,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGu-uj-LZy">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="WdK-GT-xCx" kind="relationship" relationship="rootViewController" id="IyV-RG-rMt"/>
