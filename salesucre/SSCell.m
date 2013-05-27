@@ -99,6 +99,18 @@
     [self.detailTextLabel setBackgroundColor:[UIColor clearColor]];
     [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [self.textLabel setText:[currentItem name]];
+    
+    if ( [[[currentItem images] allObjects] count] >= 1)
+    {
+        [self.imageView setImageWithURL:[[SSAPIClient sharedInstance] imageFullURLFromString:[[[[currentItem images] allObjects] objectAtIndex:0] path]
+                                                                                   withWidth:50 andHeight:50]
+                       placeholderImage:[UIImage imageNamed:THEME_CELL_IMAGE_PLACEHOLDER] ];
+    }
+    else
+    {
+        DDLogWarn(@"no image found for category: %@, setting placeholder",currentItem.name);
+        [self.imageView setImage:[UIImage imageNamed:THEME_CELL_IMAGE_PLACEHOLDER]];
+    }
 }
 
 - (void)setBranchDetails:(Branch *)branch
@@ -106,6 +118,8 @@
     [self.textLabel setFont:self.defaultFont];
     [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [self.textLabel setText:branch.distirctName ];
+    
+    [self.imageView setImage:[UIImage imageNamed:THEME_SALESUCRE_LOGO]];
 
 }
 

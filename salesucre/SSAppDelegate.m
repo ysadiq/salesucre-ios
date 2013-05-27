@@ -281,8 +281,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     //---- Tabbar ---- //
     [_mainTabbar.tabBar setBackgroundImage:[UIImage imageNamed:THEME_TABBAR_BACKGROUND] ];
+    [_mainTabbar.tabBar setTintColor:nil];
     //[_mainTabbar.tabBar setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:kThemeTabBarSelectionIndicator]] ];
-    //[_mainTabbar.tabBar setSelectionIndicatorImage:[UIImage imageNamed:@"tabbarTintImage.png"]];
+    [_mainTabbar.tabBar setSelectionIndicatorImage:nil];
     
     //---- Navigation Bar ---- //
     // navigation bar

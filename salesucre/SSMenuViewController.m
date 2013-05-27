@@ -44,6 +44,9 @@
 	// Do any additional setup after loading the view.
     DDLogInfo(@"menu did load");
     
+    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_SELECTED]
+                  withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_UNSELECTED]];
+    
     [self setTitle:@"Menu"];
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
