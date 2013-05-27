@@ -14,8 +14,11 @@
 
 @interface SSCell : UITableViewCell
 
+@property (strong, nonatomic) UIFont *defaultFont;
+
 - (void)setCateforiesData:(SSCategory *)currentCategory withLanguage:(NSString *)language;
 - (void)setMenuItem:(SSMenuItem *)currentItem;
 - (void)setBranchDetails:(Branch *)branch;
+
 
 @end

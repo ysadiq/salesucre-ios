@@ -12,6 +12,8 @@
 #import "Branch.h"
 
 #define kAPIBaseURL @"http://api.olitintl.com/APIPlatform/index.php/Version2/"
+#define kBetaAPIBaseURL @"http://betaapi.olitintl.com/APIPlatform/index.php/Version2/"
+
 
 @implementation SSAPIClient
 
@@ -26,7 +28,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __sharedInstance = [[SSAPIClient alloc] initWithBaseURL:
-                            [NSURL URLWithString:kAPIBaseURL]];
+                            [NSURL URLWithString:kBetaAPIBaseURL]];
     });
     
     return __sharedInstance;

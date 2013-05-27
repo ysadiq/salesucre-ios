@@ -299,6 +299,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       UITextAttributeTextShadowOffset,
       nil]];
     
+    
+    
+    
 }
 
 #pragma mark - Core Data

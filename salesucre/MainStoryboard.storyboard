@@ -31,7 +31,7 @@
         <scene sceneID="DhW-r8-cFf">
             <objects>
                 <navigationController definesPresentationContext="YES" id="T7J-HZ-Rr3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Menu" id="8S0-u9-jOj"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Menu" image="menu-icon-selected.png" id="8S0-u9-jOj"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Fk-up-Oi6">
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,7 +81,7 @@
         <scene sceneID="JQY-91-QrJ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="DLz-EU-dZM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Branches" id="gkO-yd-dgo"/>
+                    <tabBarItem key="tabBarItem" title="Branches" image="branches-icon-unselected.png" id="gkO-yd-dgo"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w1X-fD-hM9">
                         <autoresizingMask key="autoresizingMask"/>
@@ -330,6 +330,10 @@
             <point key="canvasLocation" x="1609" y="-115"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="branches-icon-unselected.png" width="30" height="30"/>
+        <image name="menu-icon-selected.png" width="30" height="30"/>
+    </resources>
     <classes>
         <class className="KIImagePager" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/KIImagePager.h"/>

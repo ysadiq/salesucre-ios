@@ -54,16 +54,20 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.031016160582412619</real>
+				<real>0.03101616058241262</real>
 				<key>Green</key>
-				<real>0.23096840688438736</real>
+				<real>0.2309684068843874</real>
 				<key>Red</key>
-				<real>0.51972231657608692</real>
+				<real>0.5197223165760869</real>
 			</dict>
 			<key>Translucent</key>
 			<false/>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>GestaSemiCond-Medium.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

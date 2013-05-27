@@ -62,12 +62,12 @@ NSFetchedResultsController *_fetchedResultsController;
     
     //---- NSPredicate ---- //
     DDLogInfo(@"currentCategory: %@", [_currentcategory categoryId]);
-    NSPredicate *p = [NSPredicate predicateWithFormat:@"ANY categories.categoryId == %@ AND deletedAt = nil", [_currentcategory categoryId] ];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"ANY categories.categoryId = %@ AND deletedAt = nil", [_currentcategory categoryId] ];
     [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
-                                 sectionNameKeyPath:nil cacheName:@"SSCategory"];
+                                 sectionNameKeyPath:nil cacheName:nil];
     
     _fetchedResultsController.delegate = self;
     [self refetchData];
@@ -90,6 +90,13 @@ NSFetchedResultsController *_fetchedResultsController;
 {
     //return 0;
     DDLogError(@"number of rows: %i", [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects]);
+    
+//    for (SSMenuItem *child in _fetchedResultsController.fetchedObjects )
+//    {
+//        DDLogError(@"Data: %@", child.name);
+//        DDLogError(@"Data: %@", child.itemId);
+//    }
+    
     return [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
@@ -124,6 +131,10 @@ NSFetchedResultsController *_fetchedResultsController;
     @catch (NSException *exception) {
         DDLogError(@"method: %s, line: %i", __PRETTY_FUNCTION__, __LINE__);
         DDLogError(@"Exception: %@", exception);
+        for (SSMenuItem *child in _fetchedResultsController.fetchedObjects )
+        {
+            DDLogError(@"Data: %@", child.name);
+        }
     }
     
     return cell;
@@ -201,7 +212,12 @@ NSFetchedResultsController *_fetchedResultsController;
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
-    DDLogInfo(@"tableview endUpdates");
+    DDLogInfo(@"#content changed, count: %i", [_fetchedResultsController.fetchedObjects count]);
+    for (SSMenuItem *item in _fetchedResultsController.fetchedObjects)
+    {
+        DDLogError(@"item %@", item.name);
+    }
+    
     [self.tableView endUpdates];
     //[self.tableView reloadData];
 }

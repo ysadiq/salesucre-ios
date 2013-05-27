@@ -13,6 +13,8 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation SSCell
+@synthesize defaultFont;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -25,6 +27,7 @@
         CALayer *layer = self.imageView.layer;
         [layer setCornerRadius:9.0];
         [layer setMasksToBounds:YES];
+        self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:18.0];
     }
     return self;
 }
@@ -49,6 +52,11 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:bg];
     self.backgroundView = imgView;
 //    self.backgroundColor = [UIColor UIColorFromHex:0xF8F4ED];
+    
+    UIImageView *arrow = [[UIImageView alloc] init];
+    arrow.frame = CGRectMake(292.0f, 26.0f, 9.0f, 15.0f);
+    [arrow setImage:[UIImage imageNamed:THEME_CELL_ARROW]];
+    [self addSubview:arrow];
 }
 
 - (void)layoutSubviews {
@@ -57,6 +65,7 @@
     self.imageView.frame = CGRectMake(10.0f, 10.0f, 50.0f, 50.0f);
     self.textLabel.frame = CGRectMake(70.0f, 10.0f, 240.0f, 20.0f);
     self.imageView.frame = CGRectMake(6.5f, 6.5f, 50.0f, 50.0f);
+    
 //    CGRect detailTextLabelFrame = CGRectOffset(self.textLabel.frame, 0.0f, 25.0f);
 //    detailTextLabelFrame.size.height = [[self class] heightForCellWithPost:_post] - 45.0f;
 //    self.detailTextLabel.frame = detailTextLabelFrame;
@@ -65,6 +74,7 @@
 #pragma mark Data Methods
 - (void)setCateforiesData:(SSCategory *)currentCategory withLanguage:(NSString *)language
 {
+    [self.textLabel setFont:self.defaultFont];
     [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [[self textLabel] setText:[currentCategory name]];
     
@@ -83,6 +93,8 @@
 
 - (void)setMenuItem:(SSMenuItem *)currentItem
 {
+    
+    [self.textLabel setFont:self.defaultFont];
     [self.textLabel setBackgroundColor:[UIColor clearColor]];
     [self.detailTextLabel setBackgroundColor:[UIColor clearColor]];
     [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
@@ -91,6 +103,7 @@
 
 - (void)setBranchDetails:(Branch *)branch
 {
+    [self.textLabel setFont:self.defaultFont];
     [self.textLabel setTextColor:[UIColor UIColorFromHex:0x673F32]];
     [self.textLabel setText:branch.distirctName ];
 
