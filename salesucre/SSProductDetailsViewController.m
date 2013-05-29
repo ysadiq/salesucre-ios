@@ -10,6 +10,7 @@
 #import "SSMenuItem.h"
 #import "Images.h"
 #import "UIColor+Helpers.h"
+#import <BlockAlertView.h>
 
 #import <KIImagePager.h>
 
@@ -23,6 +24,10 @@
 @synthesize selectedItem = _selectedItem;
 @synthesize imagesURL = _imagesURL;
 @synthesize textView = _textView;
+@synthesize priceLabel;
+@synthesize priceTag;
+@synthesize facebookButton;
+@synthesize twitterButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,17 +56,27 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     [self setTitle:_selectedItem.name];
     
+    [self.priceLabel setFont:[UIFont fontWithName:THEME_FONT_GESTA size:22]];
+    [self.textView setFont:[UIFont fontWithName:THEME_FONT_GESTA size:19]];
     
     DDLogInfo(@"frame: %@", NSStringFromCGRect(_imagePager.frame) );
+    
+    if (![_selectedItem.price isEqual: [NSNull null]])
+    {
+        [self.priceLabel setText:[_selectedItem.price stringValue]];
+    }
     
     DDLogInfo(@"description: %@", _selectedItem.itemDescription);
     if ( (![_selectedItem.itemDescription isEqual:[NSNull null]] ) && ([_selectedItem.itemDescription length] > 0) )
     {
         [_textView setText:_selectedItem.itemDescription];
     }
+    
+    [self.facebookButton addTarget:self action:@selector(facebookShareTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.twitterButton addTarget:self action:@selector(twitterShareTapped) forControlEvents:UIControlEventTouchUpInside];
     
     SR_WEAK_SELF wself = self;
     
@@ -104,6 +119,96 @@
 - (UIImage *) placeHolderImageForImagePager
 {
     return [UIImage imageNamed:THEME_GALLERY_PLACEHOLDER];
+}
+
+#pragma mark - Social Networks
+
+- (void)facebookShareTapped
+{
+    DDLogInfo(@"facebook share tapped");
+}
+
+- (void)twitterShareTapped
+{
+    DDLogInfo(@"twitter share tapped");
+    
+    // ios6
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6) )
+    {
+        //        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
+        SLComposeViewController *twitterCompose = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        
+        [twitterCompose setInitialText:[NSString stringWithFormat:
+                                        @"checkout %@ via @salesucre \n #salesucre #patisserie #cakes", _selectedItem.name] ];
+        
+
+        twitterCompose.completionHandler = ^(SLComposeViewControllerResult result){
+            // Handle result, dismiss view controller
+            switch (result) {
+                case SLComposeViewControllerResultDone:
+                    DDLogInfo(@"tweet sent!");
+                    break;
+                    
+                case SLComposeViewControllerResultCancelled:
+                    DDLogInfo(@"tweet cancelled!");
+                    break;
+                    
+                default:
+                    DDLogWarn(@"some error sending tweet here!");
+                    break;
+            }
+            
+            [self dismissViewControllerAnimated:YES
+                                     completion:nil];
+        };
+        
+        [self presentViewController:twitterCompose
+                           animated:YES
+                         completion:nil];
+//                }else{
+//                    // the user does not have Twitter set up
+//                    BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:@"No Twitter Accounts Found!" message:@"Please configure your Twitter account at iOS device Settings section"];
+//                    [alert show];
+//            }
+    }
+    else if ( SYSTEM_VERSION_LESS_THAN(kiOS6) )
+    {
+        //        if( [TWTweetComposeViewController canSendTweet] ){
+        TWTweetComposeViewController *twitterCompose = [[TWTweetComposeViewController alloc] init];
+        
+        //[twitterCompose addImage:];
+        [twitterCompose setInitialText:[NSString stringWithFormat:
+                                        @"checkout %@ via @salesucre \n #salesucre #patisserie #cakes", _selectedItem.name] ];
+        
+        twitterCompose.completionHandler = ^(TWTweetComposeViewControllerResult result){
+            // Handle result, dismiss view controller
+            switch (result) {
+                case TWTweetComposeViewControllerResultDone:
+                    DDLogInfo(@"tweet sent!");
+                    break;
+                    
+                case TWTweetComposeViewControllerResultCancelled:
+                    DDLogInfo(@"tweet cencelled!");
+                    break;
+                    
+                default:
+                    DDLogInfo(@"some error sending tweet here!");
+                    break;
+            }
+            [self dismissViewControllerAnimated:YES
+                                     completion:nil];
+        };
+        [self presentViewController:twitterCompose
+                           animated:YES
+                         completion:nil];
+//                }else{
+//                    // the user hasn't go Twitter set up on their device.
+//                    BlockAlertView *alert = [[BlockAlertView alloc] initWithTitle:@"No Twitter Accounts Found!" message:@"Please configure your Twitter account at iOS device Settings section"];
+//                    [alert show];
+//                }
+    }
+    
 }
 
 
