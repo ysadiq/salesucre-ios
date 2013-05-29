@@ -126,6 +126,43 @@
 - (void)facebookShareTapped
 {
     DDLogInfo(@"facebook share tapped");
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6) )
+    {
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+        
+        SLComposeViewController *facebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [facebook setInitialText:[NSString stringWithFormat:@"check out %@ via %@", _selectedItem.name, kSaleSucreTwitterAccount] ];
+        [self presentModalViewController:facebook animated:YES];
+        SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
+            
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    
+                    DDLogInfo(@"facebook post cancelled");
+                    break;
+                case SLComposeViewControllerResultDone:
+                    DDLogInfo(@"facebook posted");
+                    break;
+                default:
+                    break;
+            }
+            
+            [facebook dismissViewControllerAnimated:YES completion:Nil];
+        };
+        facebook.completionHandler = myBlock;
+        
+        
+        }
+        else
+        {
+            DDLogError(@"No facebook account configured");
+        }
+    }
+    else
+    {
+        DDLogWarn(@"iOS version less than 6.0");
+    }
+    
 }
 
 - (void)twitterShareTapped
@@ -140,7 +177,7 @@
         
         
         [twitterCompose setInitialText:[NSString stringWithFormat:
-                                        @"checkout %@ via @salesucre \n #salesucre #patisserie #cakes", _selectedItem.name] ];
+                                        @"checkout %@ via %@ \n #salesucre #patisserie #cakes", _selectedItem.name, kSaleSucreTwitterAccount] ];
         
 
         twitterCompose.completionHandler = ^(SLComposeViewControllerResult result){
@@ -179,7 +216,7 @@
         
         //[twitterCompose addImage:];
         [twitterCompose setInitialText:[NSString stringWithFormat:
-                                        @"checkout %@ via @salesucre \n #salesucre #patisserie #cakes", _selectedItem.name] ];
+                                        @"checkout %@ via %@ \n #salesucre #patisserie #cakes", _selectedItem.name, kSaleSucreTwitterAccount] ];
         
         twitterCompose.completionHandler = ^(TWTweetComposeViewControllerResult result){
             // Handle result, dismiss view controller

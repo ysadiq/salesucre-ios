@@ -20,6 +20,10 @@
 
 #define kDefaultFetchLimit @200
 
+// ---- Facebook App ID ---- //
+#define kFacebookAppId @"178892165608643"
+#define kFacebookAppSecret @"fd5edc2fcbf40a78adff4286548961bb"
+
 // ---- External SDK ---- //
 #define kFlurryAPIKey @"KF8RMYTJMX64RSJ2QVRT"
 
@@ -42,9 +46,10 @@
 #define kiOS5 @"5.0"
 #define kiOS6 @"6.0"
 
+#define kSaleSucreTwitterAccount @"@sale_sucre"
+
 #define kDefaultLimit 50
 #define kDefaultOffset 0
-#define KAroundMeDefaultRadius 10
 
 /* MJPopupView animations
  0 "fade in",
