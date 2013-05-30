@@ -326,6 +326,8 @@
         NSNumber *price = [NSNumber numberWithInt:[[representation valueForKey:@"price"] intValue] ];
         [mutablePropertyValues setValue:price forKey:@"price"];
         
+        [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
+        
         id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
         id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
         

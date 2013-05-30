@@ -21,5 +21,6 @@
 @dynamic lastModified;
 @dynamic categories;
 @dynamic images;
+@dynamic weight;
 
 @end

@@ -42,6 +42,7 @@
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSCategory" inverseName="menuItems" inverseEntity="SSCategory" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="menuItem" inverseEntity="Images" syncable="YES"/>
     </entity>
@@ -55,7 +56,7 @@
         <element name="Branch" positionX="-4419" positionY="-547" width="128" height="268"/>
         <element name="Images" positionX="-4230" positionY="-702" width="128" height="118"/>
         <element name="SSCategory" positionX="-3690" positionY="-747" width="128" height="163"/>
-        <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="178"/>
+        <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="193"/>
         <element name="SSNotification" positionX="-4212" positionY="-439" width="128" height="103"/>
     </elements>
 </model>

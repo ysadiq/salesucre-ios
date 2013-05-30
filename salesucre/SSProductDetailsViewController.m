@@ -72,7 +72,10 @@
     DDLogInfo(@"description: %@", _selectedItem.itemDescription);
     if ( (![_selectedItem.itemDescription isEqual:[NSNull null]] ) && ([_selectedItem.itemDescription length] > 0) )
     {
-        [_textView setText:_selectedItem.itemDescription];
+        NSString *textToView = _selectedItem.itemDescription ;
+        textToView = [textToView stringByReplacingOccurrencesOfString:@"newline" withString:@"\n" ];
+        
+        [_textView setText:textToView];
     }
     
     [self.facebookButton addTarget:self action:@selector(facebookShareTapped) forControlEvents:UIControlEventTouchUpInside];
