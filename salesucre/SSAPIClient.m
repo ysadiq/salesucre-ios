@@ -290,7 +290,7 @@
             [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
-        [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
+        [mutablePropertyValues setValue:[NSNumber numberWithInt:[[representation valueForKey:@"weight"] intValue]] forKey:@"weight"];
         
     }
     else if ([entity.name isEqualToString:@"SSMenuItem"])
@@ -305,7 +305,7 @@
         }
         else
         {
-            DDLogInfo(@"old timestamp is heighr: %i", [[representation valueForKey:@"lastModified"] intValue]);
+            DDLogInfo(@"old timestamp is heigher: %i", [[representation valueForKey:@"lastModified"] intValue]);
         }
         
         // ---- deletedAt ---- //
@@ -325,7 +325,7 @@
         NSNumber *price = [NSNumber numberWithInt:[[representation valueForKey:@"price"] intValue] ];
         [mutablePropertyValues setValue:price forKey:@"price"];
         
-        [mutablePropertyValues setValue:[representation valueForKey:@"weight"] forKey:@"weight"];
+        [mutablePropertyValues setValue:[NSNumber numberWithInt:[[representation valueForKey:@"weight"] intValue]] forKey:@"weight"];
         
         id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
         id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];

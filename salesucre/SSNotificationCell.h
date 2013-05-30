@@ -11,7 +11,7 @@
 
 @interface SSNotificationCell : UITableViewCell
 
-@property SSNotification *notification;
+@property (setter = setNotification:) SSNotification *notification;
 @property UIFont *defaultFont;
 
 + (CGFloat)heightForCellWithNotificaction:(SSNotification *)notification;

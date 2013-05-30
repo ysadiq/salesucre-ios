@@ -9,6 +9,8 @@
 #import "SSNotificationCell.h"
 #import "UIColor+Helpers.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation SSNotificationCell
 
 @synthesize notification = _notification;
@@ -22,8 +24,15 @@
         
         self.textLabel.adjustsFontSizeToFitWidth = YES;
         self.selectionStyle = UITableViewCellSelectionStyleGray;
-        self.backgroundColor = [UIColor UIColorFromHex:0xf8f4ed];
         self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:14.0];
+        
+        CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
+		gradientLayer.colors =
+        [NSArray arrayWithObjects:
+         (id)[UIColor UIColorFromHex:0xf8f4ed].CGColor,
+         (id)[UIColor UIColorFromHex:0xF1E8DA].CGColor,
+         nil];
+		self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
