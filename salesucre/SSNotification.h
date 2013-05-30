@@ -17,4 +17,5 @@
 @property (nonatomic, retain) NSDate * lastModified;
 @property (nonatomic, retain) NSNumber * showUP;
 
+
 @end

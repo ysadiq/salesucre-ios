@@ -7,10 +7,12 @@
 //
 
 #import "SSNotificationCell.h"
+#import "UIColor+Helpers.h"
 
 @implementation SSNotificationCell
 
 @synthesize notification = _notification;
+@synthesize defaultFont;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -19,10 +21,9 @@
         // Initialization code
         
         self.textLabel.adjustsFontSizeToFitWidth = YES;
-        self.textLabel.textColor = [UIColor darkGrayColor];
-        self.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
-        self.detailTextLabel.numberOfLines = 0;
         self.selectionStyle = UITableViewCellSelectionStyleGray;
+        self.backgroundColor = [UIColor UIColorFromHex:0xf8f4ed];
+        self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:14.0];
     }
     return self;
 }
@@ -37,7 +38,7 @@
 - (void)setNotification:(SSNotification *)notification
 {
     _notification = notification;
-    
+    self.textLabel.font = self.defaultFont;
     self.textLabel.text = notification.content;
 //    self.detailTextLabel.text = _post.text;
 //    [self.imageView setImageWithURL:[NSURL URLWithString:_post.user.avatarImageURLString] placeholderImage:[UIImage imageNamed:@"profile-image-placeholder"]];

@@ -189,6 +189,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         [stamps setValue:currentTimestamp forKey:@"categories"];
         [stamps setValue:currentTimestamp forKey:@"branches"];
         [stamps setValue:currentTimestamp forKey:@"menuItems"];
+        [stamps setValue:currentTimestamp forKey:@"notifications"];
+        
         
         [[NSUserDefaults standardUserDefaults] setObject:[stamps mutableCopy] forKey:@"timestamps"];
         [[NSUserDefaults standardUserDefaults] setValue:@1 forKey:@"firstRun"];

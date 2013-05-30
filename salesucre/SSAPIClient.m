@@ -181,22 +181,18 @@
          */
         DDLogInfo(@"inside entity.name: %@", fetchRequest.entityName);
         
-        NSURL *notificationURL = [NSURL URLWithString:@"https://api.parse.com/1/classes/SSNotifications"];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:notificationURL];
+        NSString * time = [NSString stringWithFormat:@"%i",[[_timestamps valueForKey:@"notifications"] intValue] ];
+        DDLogInfo(@"timest: %@", time);
         
-
-        [self setDefaultHeader:@"X-Parse-Application-Id" value:kParseAppId];
-        [self setDefaultHeader:@"X-Parse-REST-API-Key" value:kParseRESTAPIKey];
-        [request setHTTPMethod:@"GET"];
+        NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                _language, @"language",
+                                @"gt", @"op",
+                                time , @"lastModified",
+                                @"lastModified", @"opKey",
+                                @"all", @"limit",
+                                nil];
         
-        
-        
-        DDLogInfo(@"%@", [self defaultValueForHeader:@"X-Parse-Application-Id"]);
-        DDLogInfo(@"%@", [self defaultValueForHeader:@"X-Parse-REST-API-Key"]);
-        DDLogInfo(@"request: %@", request);
-        
-        mutableURLRequest = request;
-
+        mutableURLRequest = [self requestWithMethod:@"GET" path:@"pushNotifications" parameters:params];
     }
     else
     {
@@ -452,9 +448,14 @@
         #pragma mark - Parsing SSNotification
         DDLogInfo(@"entity.name: %@", entity.name);
         
-        [mutablePropertyValues setValue:[representation valueForKey:@"content"] forKey:@"content"];
-        [mutablePropertyValues setValue:[representation valueForKey:@"showUP"] forKey:@"showUP"];
+        //---- change lastModified timestamp ---- //
+        if ([[representation valueForKey:@"lastModified"] intValue] > [[_timestamps valueForKey:@"notifications"] intValue])
+        {
+            DDLogInfo(@"new timestamp is higher, assigning new one");
+            [_timestamps setValue:[representation valueForKey:@"lastModified"] forKey:@"categories"];
+        }
         
+        [mutablePropertyValues setValue:[representation valueForKey:@"content"] forKey:@"content"];
         [mutablePropertyValues setValue:[representation valueForKey:@"createdAt"] forKey:@"createdAt"];
         [mutablePropertyValues setValue:[representation valueForKey:@"updatedAt"] forKey:@"lastModified"];
     }
