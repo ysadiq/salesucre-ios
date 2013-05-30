@@ -53,6 +53,8 @@
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
         // 401 is invalid token response code
+//        [self setDefaultHeader:@"X-Parse-Application-Id" value:kParseAppId];
+//        [self setDefaultHeader:@"X-Parse-REST-API-Key" value:kParseRESTAPIKey];
         
         // retina scale
         // detect weather screen is retina or non-retina
@@ -186,6 +188,7 @@
         [self setDefaultHeader:@"X-Parse-Application-Id" value:kParseAppId];
         [self setDefaultHeader:@"X-Parse-REST-API-Key" value:kParseRESTAPIKey];
         [request setHTTPMethod:@"GET"];
+        
         
         
         DDLogInfo(@"%@", [self defaultValueForHeader:@"X-Parse-Application-Id"]);

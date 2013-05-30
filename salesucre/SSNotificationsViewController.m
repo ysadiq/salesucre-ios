@@ -53,7 +53,7 @@
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
-                                 sectionNameKeyPath:nil cacheName:@"SSNotification"];
+                                 sectionNameKeyPath:nil cacheName:nil];
     
     _fetchedResultsController.delegate = self;
     [self refetchData];
