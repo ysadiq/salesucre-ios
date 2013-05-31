@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "SSIncrementalStore.h"
 #import "SSSplashViewController.h"
+#import "UIColor+Helpers.h"
 
 //---- 3rd Party ---- //
 #import <Parse/Parse.h>
@@ -279,7 +280,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
     // main background view
-    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:THEME_APP_BACKGROUND]]];
+    //[self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:THEME_APP_BACKGROUND]]];
+    [self.window setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     
     //---- Tabbar ---- //
     [_mainTabbar.tabBar setBackgroundImage:[UIImage imageNamed:THEME_TABBAR_BACKGROUND] ];
