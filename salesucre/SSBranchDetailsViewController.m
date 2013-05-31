@@ -9,6 +9,7 @@
 #import "SSBranchDetailsViewController.h"
 #import "Branch.h"
 #import "SSBranchLocation.h"
+#import "UIColor+Helpers.h"
 
 @interface SSBranchDetailsViewController ()
 
@@ -35,13 +36,25 @@
     [super viewWillAppear:animated];
     [_map setFrame:CGRectMake(0.0f, 0.0f, 320.0f, 252.0f)];
 }
+- (void)viewDidUnload
+{
+    [self setCurrentBranch:nil];
+    [self setMap:nil];
+    [self setTextView:nil];
+    [self setCallButton:nil];
+    
+    [super viewDidUnload];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    DDLogInfo(@"current branch: %@", _currentBranch.distirctName);
+    [self setTitle:_currentBranch.distirctName];
+    
+    [self.textView setFont:[UIFont fontWithName:THEME_FONT_GESTA size:15] ];
+    self.textView.textColor = [UIColor UIColorFromHex:0x673F32];
     
     NSString *text = [NSString stringWithFormat:@"%@\n", _currentBranch.distirctName];
     

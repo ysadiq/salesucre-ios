@@ -315,7 +315,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="price-tag.png" id="krr-Xv-xb6">
-                                <rect key="frame" x="223" y="186" width="77" height="32"/>
+                                <rect key="frame" x="245" y="182" width="51" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -346,10 +346,10 @@
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="Y1W-Nv-uSR">
-                                <rect key="frame" x="251" y="188" width="49" height="28"/>
+                                <rect key="frame" x="265" y="195" width="31" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
@@ -378,7 +378,7 @@
         <image name="branches-icon-unselected.png" width="30" height="30"/>
         <image name="facebook-icon.png" width="32" height="32"/>
         <image name="menu-icon-selected.png" width="30" height="30"/>
-        <image name="price-tag.png" width="66" height="32"/>
+        <image name="price-tag.png" width="40" height="31"/>
         <image name="twitter-icon.png" width="32" height="32"/>
     </resources>
     <classes>
