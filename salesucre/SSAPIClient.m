@@ -198,7 +198,7 @@
                                 @"gt", @"op",
                                 time , @"lastModified",
                                 @"lastModified", @"opKey",
-                                @"all", @"limit",
+                                @10, @"limit",
                                 nil];
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"pushNotifications" parameters:params];
@@ -280,7 +280,7 @@
             [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
         }
         else
-            DDLogWarn(@"a7a, %@", [createdAtValue class]);
+            DDLogWarn(@"????, %@", [createdAtValue class]);
         
         //        [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
         //                                         transformedValue:[representation valueForKey:lastModifiedValue] ] forKey:@"lastModified"];
@@ -457,16 +457,52 @@
         #pragma mark - Parsing SSNotification
         DDLogInfo(@"entity.name: %@", entity.name);
         
-        //---- change lastModified timestamp ---- //
-        if ([[representation valueForKey:@"lastModified"] intValue] > [[_timestamps valueForKey:@"notifications"] intValue])
+        id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
+        id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
+        
+        if ( createdAtValue && ![createdAtValue isEqual:[NSNull null]] && [createdAtValue isKindOfClass:[NSString class]] )
         {
-            DDLogInfo(@"new timestamp is higher, assigning new one");
-            [_timestamps setValue:[representation valueForKey:@"lastModified"] forKey:@"categories"];
+            //            [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+            //                                         transformedValue:createdAtValue ] forKey:@"createdAt"];
+            NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
+        }
+        if ( lastModifiedValue && ![lastModifiedValue isEqual:[NSNull null]] && [lastModifiedValue isKindOfClass:[NSString class]] )
+        {
+            NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
         }
         
-        [mutablePropertyValues setValue:[representation valueForKey:@"content"] forKey:@"content"];
-        [mutablePropertyValues setValue:[representation valueForKey:@"createdAt"] forKey:@"createdAt"];
-        [mutablePropertyValues setValue:[representation valueForKey:@"updatedAt"] forKey:@"lastModified"];
+        //---- change lastModified timestamp ---- //
+        if ([lastModifiedValue intValue] > [[_timestamps valueForKey:@"notifications"] intValue])
+        {
+            DDLogInfo(@"new timestamp is higher, assigning new one");
+            [_timestamps setValue:lastModifiedValue forKey:@"notifications"];
+        }
+        
+        // ---- deletedAt ---- //
+        @try {
+            id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
+            if ( deletedAtValue && ![deletedAtValue isEqual:[NSNull null]] && [deletedAtValue isKindOfClass:[NSString class]] )
+            {
+                NSTimeInterval timeModified = (NSTimeInterval)[deletedAtValue doubleValue];
+                [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"deletedAt"];
+            }
+
+        }
+        @catch (NSException *exception) {
+            DDLogError(@"exception: %@", exception);
+        }
+        
+        if ([representation objectForKey:@"dataAlertExtend"] != [NSNull null])
+        {
+            [mutablePropertyValues setValue:[representation valueForKey:@"dataAlertExtend"] forKey:@"dataAlertExtend"];
+        }
+        
+        if ([representation objectForKeyList:@"data",@"alert",nil] != [NSNull null])
+        {
+            [mutablePropertyValues setValue:[[representation objectForKey:@"data"] valueForKey:@"alert"] forKey:@"alert"];
+        }
     }
     else {
         

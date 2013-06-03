@@ -52,11 +52,11 @@
     //---- AFIncrementalStore ---- //
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSNotification"];
     fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastModified" ascending:NO]];
-    fetchRequest.fetchLimit = 100;
+    fetchRequest.fetchLimit = 10;
     
     //---- NSPredicate ---- //
-//    NSPredicate *p = [NSPredicate predicateWithFormat:@"ANY categories.categoryId == %@ AND deletedAt = nil", [_currentcategory categoryId] ];
-//    [fetchRequest setPredicate:p];
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"deletedAt = nil"];
+    [fetchRequest setPredicate:p];
     
     _fetchedResultsController = [[NSFetchedResultsController alloc]
                                  initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
