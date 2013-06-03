@@ -11,6 +11,11 @@
 
 // ---- Fonts ---- //
 #define THEME_FONT_GESTA @"GestaSemiCond-Medium"
+#define kFontMyriadProSemiBold @"MyriadPro-Semibold"
+#define kFontMyriadProCondensed @"MyriadPro-Cond"
+#define kFontMyriadProCondensedItalic @"MyriadPro-CondIt"
+#define kFontMyriadProRegular @"MyriadPro-Regular"
+#define kFontMyriadProItalic @"MyriadPro-It"
 
 //---- General ---- //
 #define THEME_APP_BACKGROUND @"app-background.png"
@@ -39,5 +44,6 @@
 #define THEME_CELL_IMAGE_PLACEHOLDER @"thumbnail-placeholder.png"
 #define THEME_SECTION_HEADER_VIEW @"section-header-view-background.png"
 #define THEME_CELL_ARROW @"list-arrow.png"
+#define THEME_CELL_CALL @"call-icon.png"
 
 #endif

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00312351175CD047001961FD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00312350175CD047001961FD /* MessageUI.framework */; };
+		00E775A1175CA9B500FAFE13 /* SSMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E775A0175CA9B500FAFE13 /* SSMoreViewController.m */; };
+		00E775A4175CB0CD00FAFE13 /* call-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E775A2175CB0CD00FAFE13 /* call-icon.png */; };
+		00E775A5175CB0CD00FAFE13 /* call-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E775A3175CB0CD00FAFE13 /* call-icon@2x.png */; };
+		00E775A8175CB24400FAFE13 /* SSPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E775A7175CB24400FAFE13 /* SSPopupViewController.m */; };
+		00E775AA175CB4D000FAFE13 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E775A9175CB4CF00FAFE13 /* PopupView.xib */; };
 		BD1679BFEC8E4D3F8D43D2BC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 976D2775B86E407CA4B459DD /* libPods.a */; };
 		DD1723FC174CDB18005EB25A /* app-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FA174CDB18005EB25A /* app-background.png */; };
 		DD1723FD174CDB18005EB25A /* app-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1723FB174CDB18005EB25A /* app-background@2x.png */; };
@@ -102,6 +108,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00312350175CD047001961FD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		00E7759F175CA9B500FAFE13 /* SSMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSMoreViewController.h; sourceTree = "<group>"; };
+		00E775A0175CA9B500FAFE13 /* SSMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSMoreViewController.m; sourceTree = "<group>"; };
+		00E775A2175CB0CD00FAFE13 /* call-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-icon.png"; sourceTree = "<group>"; };
+		00E775A3175CB0CD00FAFE13 /* call-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-icon@2x.png"; sourceTree = "<group>"; };
+		00E775A6175CB24400FAFE13 /* SSPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPopupViewController.h; sourceTree = "<group>"; };
+		00E775A7175CB24400FAFE13 /* SSPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPopupViewController.m; sourceTree = "<group>"; };
+		00E775A9175CB4CF00FAFE13 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		976D2775B86E407CA4B459DD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1723FA174CDB18005EB25A /* app-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-background.png"; sourceTree = "<group>"; };
@@ -227,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00312351175CD047001961FD /* MessageUI.framework in Frameworks */,
 				DD1EBA8C1754FE69003A32B4 /* Twitter.framework in Frameworks */,
 				DD1EBA8A1754FCA6003A32B4 /* Social.framework in Frameworks */,
 				DD1EBA881754FC88003A32B4 /* Accounts.framework in Frameworks */,
@@ -247,6 +262,8 @@
 		DD27C996174D61790069CCFF /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				00E775A2175CB0CD00FAFE13 /* call-icon.png */,
+				00E775A3175CB0CD00FAFE13 /* call-icon@2x.png */,
 				DD3F794417539AEB001530B1 /* list-arrow.png */,
 				DD3F794517539AEB001530B1 /* list-arrow@2x.png */,
 				DD4B51DD174E649C0011EBE0 /* section-header-view-background.png */,
@@ -274,6 +291,11 @@
 				DDB81897174B91B8008E0D38 /* SSBranchDetailsViewController.m */,
 				DDF251E1174D072500386B8B /* SSNotificationsViewController.h */,
 				DDF251E2174D072500386B8B /* SSNotificationsViewController.m */,
+				00E7759F175CA9B500FAFE13 /* SSMoreViewController.h */,
+				00E775A0175CA9B500FAFE13 /* SSMoreViewController.m */,
+				00E775A6175CB24400FAFE13 /* SSPopupViewController.h */,
+				00E775A7175CB24400FAFE13 /* SSPopupViewController.m */,
+				00E775A9175CB4CF00FAFE13 /* PopupView.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -304,6 +326,7 @@
 		DD3FD92617464BB4003DE202 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00312350175CD047001961FD /* MessageUI.framework */,
 				DD1EBA8B1754FE69003A32B4 /* Twitter.framework */,
 				DD1EBA891754FCA6003A32B4 /* Social.framework */,
 				DD1EBA871754FC88003A32B4 /* Accounts.framework */,
@@ -586,6 +609,9 @@
 				DD49AA5E175C937800CB762A /* branches-icon-unselected@2x.png in Resources */,
 				DD49AA61175C9AEB00CB762A /* tabbar-selection-image.png in Resources */,
 				DD49AA62175C9AEB00CB762A /* tabbar-selection-image@2x.png in Resources */,
+				00E775A4175CB0CD00FAFE13 /* call-icon.png in Resources */,
+				00E775A5175CB0CD00FAFE13 /* call-icon@2x.png in Resources */,
+				00E775AA175CB4D000FAFE13 /* PopupView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +688,8 @@
 				DDF251E6174D0BCF00386B8B /* SSNotification.m in Sources */,
 				DDF251E9174D0DE500386B8B /* SSNotificationCell.m in Sources */,
 				DDFF4226174D41EC008A495A /* SSBranchLocation.m in Sources */,
+				00E775A1175CA9B500FAFE13 /* SSMoreViewController.m in Sources */,
+				00E775A8175CB24400FAFE13 /* SSPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

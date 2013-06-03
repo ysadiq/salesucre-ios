@@ -67,5 +67,12 @@
 #define KMJPopupViewAnimation 6
 #define kSaleSucreHotline @"19232"
 
+// popup views types
+typedef enum
+{
+    Terms_And_Conditions = 0,
+    ABOUT_APP = 1,
+    ABOUT_CHAIN = 2
+}POPUP_VIEW_TYPE;
 
 #endif
