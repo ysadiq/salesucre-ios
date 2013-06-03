@@ -47,8 +47,10 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="menuItem" inverseEntity="Images" syncable="YES"/>
     </entity>
     <entity name="SSNotification" representedClassName="SSNotification" syncable="YES">
-        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alert" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dataAlertExtend" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="showUP" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
     </entity>
@@ -57,6 +59,6 @@
         <element name="Images" positionX="-4230" positionY="-702" width="128" height="118"/>
         <element name="SSCategory" positionX="-3690" positionY="-747" width="128" height="163"/>
         <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="193"/>
-        <element name="SSNotification" positionX="-4212" positionY="-439" width="128" height="103"/>
+        <element name="SSNotification" positionX="-4212" positionY="-439" width="128" height="133"/>
     </elements>
 </model>

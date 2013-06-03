@@ -12,10 +12,15 @@
 
 @interface SSNotification : NSManagedObject
 
-@property (nonatomic, retain) NSString * content;
+@property (nonatomic, retain) NSString * alert;
+@property (nonatomic, retain) NSString * dataAlertExtend;
+
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * lastModified;
+@property (nonatomic, retain) NSDate * deletedAt;
+
 @property (nonatomic, retain) NSNumber * showUP;
+
 
 
 @end

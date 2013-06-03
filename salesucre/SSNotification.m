@@ -11,9 +11,11 @@
 
 @implementation SSNotification
 
-@dynamic content;
+@dynamic alert;
+@dynamic dataAlertExtend;
 @dynamic createdAt;
 @dynamic lastModified;
+@dynamic deletedAt;
 @dynamic showUP;
 
 
