@@ -9,6 +9,7 @@
 #import "SSNotificationsViewController.h"
 #import "SSNotificationCell.h"
 #import "SSNotification.h"
+#import "UIColor+Helpers.h"
 
 @interface SSNotificationsViewController () <NSFetchedResultsControllerDelegate> {
     
@@ -44,7 +45,8 @@
     [self setTitle:@"Notifications"];
     
     [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorColor:[UIColor UIColorFromHex:0x442921]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLineEtched];
     
     [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_NOTIFICATIONS_ICON_SELECTED]
                   withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_NOTIFICATIONS_ICON_UNSELECTED] ];

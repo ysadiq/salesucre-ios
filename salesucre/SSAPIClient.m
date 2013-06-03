@@ -83,7 +83,7 @@
                                     stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center&crop=%dx%d+0+0",kBetaAPIHostname, kAPIImagePostfix ,string,
                                     width * _retinaScale , height * _retinaScale, width * _retinaScale, height * _retinaScale ];
     
-    DDLogInfo(@"current image: %@", operationURLString);
+    //DDLogInfo(@"current image: %@", operationURLString);
     
     return [NSURL URLWithString:operationURLString];
 }

@@ -18,13 +18,15 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
         
         //self.textLabel.adjustsFontSizeToFitWidth = YES;
         self.selectionStyle = UITableViewCellSelectionStyleGray;
-        self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:14.0];
+        self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:16.0];
+        [self.textLabel setNumberOfLines:0];
+        [self.detailTextLabel setNumberOfLines:0];
         
 //        CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
 //		gradientLayer.colors =
@@ -47,9 +49,13 @@
 - (void)setNotification:(SSNotification *)notification
 {
     _notification = notification;
-    self.textLabel.font = self.defaultFont;
-    self.textLabel.text = notification.dataAlertExtend;
-//    self.detailTextLabel.text = _post.text;
+//    self.textLabel.font = self.defaultFont;
+//    self.textLabel.textColor = [UIColor UIColorFromHex:0x673F32];
+//    self.textLabel.text = @"blabla";
+    
+    self.detailTextLabel.font = self.defaultFont;
+    self.detailTextLabel.textColor = [UIColor UIColorFromHex:0x673F32];
+    self.detailTextLabel.text = _notification.dataAlertExtend;
 //    [self.imageView setImageWithURL:[NSURL URLWithString:_post.user.avatarImageURLString] placeholderImage:[UIImage imageNamed:@"profile-image-placeholder"]];
     
     [self setNeedsLayout];
@@ -57,9 +63,10 @@
 
 + (CGFloat)heightForCellWithNotificaction:(SSNotification *)notification
 {
-    CGSize sizeToFit = [notification.dataAlertExtend sizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(220.0f, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize sizeToFit = [notification.dataAlertExtend sizeWithFont:[UIFont fontWithName:THEME_FONT_GESTA size:16.0]
+                                                constrainedToSize:CGSizeMake(280.0f, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
     
-    return fmaxf(70.0f, sizeToFit.height + 45.0f);
+    return fmaxf(70.0f, sizeToFit.height + 25.0);
 }
 
 #pragma mark - UIView
@@ -67,11 +74,32 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.textLabel.frame = CGRectMake(70.0f, 10.0f, 240.0f, 20.0f);
+    self.textLabel.frame = CGRectMake(20.0f, 5.0f, 280.0f, 20.0f);
     
-    CGRect detailTextLabelFrame = CGRectOffset(self.textLabel.frame, 0.0f, 25.0f);
-    detailTextLabelFrame.size.height = [[self class] heightForCellWithNotificaction:_notification] - 45.0f;
+    CGRect detailTextLabelFrame = CGRectOffset(self.textLabel.frame, 0.0f, 0.0f);
+    detailTextLabelFrame.size.height = [[self class] heightForCellWithNotificaction:_notification ] ;
     self.detailTextLabel.frame = detailTextLabelFrame;
+    
+    DDLogWarn(@"frame: %@", NSStringFromCGRect(detailTextLabelFrame));
+    
+    // ---- gradiant ---- //
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    
+    gradientLayer.frame = self.bounds;
+    //DDLogWarn(@"bounds: %@", NSStringFromCGRect(self.bounds));
+    
+    [gradientLayer setLocations:[NSArray arrayWithObjects:
+                                 [NSNumber numberWithFloat:0.0f],
+                                 [NSNumber numberWithFloat:0.7f],
+                                 nil]];
+    
+    [gradientLayer setColors:[NSArray arrayWithObjects:
+                             (id)[UIColor UIColorFromHex:0xf8f4ed].CGColor,
+                             (id)[UIColor UIColorFromHex:0xF1E8DA].CGColor,
+                              nil] ];
+    
+    //[self.layer setOpacity:0.1];
+    [self.layer insertSublayer:gradientLayer atIndex:0];
 }
 
 @end
