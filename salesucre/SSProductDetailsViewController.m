@@ -86,6 +86,13 @@
     [self.facebookButton addTarget:self action:@selector(facebookShareTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.twitterButton addTarget:self action:@selector(twitterShareTapped) forControlEvents:UIControlEventTouchUpInside];
     
+    // ---- activity view ---- //
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [spinner setFrame:CGRectMake(150.0f, 68.0f, 20.0f, 20.0f)];
+    [spinner startAnimating];
+    [_imagePager addSubview:spinner];
+    spinner = nil;
+    
     SR_WEAK_SELF wself = self;
     
     _imagesURL = [[NSMutableArray alloc] init];
@@ -94,7 +101,7 @@
     {
         NSString *currImage = [img path];
         NSString *URLToAdd = [[SSAPIClient sharedInstance] imagePagerCompatibleString:currImage withWidth:320 andHeight:170];
-        DDLogInfo(@"adding image: %@", URLToAdd);
+        ///DDLogInfo(@"adding image: %@", URLToAdd);
         [[wself imagesURL] addObject:[URLToAdd copy] ];
     }
     
