@@ -42,6 +42,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self setTitle:@"More"];
+    
     // table cells arrow
     arrow = [UIImage imageNamed:THEME_CELL_ARROW];
     // table cells call button
@@ -58,6 +60,7 @@
     
     // the features table
     table1 = MGBox.box;
+    
     [tablesGrid.boxes addObject:table1];
     table1.sizingMode = MGResizingShrinkWrap;
     
@@ -126,27 +129,29 @@
     [menu.topLines addObject:aboutChainLine];
     [menu.topLines addObject:contactusLine];
     
+    SR_WEAK_SELF wself = self;
+    
     // load the features table on tap
     // perform call on tap
     contactusLine.onTap = ^{
-        [self performCall:kSaleSucreHotline];
+        [wself performCall:kSaleSucreHotline];
     };
     
     // load the features table on tap
     aboutChainLine.onTap = ^{
-        [self pushPopupView:ABOUT_CHAIN];
+        [wself pushPopupView:ABOUT_CHAIN];
     };
     
     // load the features table on tap
     aboutLine.onTap = ^{
-        [self pushPopupView:ABOUT_APP];
+        [wself pushPopupView:ABOUT_APP];
     };
     feedbackLine.onTap = ^{
-        [self sendInAppMail];
+        [wself sendInAppMail];
     };
 
     complaintsLine.onTap = ^{
-        [self sendInAppSMS];
+        [wself sendInAppSMS];
     };
 
 }
