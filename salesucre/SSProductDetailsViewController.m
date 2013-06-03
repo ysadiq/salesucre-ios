@@ -13,6 +13,7 @@
 #import <BlockAlertView.h>
 
 #import <KIImagePager.h>
+#import <SVProgressHUD.h>
 
 @interface SSProductDetailsViewController () <KIImagePagerDataSource,KIImagePagerDelegate>
 @property NSMutableArray *imagesURL;
@@ -48,8 +49,11 @@
 {
     [super viewDidAppear:animated];
     
-    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
-    _imagePager.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6))
+    {
+        _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+        _imagePager.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    }
 
 }
 - (void)viewDidLoad
@@ -179,6 +183,7 @@
     else
     {
         DDLogWarn(@"iOS version less than 6.0");
+        [SVProgressHUD showErrorWithStatus:@"Facebook share available only for iOS 6.0 or more"];
     }
     
 }
@@ -203,10 +208,12 @@
             switch (result) {
                 case SLComposeViewControllerResultDone:
                     DDLogInfo(@"tweet sent!");
+                    [SVProgressHUD showSuccessWithStatus:@"Tweet Posted!"];
                     break;
                     
                 case SLComposeViewControllerResultCancelled:
                     DDLogInfo(@"tweet cancelled!");
+                    [SVProgressHUD showErrorWithStatus:@"Tweet Cancelled!"];
                     break;
                     
                 default:
@@ -241,10 +248,12 @@
             switch (result) {
                 case TWTweetComposeViewControllerResultDone:
                     DDLogInfo(@"tweet sent!");
+                    [SVProgressHUD showSuccessWithStatus:@"Tweet Posted!"];
                     break;
                     
                 case TWTweetComposeViewControllerResultCancelled:
                     DDLogInfo(@"tweet cencelled!");
+                    [SVProgressHUD showErrorWithStatus:@"Tweet Cancelled"];
                     break;
                     
                 default:
