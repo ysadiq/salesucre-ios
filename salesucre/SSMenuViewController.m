@@ -13,7 +13,6 @@
 @interface SSMenuViewController () <NSFetchedResultsControllerDelegate> {
     
     NSFetchedResultsController *_fetchedResultsController;
-    
 }
 
 - (void)refetchData;
@@ -23,7 +22,7 @@
 
 @synthesize tableView;
 @synthesize objectToSend;
-
+@synthesize isLegacyiOS;
 
 - (void)refetchData
 {
@@ -44,8 +43,20 @@
 	// Do any additional setup after loading the view.
     DDLogInfo(@"menu did load");
     
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6))
+    {
+        self.isLegacyiOS = NO;
+    }
+    else
+    {
+        self.isLegacyiOS = YES;
+    }
+    
     [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_SELECTED]
                   withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_UNSELECTED]];
+    
+    // ---- reload ---- //
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refetchData)];
     
     [self setTitle:@"Menu"];
     [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
@@ -78,7 +89,7 @@
     _fetchedResultsController.delegate = self;
     [self refetchData];
     
-    if (kiOS6)
+    if (!isLegacyiOS)
     {
         [self.tableView registerClass:[SSCell class] forCellReuseIdentifier:@"SSCell"];
     }
@@ -117,6 +128,12 @@
     SSCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
+        
+        if (self.isLegacyiOS)
+        {
+            cell = [[SSCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

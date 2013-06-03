@@ -13,5 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property id branchToPass;
+@property (nonatomic, assign) BOOL isLegacyiOS;
+
 
 @end

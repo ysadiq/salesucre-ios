@@ -23,6 +23,7 @@ NSFetchedResultsController *_fetchedResultsController;
 @synthesize tableView = _tableView;
 @synthesize currentcategory = _currentcategory;
 @synthesize productToPass = _productToPass;
+@synthesize isLegacyiOS;
 
 - (void)refetchData
 {
@@ -56,6 +57,9 @@ NSFetchedResultsController *_fetchedResultsController;
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
+    // ---- reload ---- //
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refetchData)];
+    
     //language
     //    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
     //    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];
@@ -81,9 +85,14 @@ NSFetchedResultsController *_fetchedResultsController;
     _fetchedResultsController.delegate = self;
     [self refetchData];
     
-    if (kiOS6)
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6))
     {
+        self.isLegacyiOS = NO;
         [self.tableView registerClass:[SSCell class] forCellReuseIdentifier:@"SSCell"];
+    }
+    else
+    {
+        self.isLegacyiOS = YES;
     }
 }
 
@@ -127,6 +136,11 @@ NSFetchedResultsController *_fetchedResultsController;
     SSCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
+        
+        if (self.isLegacyiOS)
+        {
+            cell = [[SSCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

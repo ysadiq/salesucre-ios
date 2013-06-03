@@ -23,6 +23,8 @@
 
 @implementation SSNotificationsViewController
 
+@synthesize isLegacyiOS;
+
 - (void)refetchData
 {
     [_fetchedResultsController performSelectorOnMainThread:@selector(performFetch:) withObject:nil waitUntilDone:YES modes:@[ NSRunLoopCommonModes ]];
@@ -69,9 +71,14 @@
     _fetchedResultsController.delegate = self;
     [self refetchData];
     
-    if (kiOS6)
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6))
     {
         [self.tableView registerClass:[SSNotificationCell class] forCellReuseIdentifier:@"SSNCell"];
+        self.isLegacyiOS = NO;
+    }
+    else
+    {
+        self.isLegacyiOS = YES;
     }
 
 }
@@ -110,6 +117,12 @@
     SSNotificationCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
+        
+        if (self.isLegacyiOS)
+        {
+            cell = [[SSNotificationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

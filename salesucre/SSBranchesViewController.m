@@ -52,6 +52,9 @@
     [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_BRANCHES_ICON_SELECTED]
                   withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_BRANCHES_ICON_UNSELECTED] ];
     
+    // ---- reload ---- //
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refetchData)];
+    
     //---- AFIncrementalStore ---- //
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Branch"];
     
@@ -72,9 +75,14 @@
     _fetchedResultsController.delegate = self;
     [self refetchData];
     
-    if (kiOS6)
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6))
     {
         [self.tableView registerClass:[SSCell class] forCellReuseIdentifier:@"SSCell"];
+        self.isLegacyiOS = NO;
+    }
+    else
+    {
+        self.isLegacyiOS = YES;
     }
 }
 
@@ -110,6 +118,11 @@
     SSCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
+        
+        if (self.isLegacyiOS)
+        {
+            cell = [[SSCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];

@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SSCategory *currentcategory;
 @property id productToPass;
+@property (nonatomic, assign) BOOL isLegacyiOS;
 
 @end
