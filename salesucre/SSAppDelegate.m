@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "SSIncrementalStore.h"
 #import "SSSplashViewController.h"
+#import "UIColor+Helpers.h"
 
 //---- 3rd Party ---- //
 #import <Parse/Parse.h>
@@ -279,13 +280,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
     // main background view
-    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:THEME_APP_BACKGROUND]]];
+    //[self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:THEME_APP_BACKGROUND]]];
+    [self.window setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     
     //---- Tabbar ---- //
+    // item color: 229,221,209
+    
     [_mainTabbar.tabBar setBackgroundImage:[UIImage imageNamed:THEME_TABBAR_BACKGROUND] ];
-    [_mainTabbar.tabBar setTintColor:nil];
+    [_mainTabbar.tabBar setTintColor:[UIColor whiteColor]];
+    [_mainTabbar.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
     //[_mainTabbar.tabBar setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:kThemeTabBarSelectionIndicator]] ];
-    [_mainTabbar.tabBar setSelectionIndicatorImage:nil];
+    [_mainTabbar.tabBar setSelectionIndicatorImage:[UIImage imageNamed:THEME_TABBAR_TINT_IMAGE]];
     
     //---- Navigation Bar ---- //
     // navigation bar

@@ -72,19 +72,28 @@
     /* target: http://betaapi.olitintl.com/APIPlatform/index.php/getImage?
                     image=$path&width=72&height=72&gravity=center&oauth_token=$auth_token */
     
+    /*
+     http://betaapi.olitintl.com/APIPlatform/index.php/getImage?image=/var/www/APIPlatform/files/saleSucre/20060123.jpg&width=640&height=340&crop=640x340+0+0
+     */
+    
     if (!string || ([string isEqual:[NSNull null]]))
         return nil;
     
     NSString *operationURLString = [NSString
-                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center",kAPIHostName, kAPIImagePostfix ,string, width * _retinaScale , height * _retinaScale ];
-
+                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center&crop=%dx%d+0+0",kBetaAPIHostname, kAPIImagePostfix ,string,
+                                    width * _retinaScale , height * _retinaScale, width * _retinaScale, height * _retinaScale ];
+    
+    DDLogInfo(@"current image: %@", operationURLString);
+    
     return [NSURL URLWithString:operationURLString];
 }
 
 - (NSString *)imagePagerCompatibleString:(NSString *)image withWidth:(int)width andHeight:(int)height
 {
     NSString *operationURLString = [NSString
-                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center",kAPIHostName, kAPIImagePostfix ,image, width * _retinaScale , height * _retinaScale ];
+                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center&crop=%dx%d+0+0",kBetaAPIHostname, kAPIImagePostfix ,
+                                    image, width * _retinaScale , height * _retinaScale, width * _retinaScale, height * _retinaScale ];
+    
     operationURLString = [operationURLString stringByReplacingOccurrencesOfString:@"/vol/" withString:@"/var/"];
     
     return operationURLString;

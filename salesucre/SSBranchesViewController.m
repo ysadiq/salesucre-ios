@@ -142,8 +142,8 @@
     [title setFont:[UIFont boldSystemFontOfSize:18] ];
     [title setTextAlignment:NSTextAlignmentCenter];
     [title setTextColor:[UIColor whiteColor]];
-    [title setShadowColor:[UIColor lightGrayColor]];
-    [title setShadowOffset:CGSizeMake(0.0f, 1.0f)];
+//    [title setShadowColor:[UIColor orangeColor]];
+//    [title setShadowOffset:CGSizeMake(0.0f, 1.0f)];
     [title setBackgroundColor:[UIColor clearColor]];
     [title setText:[[[_fetchedResultsController sections] objectAtIndex:section] name] ];
     

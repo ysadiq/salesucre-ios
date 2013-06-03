@@ -38,6 +38,15 @@ NSFetchedResultsController *_fetchedResultsController;
     return self;
 }
 
+- (void)viewDidUnload
+{
+    [self setTableView:nil];
+    [self setCurrentcategory:nil];
+    [self setProductToPass:nil];
+    
+    [super viewDidUnload];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -151,7 +160,10 @@ NSFetchedResultsController *_fetchedResultsController;
     DDLogInfo(@"current price: %i", [[item price] intValue]);
     _productToPass = (SSMenuItem *)[_fetchedResultsController objectAtIndexPath:indexPath];
     
-    [self setHidesBottomBarWhenPushed:YES];
+    if (! IS_4_INCH)
+    {
+        [self setHidesBottomBarWhenPushed:YES];
+    }
     [self performSegueWithIdentifier:@"002" sender:self];
 }
 

@@ -31,7 +31,7 @@
         <scene sceneID="DhW-r8-cFf">
             <objects>
                 <navigationController definesPresentationContext="YES" id="T7J-HZ-Rr3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Menu" image="menu-icon-selected.png" id="8S0-u9-jOj"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Menu" image="menu-icon-unselected.png" id="8S0-u9-jOj"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Fk-up-Oi6">
                         <autoresizingMask key="autoresizingMask"/>
@@ -131,7 +131,7 @@
         <scene sceneID="z1v-W3-Wug">
             <objects>
                 <navigationController definesPresentationContext="YES" id="d3L-Hz-Gwc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" id="OnC-7g-7Nf"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notifications-icon-unselected.png" id="OnC-7g-7Nf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W4P-Rc-svb">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
@@ -179,7 +179,7 @@
         <scene sceneID="4zB-Fg-RBU">
             <objects>
                 <navigationController definesPresentationContext="YES" id="vXS-Ul-Vub" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More" id="wOW-jU-oaD"/>
+                    <tabBarItem key="tabBarItem" title="More" image="more-icon-unselected.png" id="wOW-jU-oaD"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGu-uj-LZy">
                         <autoresizingMask key="autoresizingMask"/>
@@ -222,10 +222,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d92-vS-l4M">
-                                <rect key="frame" x="247" y="266" width="58" height="44"/>
+                                <rect key="frame" x="267" y="266" width="40" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="call-icon.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -315,7 +316,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="price-tag.png" id="krr-Xv-xb6">
-                                <rect key="frame" x="223" y="186" width="77" height="32"/>
+                                <rect key="frame" x="245" y="182" width="51" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -346,10 +347,10 @@
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="Y1W-Nv-uSR">
-                                <rect key="frame" x="251" y="188" width="49" height="28"/>
+                                <rect key="frame" x="265" y="195" width="31" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
@@ -376,9 +377,12 @@
     </scenes>
     <resources>
         <image name="branches-icon-unselected.png" width="30" height="30"/>
+        <image name="call-icon.png" width="34" height="32"/>
         <image name="facebook-icon.png" width="32" height="32"/>
-        <image name="menu-icon-selected.png" width="30" height="30"/>
-        <image name="price-tag.png" width="66" height="32"/>
+        <image name="menu-icon-unselected.png" width="30" height="30"/>
+        <image name="more-icon-unselected.png" width="30" height="30"/>
+        <image name="notifications-icon-unselected.png" width="30" height="30"/>
+        <image name="price-tag.png" width="40" height="31"/>
         <image name="twitter-icon.png" width="32" height="32"/>
     </resources>
     <classes>

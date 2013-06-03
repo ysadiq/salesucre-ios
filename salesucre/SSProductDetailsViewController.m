@@ -59,9 +59,10 @@
     [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     [self setTitle:_selectedItem.name];
     
-    [self.priceLabel setFont:[UIFont fontWithName:THEME_FONT_GESTA size:22]];
+    [self.priceLabel setFont:[UIFont fontWithName:THEME_FONT_GESTA size:18]];
     [self.textView setFont:[UIFont fontWithName:THEME_FONT_GESTA size:19]];
     
+    self.textView.textColor = [UIColor UIColorFromHex:0xE65C00];
     DDLogInfo(@"frame: %@", NSStringFromCGRect(_imagePager.frame) );
     
     if (![_selectedItem.price isEqual: [NSNull null]])
@@ -95,6 +96,20 @@
     
     [_imagePager reloadData];
 
+}
+
+- (void)viewDidUnload
+{
+    [self setImagePager:nil];
+    [self setSelectedItem:nil];
+    [self setImagesURL:nil];
+    [self setTextView:nil];
+    [self setPriceLabel:nil];
+    [self setPriceTag:nil];
+    [self setTwitterButton:nil];
+    [self setFacebookButton:nil];
+    
+    [super viewDidUnload];
 }
 
 - (void)didReceiveMemoryWarning
