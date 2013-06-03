@@ -287,10 +287,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // item color: 229,221,209
     
     [_mainTabbar.tabBar setBackgroundImage:[UIImage imageNamed:THEME_TABBAR_BACKGROUND] ];
-    [_mainTabbar.tabBar setTintColor:[UIColor whiteColor]];
+    [_mainTabbar.tabBar setTintColor:[UIColor UIColorFromHex:0xe5ddd1]];
     [_mainTabbar.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
     //[_mainTabbar.tabBar setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:kThemeTabBarSelectionIndicator]] ];
-    [_mainTabbar.tabBar setSelectionIndicatorImage:[UIImage imageNamed:THEME_TABBAR_TINT_IMAGE]];
+    [_mainTabbar.tabBar setSelectionIndicatorImage:[UIImage imageNamed:THEME_TABBAR_SELECTION_IMAGE]];
     
     //---- Navigation Bar ---- //
     // navigation bar

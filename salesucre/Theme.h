@@ -19,6 +19,7 @@
 //---- Tabbar ---- //
 #define THEME_TABBAR_BACKGROUND @"tabbar-background.png"
 #define THEME_TABBAR_TINT_IMAGE @"tabbar-tint-image.png"
+#define THEME_TABBAR_SELECTION_IMAGE @"tabbar-selection-image.png"
 #define THEME_TABBAR_MENU_ICON_SELECTED @"menu-icon-selected.png"
 #define THEME_TABBAR_MENU_ICON_UNSELECTED @"menu-icon-unselected.png"
 #define THEME_TABBAR_BRANCHES_ICON_SELECTED @"branches-icon-selected.png"
