@@ -75,7 +75,6 @@
     
     if ( [self.detailTextLabel.text length] > 0 )
     {
-        DDLogInfo(@"thereis subtitle");
         self.textLabel.frame = CGRectMake(70.0f, 10.0f, 240.0f, 20.0f);
         self.detailTextLabel.frame = CGRectMake(70.0f, 30.0f, 230.0f, 20.0f);
     }

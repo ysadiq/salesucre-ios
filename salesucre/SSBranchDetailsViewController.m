@@ -54,11 +54,13 @@
 	// Do any additional setup after loading the view.
     
     [self setTitle:_currentBranch.distirctName];
+    [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     
     [self.callButton addTarget:self action:@selector(userDidTapCall) forControlEvents:UIControlEventTouchUpInside];
     
     [self.textView setFont:[UIFont fontWithName:THEME_FONT_GESTA size:15] ];
     self.textView.textColor = [UIColor UIColorFromHex:0x673F32];
+    [self.textView setBackgroundColor:[UIColor clearColor]];
     
     NSString *text = [NSString stringWithFormat:@"%@\n", _currentBranch.distirctName];
     
@@ -112,7 +114,7 @@
 {
     DDLogInfo(@"should be calling now, numbers: %@", _currentBranch.phones);
     
-    if ([_currentBranch.phones isKindOfClass:[NSArray class] ])
+    if ([_currentBranch.phones count] > 0)
     {
         DDLogInfo(@"is array");
         BlockActionSheet *sheet = [[BlockActionSheet alloc] initWithTitle:@"Which Number?"];
@@ -132,11 +134,11 @@
         [sheet setCancelButtonWithTitle:@"Cancel" atIndex:i block:nil];
         [sheet showInView:self.view];
     }
-    else if ([_currentBranch.phones isKindOfClass:[NSString class]])
-    {
-        DDLogInfo(@"is string");
-        [self performSelectorOnMainThread:@selector(performCall:) withObject:[_currentBranch.phones stringValue] waitUntilDone:YES];
-    }
+//    else if ([_currentBranch.phones count] == 1 )
+//    {
+//        DDLogInfo(@"is string");
+//        [self performSelectorOnMainThread:@selector(performCall:) withObject:[_currentBranch.phones stringValue] waitUntilDone:YES];
+//    }
     else
     {
         DDLogError(@"deep shit here");

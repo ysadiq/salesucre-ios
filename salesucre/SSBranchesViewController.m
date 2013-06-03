@@ -89,7 +89,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //return 0;
-    DDLogError(@"number of rows: %i", [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects]);
     return [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
@@ -135,7 +134,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Branch *branch = (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath];
-    DDLogInfo(@"current name: %@", [branch branchId]);
     [self setBranchToPass: (Branch *)[_fetchedResultsController objectAtIndexPath:indexPath] ];
     [self performSegueWithIdentifier:@"011" sender:self];
 }
