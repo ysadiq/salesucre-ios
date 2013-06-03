@@ -51,6 +51,10 @@
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_SELECTED]
+                    withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_UNSELECTED] ];
+    
     //language
 //    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
 //    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];

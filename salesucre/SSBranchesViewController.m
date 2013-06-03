@@ -44,8 +44,13 @@
 	// Do any additional setup after loading the view.
     
     [self setTitle:@"Branches"];
+
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_BRANCHES_ICON_SELECTED]
+                  withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_BRANCHES_ICON_UNSELECTED] ];
     
     //---- AFIncrementalStore ---- //
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Branch"];

@@ -41,6 +41,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setTitle:@"Notifications"];
+    
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_NOTIFICATIONS_ICON_SELECTED]
+                  withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_NOTIFICATIONS_ICON_UNSELECTED] ];
     
     //---- AFIncrementalStore ---- //
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSNotification"];

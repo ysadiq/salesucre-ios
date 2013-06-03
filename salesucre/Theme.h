@@ -23,6 +23,10 @@
 #define THEME_TABBAR_MENU_ICON_UNSELECTED @"menu-icon-unselected.png"
 #define THEME_TABBAR_BRANCHES_ICON_SELECTED @"branches-icon-selected.png"
 #define THEME_TABBAR_BRANCHES_ICON_UNSELECTED @"branches-icon-unselected.png"
+#define THEME_TABBAR_NOTIFICATIONS_ICON_SELECTED @"notifications-icon-selected.png"
+#define THEME_TABBAR_NOTIFICATIONS_ICON_UNSELECTED @"notifications-icon-unselected.png"
+#define THEME_TABBAR_MORE_ICON_SELECTED @"settings-icon-selected.png"
+#define THEME_TABBAR_MORE_ICON_UNSELECTED @"settings-icon-unselected.png"
 
 //---- Navigation Bar ---- //
 #define THEME_NAVBAR_BACKGROUND @"navbar-background.png"

@@ -179,7 +179,7 @@
         <scene sceneID="4zB-Fg-RBU">
             <objects>
                 <navigationController definesPresentationContext="YES" id="vXS-Ul-Vub" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More" image="more-icon-unselected.png" id="wOW-jU-oaD"/>
+                    <tabBarItem key="tabBarItem" title="More" image="settings-icon-unselected.png" id="wOW-jU-oaD"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGu-uj-LZy">
                         <autoresizingMask key="autoresizingMask"/>
@@ -380,9 +380,9 @@
         <image name="call-icon.png" width="34" height="32"/>
         <image name="facebook-icon.png" width="32" height="32"/>
         <image name="menu-icon-unselected.png" width="30" height="30"/>
-        <image name="more-icon-unselected.png" width="30" height="30"/>
         <image name="notifications-icon-unselected.png" width="30" height="30"/>
         <image name="price-tag.png" width="40" height="31"/>
+        <image name="settings-icon-unselected.png" width="60" height="60"/>
         <image name="twitter-icon.png" width="32" height="32"/>
     </resources>
     <classes>
