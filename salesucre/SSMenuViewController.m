@@ -48,7 +48,7 @@
                   withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_UNSELECTED]];
     
     [self setTitle:@"Menu"];
-    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     

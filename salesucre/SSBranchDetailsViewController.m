@@ -10,6 +10,8 @@
 #import "Branch.h"
 #import "SSBranchLocation.h"
 #import "UIColor+Helpers.h"
+#import <BlockActionSheet.h>
+#import <SVProgressHUD.h>
 
 @interface SSBranchDetailsViewController ()
 
@@ -52,6 +54,8 @@
 	// Do any additional setup after loading the view.
     
     [self setTitle:_currentBranch.distirctName];
+    
+    [self.callButton addTarget:self action:@selector(userDidTapCall) forControlEvents:UIControlEventTouchUpInside];
     
     [self.textView setFont:[UIFont fontWithName:THEME_FONT_GESTA size:15] ];
     self.textView.textColor = [UIColor UIColorFromHex:0x673F32];
@@ -102,6 +106,72 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)userDidTapCall
+{
+    DDLogInfo(@"should be calling now, numbers: %@", _currentBranch.phones);
+    
+    if ([_currentBranch.phones isKindOfClass:[NSArray class] ])
+    {
+        DDLogInfo(@"is array");
+        BlockActionSheet *sheet = [[BlockActionSheet alloc] initWithTitle:@"Which Number?"];
+        
+        SR_WEAK_SELF wself = self;
+        int i = 0;
+        
+        for (NSString *number in _currentBranch.phones)
+        {
+            [sheet addButtonWithTitle:number atIndex:i block:^{
+                [wself performSelectorOnMainThread:@selector(performCall:) withObject:number waitUntilDone:YES];
+            }];
+            
+            i++;
+        }
+        
+        [sheet setCancelButtonWithTitle:@"Cancel" atIndex:i block:nil];
+        [sheet showInView:self.view];
+    }
+    else if ([_currentBranch.phones isKindOfClass:[NSString class]])
+    {
+        DDLogInfo(@"is string");
+        [self performSelectorOnMainThread:@selector(performCall:) withObject:[_currentBranch.phones stringValue] waitUntilDone:YES];
+    }
+    else
+    {
+        DDLogError(@"deep shit here");
+    }
+}
+
+- (void)performCall:(NSString *)number
+{
+    DDLogInfo(@"inside PerformCall, calling: %@", number);
+    
+    if ( [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]] )
+    {
+        // getting current vew controller
+        
+        UIWebView *callWebview = [[UIWebView alloc] init];
+        
+        NSString *telephone = [NSString stringWithFormat:@"tel://%@", number ];
+        
+        DDLogVerbose(@"final telephone is : %@", telephone);
+        telephone = [telephone stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        telephone = [telephone stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        NSURL *telURL = [NSURL URLWithString:telephone];
+        
+        [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
+        [self.view addSubview:callWebview];
+        
+        callWebview = nil;
+    }
+    else
+    {
+        DDLogInfo(@"this device cannot make phone calls");
+        [SVProgressHUD showErrorWithStatus:@"This device cannot perform a phone call"];
+    }
+
 }
 
 @end

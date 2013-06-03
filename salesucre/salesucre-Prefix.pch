@@ -15,6 +15,7 @@
     #import "Flurry.h"
     #import "NSDictionary+objectForKeyList.h"
     #import <CoreData/CoreData.h>
+    #import "UIColor+Helpers.h"
 #endif
 
 //---- CoreData Store Name ---- //

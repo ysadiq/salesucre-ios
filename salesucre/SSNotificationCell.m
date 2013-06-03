@@ -90,11 +90,13 @@
     
     [gradientLayer setLocations:[NSArray arrayWithObjects:
                                  [NSNumber numberWithFloat:0.0f],
-                                 [NSNumber numberWithFloat:0.7f],
+                                 [NSNumber numberWithFloat:0.5f],
+                                 [NSNumber numberWithFloat:0.95f],
                                  nil]];
     
     [gradientLayer setColors:[NSArray arrayWithObjects:
                              (id)[UIColor UIColorFromHex:0xf8f4ed].CGColor,
+                              (id)[UIColor UIColorFromHex:0xF8F4ED].CGColor,
                              (id)[UIColor UIColorFromHex:0xF1E8DA].CGColor,
                               nil] ];
     
