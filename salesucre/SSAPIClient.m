@@ -16,6 +16,10 @@
 #define kAPIBaseURL @"http://api.olitintl.com/APIPlatform/index.php/Version2/"
 #define kBetaAPIBaseURL @"http://betaapi.olitintl.com/APIPlatform/index.php/Version2/"
 
+#define kAPIHostName @"api.olitintl.com"
+#define kBetaAPIHostname @"betaapi.olitintl.com"
+
+#define kHostname kAPIHostName
 
 @implementation SSAPIClient
 
@@ -30,7 +34,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __sharedInstance = [[SSAPIClient alloc] initWithBaseURL:
-                            [NSURL URLWithString:kBetaAPIBaseURL]];
+                            [NSURL URLWithString:kAPIBaseURL]];
     });
     
     return __sharedInstance;
@@ -55,8 +59,6 @@
         [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
         // 401 is invalid token response code
-//        [self setDefaultHeader:@"X-Parse-Application-Id" value:kParseAppId];
-//        [self setDefaultHeader:@"X-Parse-REST-API-Key" value:kParseRESTAPIKey];
         
         // retina scale
         // detect weather screen is retina or non-retina
@@ -82,7 +84,7 @@
         return nil;
     
     NSString *operationURLString = [NSString
-                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center&crop=%dx%d+0+0",kBetaAPIHostname, kAPIImagePostfix ,string,
+                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center&crop=%dx%d+0+0",kHostname, kAPIImagePostfix ,string,
                                     width * _retinaScale , height * _retinaScale, width * _retinaScale, height * _retinaScale ];
     
     //DDLogInfo(@"current image: %@", operationURLString);
@@ -93,7 +95,7 @@
 - (NSString *)imagePagerCompatibleString:(NSString *)image withWidth:(int)width andHeight:(int)height
 {
     NSString *operationURLString = [NSString
-                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center&crop=%dx%d+0+0",kBetaAPIHostname, kAPIImagePostfix ,
+                                    stringWithFormat:@"http://%@%@image=%@&width=%i&height=%i&gravity=center&crop=%dx%d+0+0",kHostname, kAPIImagePostfix ,
                                     image, width * _retinaScale , height * _retinaScale, width * _retinaScale, height * _retinaScale ];
     
     operationURLString = [operationURLString stringByReplacingOccurrencesOfString:@"/vol/" withString:@"/var/"];

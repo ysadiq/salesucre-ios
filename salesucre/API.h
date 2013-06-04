@@ -13,8 +13,7 @@
 
 #define kAppStoreID @"523209932"
 
-#define kAPIHostName @"api.olitintl.com"
-#define kBetaAPIHostname @"betaapi.olitintl.com"
+
 #define kAPIPostfix @"/APIPlatform/index.php/Version2/"
 #define kAPIImagePostfix @"/APIPlatform/index.php/getImage?"
 #define KAroundMeDefaultDefinitions @"name,location,address.street,chainId"
