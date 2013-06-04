@@ -14,6 +14,7 @@
 
 #import <KIImagePager.h>
 #import <SVProgressHUD.h>
+#import <UIImageView+AFNetworking.h>
 
 @interface SSProductDetailsViewController () <KIImagePagerDataSource,KIImagePagerDelegate>
 @property NSMutableArray *imagesURL;
@@ -175,6 +176,18 @@
         
         SLComposeViewController *facebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [facebook setInitialText:[NSString stringWithFormat:@"check out %@ via %@", _selectedItem.name, kSaleSucreTwitterAccount] ];
+            
+//            if (_imagesURL && ([_imagesURL count] > 0 ))
+//            {   
+//                @try {
+//                    NSURL *url = [NSURL URLWithString:[_imagesURL objectAtIndex:0]];
+//                    [facebook addImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url]] ];
+//                }
+//                @catch (NSException *exception) {
+//                    DDLogError(@"Exception: %@", exception);
+//                }
+//            }
+            
         [self presentModalViewController:facebook animated:YES];
         SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
             
