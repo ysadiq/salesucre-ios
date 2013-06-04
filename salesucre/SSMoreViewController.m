@@ -16,6 +16,7 @@
 @interface SSMoreViewController (){
     MGBox *photosGrid, *tablesGrid, *table1, *table2;
     UIImage *arrow, *call;
+    UIFont *currentFont;
 }
 @end
 
@@ -27,6 +28,7 @@
 #define HEADER_FONT            [UIFont fontWithName:@"HelveticaNeue" size:18]
 
 @implementation SSMoreViewController
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,11 +45,14 @@
 	// Do any additional setup after loading the view.
     
     [self setTitle:@"More"];
+    [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     
     // table cells arrow
     arrow = [UIImage imageNamed:THEME_CELL_ARROW];
     // table cells call button
     call = [UIImage imageNamed:THEME_CELL_CALL];
+    
+    currentFont = [UIFont fontWithName:THEME_FONT_GESTA size:18];
     
     // setup the main scroller (using a grid layout)
     self.scroller.contentLayoutMode = MGLayoutGridStyle;
@@ -116,12 +121,37 @@
     *aboutLine,
     *aboutChainLine,
     *contactusLine;
-
-    feedbackLine = [MGLineStyled lineWithLeft:@"Feedbacks & Suggestions" right:arrow size:ROW_SIZE];
+    
+    feedbackLine = [MGLineStyled lineWithLeft:@"Feedback & Suggestions" right:arrow size:ROW_SIZE];
+    [feedbackLine setBackgroundColor:[UIColor UIColorFromHex:0xe5ddd1] ];
+    feedbackLine.font = currentFont;
+    feedbackLine.textColor = [UIColor UIColorFromHex:0x442921];
+    feedbackLine.textShadowColor = [UIColor whiteColor];
+    
     complaintsLine = [MGLineStyled lineWithLeft:@"Complaints" right:arrow size:ROW_SIZE];
+    [complaintsLine setBackgroundColor:[UIColor UIColorFromHex:0xe5ddd1]];
+    complaintsLine.font = currentFont;
+    complaintsLine.textColor = [UIColor UIColorFromHex:0x442921];
+    complaintsLine.textShadowColor = [UIColor whiteColor];
+    
+    
     contactusLine = [MGLineStyled lineWithLeft:@"Contact Us" right:call  size:ROW_SIZE];
+    [contactusLine setBackgroundColor:[UIColor UIColorFromHex:0xe5ddd1]];
+    contactusLine.font = currentFont;
+    contactusLine.textColor = [UIColor UIColorFromHex:0x442921];
+    contactusLine.textShadowColor = [UIColor whiteColor];
+    
     aboutLine = [MGLineStyled lineWithLeft:@"About App" right:arrow size:ROW_SIZE];
+    [aboutLine setBackgroundColor:[UIColor UIColorFromHex:0xe5ddd1]];
+    aboutLine.font = currentFont;
+    aboutLine.textColor = [UIColor UIColorFromHex:0x442921];
+    aboutLine.textShadowColor = [UIColor whiteColor];
+    
     aboutChainLine = [MGLineStyled lineWithLeft:@"About SaleSucre" right:arrow size:ROW_SIZE];
+    [aboutChainLine setBackgroundColor:[UIColor UIColorFromHex:0xe5ddd1]];
+    aboutChainLine.font = currentFont;
+    aboutChainLine.textColor = [UIColor UIColorFromHex:0x442921];
+    aboutChainLine.textShadowColor = [UIColor whiteColor];
 
     [menu.topLines addObject:feedbackLine];
     [menu.topLines addObject:complaintsLine];
