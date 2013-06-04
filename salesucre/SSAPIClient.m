@@ -207,6 +207,23 @@
         
         mutableURLRequest = [self requestWithMethod:@"GET" path:@"pushNotifications" parameters:params];
     }
+    else if ([fetchRequest.entityName isEqualToString:@"SSContacts"])
+    {
+        DDLogInfo(@"inside entity.name: %@", fetchRequest.entityName);
+        
+        NSString * time = [NSString stringWithFormat:@"%i",[[_timestamps valueForKey:@"contacts"] intValue] ];
+        DDLogInfo(@"timest: %@", time);
+        
+        NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                _language, @"language",
+                                @"gt", @"op",
+                                time , @"lastModified",
+                                @"lastModified", @"opKey",
+                                @5, @"limit",
+                                nil];
+        
+        mutableURLRequest = [self requestWithMethod:@"GET" path:@"contacts" parameters:params];
+    }
     else
     {
         DDLogError(@"no entity name found");
@@ -508,6 +525,58 @@
         {
             [mutablePropertyValues setValue:[[representation objectForKey:@"data"] valueForKey:@"alert"] forKey:@"alert"];
         }
+    }
+    else if ([entity.name isEqualToString:@"SSContacts"])
+    {
+#pragma mark - Parsing SSContacts
+        DDLogInfo(@"entity.name: %@", entity.name);
+        
+        id createdAtValue = [[representation valueForKey:@"createdAt"] stringValue];
+        id lastModifiedValue = [[representation valueForKey:@"lastModified"] stringValue];
+        
+        if ( createdAtValue && ![createdAtValue isEqual:[NSNull null]] && [createdAtValue isKindOfClass:[NSString class]] )
+        {
+            NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
+        }
+        if ( lastModifiedValue && ![lastModifiedValue isEqual:[NSNull null]] && [lastModifiedValue isKindOfClass:[NSString class]] )
+        {
+            NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
+        }
+        
+        //---- change lastModified timestamp ---- //
+        if ([lastModifiedValue intValue] > [[_timestamps valueForKey:@"contacts"] intValue])
+        {
+            DDLogInfo(@"new timestamp is higher, assigning new one");
+            [_timestamps setValue:lastModifiedValue forKey:@"contacts"];
+        }
+        
+        // ---- deletedAt ---- //
+        @try {
+            id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
+            if ( deletedAtValue && ![deletedAtValue isEqual:[NSNull null]] && [deletedAtValue isKindOfClass:[NSString class]] )
+            {
+                NSTimeInterval timeModified = (NSTimeInterval)[deletedAtValue doubleValue];
+                [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"deletedAt"];
+            }
+            
+        }
+        @catch (NSException *exception) {
+            DDLogError(@"exception: %@", exception);
+        }
+        
+        if ([representation valueForKey:@"name"] != [NSNull null])
+        {
+            [mutablePropertyValues setValue:[representation valueForKey:@"name"] forKey:@"name"];
+        }
+        
+        if ([representation valueForKey:@"number"] != [NSNull null])
+        {
+            [mutablePropertyValues setValue:[representation valueForKey:@"number"] forKey:@"number"];
+        }
+        
+        [mutablePropertyValues setValue:[representation valueForKey:@"_id"] forKey:@"contactId"];
     }
     else {
         

@@ -85,8 +85,8 @@
     [_textView setText:text];
     
     CLLocationCoordinate2D coordinate;
-    coordinate.latitude = _currentBranch.latitude;
-    coordinate.longitude = _currentBranch.longitude;
+    coordinate.latitude = [_currentBranch.latitude doubleValue];
+    coordinate.longitude = [_currentBranch.longitude doubleValue];
     
     
     MKCoordinateRegion region = { {0.0,0.0} , {0.0,0.0} };

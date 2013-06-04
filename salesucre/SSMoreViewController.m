@@ -12,12 +12,24 @@
 #import "MGLineStyled.h"
 #import "UIViewController+MJPopupViewController.h"
 #import "SSPopupViewController.h"
+#import "SSContacts.h"
 
-@interface SSMoreViewController (){
+//@interface SSMoreViewController (){
+//    MGBox *photosGrid, *tablesGrid, *table1, *table2;
+//    UIImage *arrow, *call;
+//    UIFont *currentFont;
+//}
+//@end
+
+@interface SSMoreViewController () <NSFetchedResultsControllerDelegate> {
+    
+    NSFetchedResultsController *_fetchedResultsController;
     MGBox *photosGrid, *tablesGrid, *table1, *table2;
     UIImage *arrow, *call;
     UIFont *currentFont;
 }
+
+- (void)refetchData;
 @end
 
 #define ROW_SIZE               (CGSize){304, 44}
@@ -29,6 +41,10 @@
 
 @implementation SSMoreViewController
 
+- (void)refetchData
+{
+    [_fetchedResultsController performSelectorOnMainThread:@selector(performFetch:) withObject:nil waitUntilDone:YES modes:@[ NSRunLoopCommonModes ]];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +62,22 @@
     
     [self setTitle:@"More"];
     [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
+    
+    //---- AFIncrementalStore ---- //
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"SSContacts"];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastModified" ascending:NO]];
+    fetchRequest.fetchLimit = 5;
+    
+    //---- NSPredicate ---- //
+    NSPredicate *p = [NSPredicate predicateWithFormat:@"deletedAt = nil"];
+    [fetchRequest setPredicate:p];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc]
+                                 initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext]
+                                 sectionNameKeyPath:nil cacheName:nil];
+    
+    _fetchedResultsController.delegate = self;
+    [self refetchData];
     
     // table cells arrow
     arrow = [UIImage imageNamed:THEME_CELL_ARROW];
@@ -224,34 +256,30 @@
 - (void) sendInAppSMS
 {
     DDLogInfo(@"sending in App SMS");
-//    if (!bDidFinishDownloadingData_)
-//    {
-//        DDLogInfo(@"Data is not downloaded yet");
-//        [SVProgressHUD showErrorWithStatus:@"Please Try Again In Few Seconds"];
-//        return;
-//    }
-//    
-//    
-//	MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-//	if([MFMessageComposeViewController canSendText])
-//	{
-//		controller.body = @"";
-//		//controller.recipients = [NSArray arrayWithObjects:@"+201008000840",@"+201001794906",  nil];
-//        NSMutableArray * arr = [[NSMutableArray alloc] initWithCapacity:[phoneNumbersToComplaints_ count]];
-//        for (int i=0; i< [phoneNumbersToComplaints_ count]; i++)
-//        {
-//            [arr addObject:[[phoneNumbersToComplaints_ objectAtIndex:i] objectForKey:@"telephone"] ];
-//            DDLogInfo(@"current object : %@", [[phoneNumbersToComplaints_ objectAtIndex:i] objectForKey:@"telephone"]  );
-//        }
-//        
-//        controller.recipients = arr ;
-//        
-//		controller.messageComposeDelegate = self;
-//        //controller.delegate = self;
-//		[self presentModalViewController:controller animated:YES];
-//        arr = nil;
-//        
-//	}
+    
+    
+    
+	MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+	if([MFMessageComposeViewController canSendText])
+	{
+		controller.body = @"";
+		//controller.recipients = [NSArray arrayWithObjects:@"+201008000840",@"+201001794906",  nil];
+        
+        NSMutableArray *numbers = [[NSMutableArray alloc] init];
+        NSArray *objects = [_fetchedResultsController fetchedObjects];
+        
+        for (SSContacts *contact in objects)
+        {
+            [numbers addObject:[contact.number mutableCopy]];
+        }
+        
+        controller.recipients = numbers;
+        
+		controller.messageComposeDelegate = self;
+        //controller.delegate = self;
+		[self presentModalViewController:controller animated:YES];
+        
+	}
 }
 
 
@@ -337,5 +365,33 @@
     [self presentPopupViewController:popViewController animationType:KMJPopupViewAnimation];
 }
 
+
+#pragma mark - NSFetchedResultsControllerDelegate
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    DDLogWarn(@" %s %d", __PRETTY_FUNCTION__, __LINE__);
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type
+{
+    DDLogWarn(@" %s %d", __PRETTY_FUNCTION__, __LINE__);
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)object
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+{
+    DDLogWarn(@" %s %d", __PRETTY_FUNCTION__, __LINE__);
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
+    DDLogWarn(@" %s %d", __PRETTY_FUNCTION__, __LINE__);
+}
 
 @end

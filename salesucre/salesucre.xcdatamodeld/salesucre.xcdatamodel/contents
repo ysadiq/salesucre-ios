@@ -34,6 +34,14 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="category" inverseEntity="Images" syncable="YES"/>
         <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SSMenuItem" inverseName="categories" inverseEntity="SSMenuItem" syncable="YES"/>
     </entity>
+    <entity name="SSContacts" representedClassName="SSContacts" syncable="YES">
+        <attribute name="contactId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="SSMenuItem" representedClassName="SSMenuItem" versionHashModifier="1.0" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="deletedAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -60,5 +68,6 @@
         <element name="SSCategory" positionX="-3690" positionY="-747" width="128" height="163"/>
         <element name="SSMenuItem" positionX="-3854" positionY="-576" width="128" height="193"/>
         <element name="SSNotification" positionX="-4212" positionY="-439" width="128" height="133"/>
+        <element name="SSContacts" positionX="-4016" positionY="-270" width="128" height="133"/>
     </elements>
 </model>
