@@ -177,16 +177,37 @@
         SLComposeViewController *facebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         [facebook setInitialText:[NSString stringWithFormat:@"check out %@ via %@", _selectedItem.name, kSaleSucreTwitterAccount] ];
             
-//            if (_imagesURL && ([_imagesURL count] > 0 ))
-//            {   
-//                @try {
+            if (_imagesURL && ([_imagesURL count] > 0 ))
+            {
+                UIImage *imageToShare = [[UIImage alloc] init];
+                
+                @try {
 //                    NSURL *url = [NSURL URLWithString:[_imagesURL objectAtIndex:0]];
 //                    [facebook addImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url]] ];
-//                }
-//                @catch (NSException *exception) {
-//                    DDLogError(@"Exception: %@", exception);
-//                }
-//            }
+                    for (id view in [_imagePager subviews])
+                    {
+                        DDLogInfo(@"current view: %@, type: %@", view , [view class]);
+                        if ( [view isKindOfClass:[UIScrollView class]] )
+                        {
+                            for (id subView in [view subviews])
+                            {
+                                if ([subView isKindOfClass:[UIImageView class]])
+                                {
+                                    imageToShare = [(UIImageView *)subView image];
+                                    [facebook addImage:imageToShare];
+                                    break;
+                                }
+                            }
+                            
+                            break;
+                        }
+                    }
+                    
+                }
+                @catch (NSException *exception) {
+                    DDLogError(@"Exception: %@", exception);
+                }
+            }
             
         [self presentModalViewController:facebook animated:YES];
         SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
@@ -242,8 +263,37 @@
         
         [twitterCompose setInitialText:[NSString stringWithFormat:
                                         @"checkout %@ via %@ \n #salesucre #patisserie #cakes", _selectedItem.name, kSaleSucreTwitterAccount] ];
+        if (_imagesURL && ([_imagesURL count] > 0 ))
+        {
+            UIImage *imageToShare = [[UIImage alloc] init];
+            
+            @try {
+                for (id view in [_imagePager subviews])
+                {
+                    DDLogInfo(@"current view: %@, type: %@", view , [view class]);
+                    if ( [view isKindOfClass:[UIScrollView class]] )
+                    {
+                        for (id subView in [view subviews])
+                        {
+                            if ([subView isKindOfClass:[UIImageView class]])
+                            {
+                                imageToShare = [(UIImageView *)subView image];
+                                [twitterCompose addImage:imageToShare];
+                                break;
+                            }
+                        }
+                        
+                        break;
+                    }
+                }
+                
+            }
+            @catch (NSException *exception) {
+                DDLogError(@"Exception: %@", exception);
+            }
+        }
         
-
+        
         twitterCompose.completionHandler = ^(SLComposeViewControllerResult result){
             // Handle result, dismiss view controller
             switch (result) {
@@ -283,6 +333,36 @@
         //[twitterCompose addImage:];
         [twitterCompose setInitialText:[NSString stringWithFormat:
                                         @"checkout %@ via %@ \n #salesucre #patisserie #cakes", _selectedItem.name, kSaleSucreTwitterAccount] ];
+        
+        if (_imagesURL && ([_imagesURL count] > 0 ))
+        {
+            UIImage *imageToShare = [[UIImage alloc] init];
+            
+            @try {
+                for (id view in [_imagePager subviews])
+                {
+                    DDLogInfo(@"current view: %@, type: %@", view , [view class]);
+                    if ( [view isKindOfClass:[UIScrollView class]] )
+                    {
+                        for (id subView in [view subviews])
+                        {
+                            if ([subView isKindOfClass:[UIImageView class]])
+                            {
+                                imageToShare = [(UIImageView *)subView image];
+                                [twitterCompose addImage:imageToShare];
+                                break;
+                            }
+                        }
+                        
+                        break;
+                    }
+                }
+                
+            }
+            @catch (NSException *exception) {
+                DDLogError(@"Exception: %@", exception);
+            }
+        }
         
         twitterCompose.completionHandler = ^(TWTweetComposeViewControllerResult result){
             // Handle result, dismiss view controller
