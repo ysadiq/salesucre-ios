@@ -179,7 +179,7 @@
     aboutLine.textColor = [UIColor UIColorFromHex:0x442921];
     aboutLine.textShadowColor = [UIColor whiteColor];
     
-    aboutChainLine = [MGLineStyled lineWithLeft:@"About SaleSucre" right:arrow size:ROW_SIZE];
+    aboutChainLine = [MGLineStyled lineWithLeft:@"About Salé Sucré" right:arrow size:ROW_SIZE];
     [aboutChainLine setBackgroundColor:[UIColor UIColorFromHex:0xe5ddd1]];
     aboutChainLine.font = currentFont;
     aboutChainLine.textColor = [UIColor UIColorFromHex:0x442921];
