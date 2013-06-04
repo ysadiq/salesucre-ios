@@ -79,13 +79,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [Parse setApplicationId:kParseAppId clientKey:kParseClientKey];
     //[PFUser enableAutomaticUser];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
+    
 
-//    [[PFInstallation currentInstallation] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (!error)
-//            DDLogInfo(@"PFInstallation Saved");
-//        else
-//            DDLogError(@"PFINstallation could not be saved: %@", [error description]);
-//    }];
     
     if ([PFUser currentUser] && [[PFUser currentUser] isAuthenticated])
     {
@@ -104,7 +105,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         DDLogError(@"[PFUser currentUser] is nil");
     }
     
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+
 #ifdef DEBUG
     [Parse errorMessagesEnabled:YES];
 #endif
@@ -148,6 +149,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if ([UIApplication sharedApplication].applicationIconBadgeNumber != 0)
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    if (currentInstallation.badge != 0) {
+        currentInstallation.badge = 0;
+        [currentInstallation saveEventually];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -394,6 +403,30 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 - (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
+#pragma mark - PushNotifications
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current Installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication*)application
+didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	DDLogError(@"Failed to get token, error: %@", error);
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+    [_mainTabbar setSelectedIndex:2];
+}
+
 
 
 @end
