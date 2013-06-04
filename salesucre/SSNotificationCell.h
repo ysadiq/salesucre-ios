@@ -11,6 +11,9 @@
 
 @interface SSNotificationCell : UITableViewCell
 
+@property UILabel * content;
+@property UILabel * date;
+
 @property (setter = setNotification:) SSNotification *notification;
 @property UIFont *defaultFont;
 
