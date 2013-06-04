@@ -10,6 +10,13 @@
 #import "UIColor+Helpers.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <TTTDateTransformers.h>
+
+@interface SSNotificationCell ()
+
+@property (nonatomic, strong) NSDateFormatter * dateFormatter;
+
+@end
 
 @implementation SSNotificationCell
 
@@ -27,6 +34,8 @@
         self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:16.0];
         [self.textLabel setNumberOfLines:0];
         [self.detailTextLabel setNumberOfLines:0];
+        
+        self.dateFormatter = [[NSDateFormatter alloc] init];
         
 //        CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
 //		gradientLayer.colors =
@@ -57,6 +66,16 @@
     self.detailTextLabel.textColor = [UIColor UIColorFromHex:0x673F32];
     self.detailTextLabel.text = _notification.dataAlertExtend;
 //    [self.imageView setImageWithURL:[NSURL URLWithString:_post.user.avatarImageURLString] placeholderImage:[UIImage imageNamed:@"profile-image-placeholder"]];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self.dateFormatter = [[NSDateFormatter alloc] init];
+        [self.dateFormatter setDateFormat:@"dd MM YYYY"];
+        [self.dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    });
+    
+    //DDLogInfo(@"date: %@", [NSDate date]);
+    //[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName] transformedValue:notification.lastModified]);
     
     [self setNeedsLayout];
 }
@@ -90,13 +109,13 @@
     
     [gradientLayer setLocations:[NSArray arrayWithObjects:
                                  [NSNumber numberWithFloat:0.0f],
-                                 [NSNumber numberWithFloat:0.5f],
-                                 [NSNumber numberWithFloat:0.95f],
+//                                 [NSNumber numberWithFloat:0.35f],
+                                 [NSNumber numberWithFloat:0.8f],
                                  nil]];
     
     [gradientLayer setColors:[NSArray arrayWithObjects:
                              (id)[UIColor UIColorFromHex:0xf8f4ed].CGColor,
-                              (id)[UIColor UIColorFromHex:0xF8F4ED].CGColor,
+//                              (id)[UIColor UIColorFromHex:0xF8F4ED].CGColor,
                              (id)[UIColor UIColorFromHex:0xF1E8DA].CGColor,
                               nil] ];
     

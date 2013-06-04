@@ -11,6 +11,8 @@
 #import "SSMenuItem.h"
 #import "Branch.h"
 
+#import <TTTDateTransformers.h>
+
 #define kAPIBaseURL @"http://api.olitintl.com/APIPlatform/index.php/Version2/"
 #define kBetaAPIBaseURL @"http://betaapi.olitintl.com/APIPlatform/index.php/Version2/"
 
@@ -274,29 +276,30 @@
         
         if ( createdAtValue && ![createdAtValue isEqual:[NSNull null]] && [createdAtValue isKindOfClass:[NSString class]] )
         {
-            //            [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
-            //                                         transformedValue:createdAtValue ] forKey:@"createdAt"];
-            NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
-            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
+//              [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+//                                                    transformedValue:createdAtValue ] forKey:@"createdAt"];
+                NSTimeInterval timeCreated = (NSTimeInterval)[createdAtValue doubleValue];
+                [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
         }
         else
             DDLogWarn(@"????, %@", [createdAtValue class]);
         
-        //        [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
-        //                                         transformedValue:[representation valueForKey:lastModifiedValue] ] forKey:@"lastModified"];
+//            [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
+//                                                 transformedValue:[representation valueForKey:lastModifiedValue] ] forKey:@"lastModified"];
+        
         if ( lastModifiedValue && ![lastModifiedValue isEqual:[NSNull null] ] && [lastModifiedValue isKindOfClass:[NSString class]] )
         {
-            NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
-            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
+                NSTimeInterval timeModified = (NSTimeInterval)[lastModifiedValue doubleValue];
+                [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeModified] forKey:@"lastModified"];
         }
         
         // ---- deletedAt ---- //
         id deletedAtValue = [[representation valueForKey:@"deletedAt"] stringValue];
         if ([representation valueForKey:@"deletedAt"])
         {
-            DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
-            NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
-            [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
+                DDLogWarn(@"#deletedAt detected , category: %@", [representation valueForKey:@"name"]);
+                NSTimeInterval timeDeleted = (NSTimeInterval)[deletedAtValue doubleValue];
+                [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeDeleted] forKey:@"deletedAt"];
         }
         
         [mutablePropertyValues setValue:[NSNumber numberWithInt:[[representation valueForKey:@"weight"] intValue]] forKey:@"weight"];
@@ -347,7 +350,7 @@
             [mutablePropertyValues setValue:[NSDate dateWithTimeIntervalSince1970:timeCreated] forKey:@"createdAt"];
         }
         else
-            DDLogWarn(@"a7a, %@", [createdAtValue class]);
+            DDLogWarn(@"shit! , %@", [createdAtValue class]);
         
         //        [mutablePropertyValues setValue:[[NSValueTransformer valueTransformerForName:TTTISO8601DateTransformerName]
         //                                         transformedValue:[representation valueForKey:lastModifiedValue] ] forKey:@"lastModified"];
