@@ -65,7 +65,7 @@
  */
 
 #define KMJPopupViewAnimation 6
-#define kSaleSucreHotline @"19232"
+#define kSaleSucreHotline @"19632"
 
 // popup views types
 typedef enum

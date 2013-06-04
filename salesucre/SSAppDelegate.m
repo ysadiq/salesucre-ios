@@ -245,6 +245,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [_splashView hideSplash];
     _splashView = nil;
     
+    [Flurry logAllPageViews:_mainTabbar];
+    
     // customize appearence
     [self customizeAppearence];
     

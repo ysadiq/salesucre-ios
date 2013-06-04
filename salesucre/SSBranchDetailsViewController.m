@@ -62,6 +62,14 @@
     self.textView.textColor = [UIColor UIColorFromHex:0x673F32];
     [self.textView setBackgroundColor:[UIColor clearColor]];
     
+    
+    // ---- Flurry ---- //
+    NSDictionary *fProductViewd = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   (id)_currentBranch.distirctName ,@"Branch District",
+                                   (id)_currentBranch.street , @"Street Address" ,nil] ;
+    
+    [Flurry logEvent:FLURRY_EVENT_BRANCHES_VIEWD withParameters:fProductViewd];
+    
     NSString *text = [NSString stringWithFormat:@"%@\n", _currentBranch.distirctName];
     
     if (_currentBranch.street)
@@ -113,6 +121,13 @@
 - (void)userDidTapCall
 {
     DDLogInfo(@"should be calling now, numbers: %@", _currentBranch.phones);
+    
+    // ---- Flurry ---- //
+    NSDictionary *fProductViewd = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   (id)_currentBranch.distirctName ,@"Branch District",
+                                   (id)_currentBranch.street , @"Street Address" ,nil] ;
+    
+    [Flurry logEvent:FLURRY_EVENT_BRANCHES_INTERACTION withParameters:fProductViewd];
     
     if ([_currentBranch.phones count] > 0)
     {

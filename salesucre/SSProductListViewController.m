@@ -60,6 +60,11 @@ NSFetchedResultsController *_fetchedResultsController;
     // ---- reload ---- //
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refetchData)];
     
+    // ---- Flurry ---- //
+    NSDictionary *fCategoriesViewd = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      (id)_currentcategory.name ,@"Category Name", nil] ;
+    [Flurry logEvent:FLURRY_EVENT_CATEGORIES_VIEWD withParameters:fCategoriesViewd];
+    
     //language
     //    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
     //    NSString* path= [[NSBundle mainBundle] pathForResource:language_ ofType:@"lproj"];

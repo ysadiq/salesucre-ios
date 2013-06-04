@@ -86,6 +86,12 @@
     [self.facebookButton addTarget:self action:@selector(facebookShareTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.twitterButton addTarget:self action:@selector(twitterShareTapped) forControlEvents:UIControlEventTouchUpInside];
     
+    // ---- Flurry ---- //
+    NSDictionary *fProductViewd = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      (id)_selectedItem.name ,@"Product Name", nil] ;
+    [Flurry logEvent:FLURRY_EVENT_PRODUCT_VIEWD withParameters:fProductViewd];
+    
+    
     // ---- activity view ---- //
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [spinner setFrame:CGRectMake(150.0f, 68.0f, 20.0f, 20.0f)];
@@ -155,6 +161,14 @@
 - (void)facebookShareTapped
 {
     DDLogInfo(@"facebook share tapped");
+    
+    // ---- Flurry ---- //
+    NSDictionary *fProductViewd = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   (id)_selectedItem.name ,@"Product Name",
+                                   (id)@"facebook" , @"Social Network" ,nil] ;
+    
+    [Flurry logEvent:FLURRY_EVENT_PRODUCT_INTERACTION withParameters:fProductViewd];
+    
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6) )
     {
         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
@@ -198,6 +212,13 @@
 - (void)twitterShareTapped
 {
     DDLogInfo(@"twitter share tapped");
+    
+    // ---- Flurry ---- //
+    NSDictionary *fProductViewd = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   (id)_selectedItem.name ,@"Product Name",
+                                   (id)@"twitter" , @"Social Network" ,nil] ;
+    
+    [Flurry logEvent:FLURRY_EVENT_PRODUCT_INTERACTION withParameters:fProductViewd];
     
     // ios6
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6) )
