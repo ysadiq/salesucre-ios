@@ -30,9 +30,17 @@
         
         [self addBackground];
         // Rounded corners
+        self.imageView.frame = CGRectMake(6.5f, 6.5f, 50.0f, 50.0f);
+        
+        
         CALayer *layer = self.imageView.layer;
-        [layer setCornerRadius:9.0];
+        layer.cornerRadius = self.imageView.frame.size.width / 2;
+        
         [layer setMasksToBounds:YES];
+        [layer setBorderWidth:1.0];
+        [layer setBorderColor:[UIColor whiteColor].CGColor];
+        
+        
         self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:18.0];
         self.subtitleFont = [UIFont fontWithName:THEME_FONT_GESTA size:14];
         

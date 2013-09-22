@@ -31,7 +31,6 @@ The only thing you need to do is tell `AFIncrementalStore` how to map Core Data 
 > Don't worry if this looks like a lot of work--if your web service is RESTful, `AFRESTClient` does a lot of the heavy lifting for you. If your target web service is SOAP, RPC, or kinda ad-hoc, you can easily use these protocol methods to get everything hooked up.
 
 ```objective-c
-- (id)representationOrArrayOfRepresentationsFromResponseObject:(id)responseObject;
 
 - (NSDictionary *)representationsForRelationshipsFromRepresentation:(NSDictionary *)representation
                                                            ofEntity:(NSEntityDescription *)entity
@@ -77,7 +76,7 @@ Here's an example podfile that installs AFIncrementalStore and its dependency, A
 ```ruby
 platform :ios, '5.0'
 
-pod 'AFIncrementalStore', '0.3.0'
+pod 'AFIncrementalStore'
 ```
 
 Note the specification of iOS 5.0 as the platform; leaving out the 5.0 will cause CocoaPods to fail with the following message:

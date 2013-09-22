@@ -80,6 +80,9 @@
 		DD9184C4174CC03000441245 /* gallery-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9184C2174CC03000441245 /* gallery-placeholder@2x.png */; };
 		DD9184C7174CC30200441245 /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9184C6174CC30200441245 /* UIColor+Helpers.m */; };
 		DD9DE97D175E4D1E00A68E98 /* SSContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9DE97C175E4D1E00A68E98 /* SSContacts.m */; };
+		DDABA67B17C94815003EE5C0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA67A17C94815003EE5C0 /* AdSupport.framework */; };
+		DDABA67D17C94835003EE5C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA67C17C94835003EE5C0 /* Security.framework */; };
+		DDABA68117C94874003EE5C0 /* libFlurry_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */; };
 		DDAE4FC2175955F600475327 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC0175955F600475327 /* facebook-icon.png */; };
 		DDAE4FC3175955F600475327 /* facebook-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC1175955F600475327 /* facebook-icon@2x.png */; };
 		DDAE4FC6175955FD00475327 /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC4175955FD00475327 /* twitter-icon.png */; };
@@ -202,6 +205,10 @@
 		DD9184C6174CC30200441245 /* UIColor+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helpers.m"; sourceTree = "<group>"; };
 		DD9DE97B175E4D1E00A68E98 /* SSContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSContacts.h; sourceTree = "<group>"; };
 		DD9DE97C175E4D1E00A68E98 /* SSContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSContacts.m; sourceTree = "<group>"; };
+		DDABA67A17C94815003EE5C0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		DDABA67C17C94835003EE5C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DDABA67F17C94874003EE5C0 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.2.3.a; sourceTree = "<group>"; };
 		DDAE4FC0175955F600475327 /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
 		DDAE4FC1175955F600475327 /* facebook-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon@2x.png"; sourceTree = "<group>"; };
 		DDAE4FC4175955FD00475327 /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
@@ -244,9 +251,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDABA67D17C94835003EE5C0 /* Security.framework in Frameworks */,
+				DDABA67B17C94815003EE5C0 /* AdSupport.framework in Frameworks */,
 				00312351175CD047001961FD /* MessageUI.framework in Frameworks */,
 				DD1EBA8C1754FE69003A32B4 /* Twitter.framework in Frameworks */,
 				DD1EBA8A1754FCA6003A32B4 /* Social.framework in Frameworks */,
+				DDABA68117C94874003EE5C0 /* libFlurry_4.2.3.a in Frameworks */,
 				DD1EBA881754FC88003A32B4 /* Accounts.framework in Frameworks */,
 				DDB8189A174B9552008E0D38 /* MapKit.framework in Frameworks */,
 				DD3FD971174664B5003DE202 /* libz.1.1.3.dylib in Frameworks */,
@@ -329,6 +339,8 @@
 		DD3FD92617464BB4003DE202 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDABA67C17C94835003EE5C0 /* Security.framework */,
+				DDABA67A17C94815003EE5C0 /* AdSupport.framework */,
 				00312350175CD047001961FD /* MessageUI.framework */,
 				DD1EBA8B1754FE69003A32B4 /* Twitter.framework */,
 				DD1EBA891754FCA6003A32B4 /* Social.framework */,
@@ -358,6 +370,7 @@
 				DD27C99B174D681C0069CCFF /* ViewControllers */,
 				DD3FD96F174663FA003DE202 /* Model */,
 				DD3FD93217464BB4003DE202 /* Networking */,
+				DDABA67E17C94849003EE5C0 /* Libs */,
 				DD3FD95717465825003DE202 /* Helpers */,
 				DD3FD956174656C9003DE202 /* Artwork */,
 				DD3FD93017464BB4003DE202 /* Supporting Files */,
@@ -439,6 +452,15 @@
 				DD3D26BE1748F2D800A49116 /* Images.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		DDABA67E17C94849003EE5C0 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				DDABA67F17C94874003EE5C0 /* Flurry.h */,
+				DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */,
+			);
+			name = Libs;
 			sourceTree = "<group>";
 		};
 		DDF7B8E1174C1C5900A93E51 /* general */ = {
@@ -784,10 +806,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesucre/salesucre-Prefix.pch";
 				INFOPLIST_FILE = "salesucre/salesucre-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/salesucre/Flurry\"",
+					"\\\"$(SRCROOT)/salesucre/Flurry\\\"",
+					"/Users/haitham/Projects/salesucre-ios/salesucre",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -806,10 +829,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesucre/salesucre-Prefix.pch";
 				INFOPLIST_FILE = "salesucre/salesucre-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/salesucre/Flurry\"",
+					"\\\"$(SRCROOT)/salesucre/Flurry\\\"",
+					"/Users/haitham/Projects/salesucre-ios/salesucre",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

@@ -9,14 +9,14 @@
 // AFIncrementalStore
 #define COCOAPODS_POD_AVAILABLE_AFIncrementalStore
 #define COCOAPODS_VERSION_MAJOR_AFIncrementalStore 0
-#define COCOAPODS_VERSION_MINOR_AFIncrementalStore 4
+#define COCOAPODS_VERSION_MINOR_AFIncrementalStore 5
 #define COCOAPODS_VERSION_PATCH_AFIncrementalStore 1
 
 // AFNetworking
 #define COCOAPODS_POD_AVAILABLE_AFNetworking
 #define COCOAPODS_VERSION_MAJOR_AFNetworking 1
 #define COCOAPODS_VERSION_MINOR_AFNetworking 3
-#define COCOAPODS_VERSION_PATCH_AFNetworking 0
+#define COCOAPODS_VERSION_PATCH_AFNetworking 2
 
 // ActionSheetPicker2
 #define COCOAPODS_POD_AVAILABLE_ActionSheetPicker2
@@ -47,12 +47,6 @@
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
 #define COCOAPODS_VERSION_MINOR_Facebook_iOS_SDK 5
 #define COCOAPODS_VERSION_PATCH_Facebook_iOS_SDK 1
-
-// FlurrySDK
-#define COCOAPODS_POD_AVAILABLE_FlurrySDK
-#define COCOAPODS_VERSION_MAJOR_FlurrySDK 4
-#define COCOAPODS_VERSION_MINOR_FlurrySDK 2
-#define COCOAPODS_VERSION_PATCH_FlurrySDK 1
 
 // InflectorKit
 #define COCOAPODS_POD_AVAILABLE_InflectorKit
@@ -94,7 +88,7 @@
 #define COCOAPODS_POD_AVAILABLE_TransformerKit
 #define COCOAPODS_VERSION_MAJOR_TransformerKit 0
 #define COCOAPODS_VERSION_MINOR_TransformerKit 2
-#define COCOAPODS_VERSION_PATCH_TransformerKit 3
+#define COCOAPODS_VERSION_PATCH_TransformerKit 4
 
 // iRate
 #define COCOAPODS_POD_AVAILABLE_iRate
