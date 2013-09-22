@@ -49,12 +49,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6))
-    {
-        _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
-        _imagePager.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    }
+    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor UIColorFromHex:0xffa100];
+    _imagePager.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
 
 }
 - (void)viewDidLoad

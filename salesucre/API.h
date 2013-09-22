@@ -45,6 +45,10 @@
 
 #define kiOS5 @"5.0"
 #define kiOS6 @"6.0"
+#define kiOS7 @"7.0"
+
+#define kPriorToiOS7 floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1
+#define kiOS7OrMore floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1
 
 #define kSaleSucreTwitterAccount @"@sale_sucre"
 

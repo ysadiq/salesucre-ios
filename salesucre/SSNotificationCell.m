@@ -35,6 +35,7 @@
         
         DDLogInfo(@"inside #init");
         //self.textLabel.adjustsFontSizeToFitWidth = YES;
+        [self setBackgroundColor:[UIColor clearColor]];
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         self.defaultFont = [UIFont fontWithName:THEME_FONT_GESTA size:16.0];
         self.dateFormatter = [[NSDateFormatter alloc] init];
@@ -115,18 +116,18 @@
 //    DDLogWarn(@"date frame: %@", NSStringFromCGRect(self.date.frame));
     
     // ---- gradiant ---- //
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = self.bounds;
-    [gradientLayer setLocations:[NSArray arrayWithObjects:
-                                 [NSNumber numberWithFloat:0.4f],
-                                 [NSNumber numberWithFloat:0.8f],
-                                 nil]];
-    
-    [gradientLayer setColors:[NSArray arrayWithObjects:
-                             (id)[UIColor UIColorFromHex:0xf8f4ed].CGColor,
-                             (id)[UIColor UIColorFromHex:0xF1E8DA].CGColor,
-                              nil] ];
-    [self.layer insertSublayer:gradientLayer atIndex:0];
+//    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+//    gradientLayer.frame = self.bounds;
+//    [gradientLayer setLocations:[NSArray arrayWithObjects:
+//                                 [NSNumber numberWithFloat:0.4f],
+//                                 [NSNumber numberWithFloat:0.8f],
+//                                 nil]];
+//    
+//    [gradientLayer setColors:[NSArray arrayWithObjects:
+//                             (id)[UIColor UIColorFromHex:0xf8f4ed].CGColor,
+//                             (id)[UIColor UIColorFromHex:0xF1E8DA].CGColor,
+//                              nil] ];
+//    [self.layer insertSublayer:gradientLayer atIndex:0];
 }
 
 @end

@@ -44,7 +44,11 @@
 	// Do any additional setup after loading the view.
     
     [self setTitle:@"Branches"];
-
+    if (kiOS7OrMore)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     [self.view setBackgroundColor:[UIColor clearColor]];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];

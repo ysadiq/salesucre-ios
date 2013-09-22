@@ -43,6 +43,11 @@
 	// Do any additional setup after loading the view.
     DDLogInfo(@"menu did load");
     
+    if (kiOS7OrMore)
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS6))
     {
         self.isLegacyiOS = NO;
@@ -63,8 +68,16 @@
     [self.tableView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_SELECTED]
-                    withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_UNSELECTED] ];
+    if (kPriorToiOS7)
+    {
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_SELECTED]
+                      withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_MENU_ICON_UNSELECTED] ];
+    }
+    else
+    {
+        [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"menu-icon-selected-ios7"]
+                    withFinishedUnselectedImage:[UIImage imageNamed:@"menu-icon-unselected-ios7"] ];
+    }
     
     //language
 //    language_ = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
