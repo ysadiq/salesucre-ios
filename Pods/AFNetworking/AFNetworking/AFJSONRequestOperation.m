@@ -64,12 +64,6 @@ static dispatch_queue_t json_request_operation_processing_queue() {
 
 
 - (id)responseJSON {
-    NSLog(@"inside responseJSON");
-    if (!_responseJSON && [self.responseData length] > 0 && [self isFinished] && !self.JSONError) {
-        
-            NSLog(@"inside responseJSON1.5");
-    }
-    
     [self.lock lock];
     if (!_responseJSON && [self.responseData length] > 0 && [self isFinished] && !self.JSONError) {
         NSError *error = nil;
@@ -82,7 +76,6 @@ static dispatch_queue_t json_request_operation_processing_queue() {
             NSData *data = [self.responseString dataUsingEncoding:NSUTF8StringEncoding];
 
             if (data) {
-                NSLog(@"inside responseJSON2");
                 self.responseJSON = [NSJSONSerialization JSONObjectWithData:data options:self.JSONReadingOptions error:&error];
             } else {
                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];

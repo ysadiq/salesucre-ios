@@ -22,6 +22,7 @@
 
 #import "NSValueTransformer+TransformerKit.h"
 
+#import <Availability.h>
 #import <objc/runtime.h>
 
 @implementation NSValueTransformer (TransformerKit)
@@ -74,7 +75,15 @@
         IMP allowsReverseTransformationImplementation = imp_implementationWithBlock(^BOOL (id __unused _self) {
             return YES;
         });
-        Method allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
+
+        Method allowsReverseTransformationMethod;
+//#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && (!defined(__IPHONE_5_0) || __IPHONE_OS_VERSION_MIN_REQUIRED <= __IPHONE_5_0)
+//        NSLog(@"__IPHONE_OS_VERSION_MIN_REQUIRED: [%@] ", __IPHONE_OS_VERSION_MIN_REQUIRED);
+//        allowsReverseTransformationMethod = class_getClassMethod(class, allowsReverseTransformationSelector);
+//#else
+        allowsReverseTransformationMethod = class_getInstanceMethod(class, allowsReverseTransformationSelector);
+//#endif
+
         class_replaceMethod(class, allowsReverseTransformationSelector, allowsReverseTransformationImplementation, method_getTypeEncoding(allowsReverseTransformationMethod));
         
         SEL reverseTransformedValueSelector = @selector(reverseTransformedValue:);

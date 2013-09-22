@@ -76,16 +76,20 @@
 		DD4B51E0174E649C0011EBE0 /* section-header-view-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD4B51DE174E649C0011EBE0 /* section-header-view-background@2x.png */; };
 		DD53CED81752253E0082F965 /* thumbnail-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD53CED61752253E0082F965 /* thumbnail-placeholder.png */; };
 		DD53CED91752253E0082F965 /* thumbnail-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD53CED71752253E0082F965 /* thumbnail-placeholder@2x.png */; };
+		DD7FDE9817EF73F200E22655 /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7FDE9617EF73F200E22655 /* twitter-icon.png */; };
+		DD7FDE9917EF73F200E22655 /* twitter-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7FDE9717EF73F200E22655 /* twitter-icon@2x.png */; };
+		DD7FDE9C17EF73FE00E22655 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7FDE9A17EF73FE00E22655 /* facebook-icon.png */; };
+		DD7FDE9D17EF73FE00E22655 /* facebook-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7FDE9B17EF73FE00E22655 /* facebook-icon@2x.png */; };
+		DD7FDEA017EF777500E22655 /* price-tag.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7FDE9E17EF777500E22655 /* price-tag.png */; };
+		DD7FDEA117EF777500E22655 /* price-tag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7FDE9F17EF777500E22655 /* price-tag@2x.png */; };
+		DD7FDEA317EF7CEF00E22655 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7FDEA217EF7CEF00E22655 /* Images.xcassets */; };
 		DD9184C3174CC03000441245 /* gallery-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9184C1174CC03000441245 /* gallery-placeholder.png */; };
 		DD9184C4174CC03000441245 /* gallery-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD9184C2174CC03000441245 /* gallery-placeholder@2x.png */; };
 		DD9184C7174CC30200441245 /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9184C6174CC30200441245 /* UIColor+Helpers.m */; };
 		DD9DE97D175E4D1E00A68E98 /* SSContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9DE97C175E4D1E00A68E98 /* SSContacts.m */; };
-		DDAE4FC2175955F600475327 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC0175955F600475327 /* facebook-icon.png */; };
-		DDAE4FC3175955F600475327 /* facebook-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC1175955F600475327 /* facebook-icon@2x.png */; };
-		DDAE4FC6175955FD00475327 /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC4175955FD00475327 /* twitter-icon.png */; };
-		DDAE4FC7175955FD00475327 /* twitter-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC5175955FD00475327 /* twitter-icon@2x.png */; };
-		DDAE4FCA17595B8100475327 /* price-tag.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC817595B8100475327 /* price-tag.png */; };
-		DDAE4FCB17595B8100475327 /* price-tag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC917595B8100475327 /* price-tag@2x.png */; };
+		DDABA67B17C94815003EE5C0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA67A17C94815003EE5C0 /* AdSupport.framework */; };
+		DDABA67D17C94835003EE5C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA67C17C94835003EE5C0 /* Security.framework */; };
+		DDABA68117C94874003EE5C0 /* libFlurry_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */; };
 		DDAE4FCE1759609D00475327 /* call-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FCC1759609D00475327 /* call-icon.png */; };
 		DDAE4FCF1759609D00475327 /* call-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FCD1759609D00475327 /* call-icon@2x.png */; };
 		DDAE4FE417596D7C00475327 /* menu-icon-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FE017596D7C00475327 /* menu-icon-selected.png */; };
@@ -196,18 +200,23 @@
 		DD4B51DE174E649C0011EBE0 /* section-header-view-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "section-header-view-background@2x.png"; sourceTree = "<group>"; };
 		DD53CED61752253E0082F965 /* thumbnail-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail-placeholder.png"; sourceTree = "<group>"; };
 		DD53CED71752253E0082F965 /* thumbnail-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail-placeholder@2x.png"; sourceTree = "<group>"; };
+		DD7FDE9617EF73F200E22655 /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
+		DD7FDE9717EF73F200E22655 /* twitter-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon@2x.png"; sourceTree = "<group>"; };
+		DD7FDE9A17EF73FE00E22655 /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
+		DD7FDE9B17EF73FE00E22655 /* facebook-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon@2x.png"; sourceTree = "<group>"; };
+		DD7FDE9E17EF777500E22655 /* price-tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-tag.png"; sourceTree = "<group>"; };
+		DD7FDE9F17EF777500E22655 /* price-tag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-tag@2x.png"; sourceTree = "<group>"; };
+		DD7FDEA217EF7CEF00E22655 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD9184C1174CC03000441245 /* gallery-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallery-placeholder.png"; sourceTree = "<group>"; };
 		DD9184C2174CC03000441245 /* gallery-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallery-placeholder@2x.png"; sourceTree = "<group>"; };
 		DD9184C5174CC30200441245 /* UIColor+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helpers.h"; sourceTree = "<group>"; };
 		DD9184C6174CC30200441245 /* UIColor+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helpers.m"; sourceTree = "<group>"; };
 		DD9DE97B175E4D1E00A68E98 /* SSContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSContacts.h; sourceTree = "<group>"; };
 		DD9DE97C175E4D1E00A68E98 /* SSContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSContacts.m; sourceTree = "<group>"; };
-		DDAE4FC0175955F600475327 /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
-		DDAE4FC1175955F600475327 /* facebook-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon@2x.png"; sourceTree = "<group>"; };
-		DDAE4FC4175955FD00475327 /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
-		DDAE4FC5175955FD00475327 /* twitter-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon@2x.png"; sourceTree = "<group>"; };
-		DDAE4FC817595B8100475327 /* price-tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-tag.png"; sourceTree = "<group>"; };
-		DDAE4FC917595B8100475327 /* price-tag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-tag@2x.png"; sourceTree = "<group>"; };
+		DDABA67A17C94815003EE5C0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		DDABA67C17C94835003EE5C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DDABA67F17C94874003EE5C0 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.2.3.a; sourceTree = "<group>"; };
 		DDAE4FCC1759609D00475327 /* call-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-icon.png"; sourceTree = "<group>"; };
 		DDAE4FCD1759609D00475327 /* call-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-icon@2x.png"; sourceTree = "<group>"; };
 		DDAE4FE017596D7C00475327 /* menu-icon-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon-selected.png"; sourceTree = "<group>"; };
@@ -244,9 +253,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDABA67D17C94835003EE5C0 /* Security.framework in Frameworks */,
+				DDABA67B17C94815003EE5C0 /* AdSupport.framework in Frameworks */,
 				00312351175CD047001961FD /* MessageUI.framework in Frameworks */,
 				DD1EBA8C1754FE69003A32B4 /* Twitter.framework in Frameworks */,
 				DD1EBA8A1754FCA6003A32B4 /* Social.framework in Frameworks */,
+				DDABA68117C94874003EE5C0 /* libFlurry_4.2.3.a in Frameworks */,
 				DD1EBA881754FC88003A32B4 /* Accounts.framework in Frameworks */,
 				DDB8189A174B9552008E0D38 /* MapKit.framework in Frameworks */,
 				DD3FD971174664B5003DE202 /* libz.1.1.3.dylib in Frameworks */,
@@ -329,6 +341,8 @@
 		DD3FD92617464BB4003DE202 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDABA67C17C94835003EE5C0 /* Security.framework */,
+				DDABA67A17C94815003EE5C0 /* AdSupport.framework */,
 				00312350175CD047001961FD /* MessageUI.framework */,
 				DD1EBA8B1754FE69003A32B4 /* Twitter.framework */,
 				DD1EBA891754FCA6003A32B4 /* Social.framework */,
@@ -358,8 +372,10 @@
 				DD27C99B174D681C0069CCFF /* ViewControllers */,
 				DD3FD96F174663FA003DE202 /* Model */,
 				DD3FD93217464BB4003DE202 /* Networking */,
+				DDABA67E17C94849003EE5C0 /* Libs */,
 				DD3FD95717465825003DE202 /* Helpers */,
 				DD3FD956174656C9003DE202 /* Artwork */,
+				DD7FDEA217EF7CEF00E22655 /* Images.xcassets */,
 				DD3FD93017464BB4003DE202 /* Supporting Files */,
 			);
 			path = salesucre;
@@ -441,21 +457,30 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		DDABA67E17C94849003EE5C0 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				DDABA67F17C94874003EE5C0 /* Flurry.h */,
+				DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
 		DDF7B8E1174C1C5900A93E51 /* general */ = {
 			isa = PBXGroup;
 			children = (
+				DD7FDE9E17EF777500E22655 /* price-tag.png */,
+				DD7FDE9F17EF777500E22655 /* price-tag@2x.png */,
+				DD7FDE9A17EF73FE00E22655 /* facebook-icon.png */,
+				DD7FDE9B17EF73FE00E22655 /* facebook-icon@2x.png */,
+				DD7FDE9617EF73F200E22655 /* twitter-icon.png */,
+				DD7FDE9717EF73F200E22655 /* twitter-icon@2x.png */,
 				DD4B51D6174E36B30011EBE0 /* salesucre-logo.png */,
 				DD4B51D7174E36B30011EBE0 /* salesucre-logo@2x.png */,
 				DD1723FA174CDB18005EB25A /* app-background.png */,
 				DD1723FB174CDB18005EB25A /* app-background@2x.png */,
 				DD9184C1174CC03000441245 /* gallery-placeholder.png */,
 				DD9184C2174CC03000441245 /* gallery-placeholder@2x.png */,
-				DDAE4FC0175955F600475327 /* facebook-icon.png */,
-				DDAE4FC1175955F600475327 /* facebook-icon@2x.png */,
-				DDAE4FC4175955FD00475327 /* twitter-icon.png */,
-				DDAE4FC5175955FD00475327 /* twitter-icon@2x.png */,
-				DDAE4FC817595B8100475327 /* price-tag.png */,
-				DDAE4FC917595B8100475327 /* price-tag@2x.png */,
 				DDAE4FCC1759609D00475327 /* call-icon.png */,
 				DDAE4FCD1759609D00475327 /* call-icon@2x.png */,
 			);
@@ -564,6 +589,7 @@
 				DD3FD94D1746513C003DE202 /* Icon@2x.png in Resources */,
 				DD3FD94F17465146003DE202 /* Default.png in Resources */,
 				DD3FD9511746515B003DE202 /* Default@2x.png in Resources */,
+				DD7FDEA317EF7CEF00E22655 /* Images.xcassets in Resources */,
 				DD3FD953174652C8003DE202 /* Default-568h@2x.png in Resources */,
 				DD3DB5FD17468A4200F7D014 /* MainStoryboard.storyboard in Resources */,
 				DD3DB60717468FBC00F7D014 /* SSSplashViewController.xib in Resources */,
@@ -572,7 +598,10 @@
 				DD1723FC174CDB18005EB25A /* app-background.png in Resources */,
 				DD1723FD174CDB18005EB25A /* app-background@2x.png in Resources */,
 				DD27C9AA174D79520069CCFF /* navbar-background.png in Resources */,
+				DD7FDE9917EF73F200E22655 /* twitter-icon@2x.png in Resources */,
 				DD27C9AB174D79520069CCFF /* navbar-background@2x.png in Resources */,
+				DD7FDEA117EF777500E22655 /* price-tag@2x.png in Resources */,
+				DD7FDEA017EF777500E22655 /* price-tag.png in Resources */,
 				DDF2B9BE174D7CC800545849 /* tabbar-background.png in Resources */,
 				DDF2B9BF174D7CC800545849 /* tabbar-background@2x.png in Resources */,
 				DD4B51D4174E2D530011EBE0 /* cell-background.png in Resources */,
@@ -586,12 +615,6 @@
 				DD3F794617539AEB001530B1 /* list-arrow.png in Resources */,
 				DD3F794717539AEB001530B1 /* list-arrow@2x.png in Resources */,
 				DD3F794917539D2E001530B1 /* GestaSemiCond-Medium.ttf in Resources */,
-				DDAE4FC2175955F600475327 /* facebook-icon.png in Resources */,
-				DDAE4FC3175955F600475327 /* facebook-icon@2x.png in Resources */,
-				DDAE4FC6175955FD00475327 /* twitter-icon.png in Resources */,
-				DDAE4FC7175955FD00475327 /* twitter-icon@2x.png in Resources */,
-				DDAE4FCA17595B8100475327 /* price-tag.png in Resources */,
-				DDAE4FCB17595B8100475327 /* price-tag@2x.png in Resources */,
 				DDAE4FCE1759609D00475327 /* call-icon.png in Resources */,
 				DDAE4FCF1759609D00475327 /* call-icon@2x.png in Resources */,
 				DDAE4FE417596D7C00475327 /* menu-icon-selected.png in Resources */,
@@ -599,15 +622,18 @@
 				DDAE4FE617596D7C00475327 /* menu-icon-unselected.png in Resources */,
 				DDAE4FE717596D7C00475327 /* menu-icon-unselected@2x.png in Resources */,
 				DDAE4FF6175973FB00475327 /* tabbar-tint-image.png in Resources */,
+				DD7FDE9D17EF73FE00E22655 /* facebook-icon@2x.png in Resources */,
 				DDAE4FF91759754900475327 /* tabbar-tint-image@2x.png in Resources */,
 				DD49AA4B175C917600CB762A /* notifications-icon-selected.png in Resources */,
 				DD49AA4C175C917600CB762A /* notifications-icon-selected@2x.png in Resources */,
+				DD7FDE9817EF73F200E22655 /* twitter-icon.png in Resources */,
 				DD49AA4D175C917600CB762A /* notifications-icon-unselected.png in Resources */,
 				DD49AA4E175C917600CB762A /* notifications-icon-unselected@2x.png in Resources */,
 				DD49AA53175C917E00CB762A /* settings-icon-selected.png in Resources */,
 				DD49AA54175C917E00CB762A /* settings-icon-selected@2x.png in Resources */,
 				DD49AA55175C917E00CB762A /* settings-icon-unselected.png in Resources */,
 				DD49AA56175C917E00CB762A /* settings-icon-unselected@2x.png in Resources */,
+				DD7FDE9C17EF73FE00E22655 /* facebook-icon.png in Resources */,
 				DD49AA5B175C937800CB762A /* branches-icon-selected.png in Resources */,
 				DD49AA5C175C937800CB762A /* branches-icon-selected@2x.png in Resources */,
 				DD49AA5D175C937800CB762A /* branches-icon-unselected.png in Resources */,
@@ -738,7 +764,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -763,7 +789,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "A9CB561E-BD84-431B-9309-A9790C81C6DC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -776,6 +802,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/salesucre\"",
@@ -784,12 +813,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesucre/salesucre-Prefix.pch";
 				INFOPLIST_FILE = "salesucre/salesucre-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/salesucre/Flurry\"",
+					"\\\"$(SRCROOT)/salesucre/Flurry\\\"",
+					"/Users/haitham/Projects/salesucre-ios/salesucre",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2D275517-7821-48C0-AAD8-0F435CAE01EE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -798,6 +829,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77E07B2F641949CFB3FE2D0C /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/salesucre\"",
@@ -806,10 +839,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "salesucre/salesucre-Prefix.pch";
 				INFOPLIST_FILE = "salesucre/salesucre-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/salesucre/Flurry\"",
+					"\\\"$(SRCROOT)/salesucre/Flurry\\\"",
+					"/Users/haitham/Projects/salesucre-ios/salesucre",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

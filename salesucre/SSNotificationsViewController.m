@@ -49,8 +49,8 @@
     [self.view setBackgroundColor:[UIColor UIColorFromHex:0xf8f4ed]];
     
     [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [self.tableView setSeparatorColor:[UIColor UIColorFromHex:0x442921]];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    [self.tableView setSeparatorColor:[UIColor brownColor]];
     
     [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:THEME_TABBAR_NOTIFICATIONS_ICON_SELECTED]
                   withFinishedUnselectedImage:[UIImage imageNamed:THEME_TABBAR_NOTIFICATIONS_ICON_UNSELECTED] ];

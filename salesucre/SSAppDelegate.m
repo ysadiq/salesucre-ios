@@ -86,7 +86,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
     
-
+    if (kPriorToiOS7)
+    {
+        DDLogWarn(@"#ios6");
+    }
+    else
+    {
+        DDLogWarn(@"#ios7");
+    }
     
     if ([PFUser currentUser] && [[PFUser currentUser] isAuthenticated])
     {
@@ -250,6 +257,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(kiOS7))
+    {
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent ;
+    }
     
     [_splashView hideSplash];
     _splashView = nil;
@@ -297,25 +308,41 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     //---- Tabbar ---- //
     // item color: 229,221,209
     
-    [_mainTabbar.tabBar setBackgroundImage:[UIImage imageNamed:THEME_TABBAR_BACKGROUND] ];
-    [_mainTabbar.tabBar setTintColor:[UIColor UIColorFromHex:0xe5ddd1]];
-    [_mainTabbar.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
-    //[_mainTabbar.tabBar setTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:kThemeTabBarSelectionIndicator]] ];
-    [_mainTabbar.tabBar setSelectionIndicatorImage:[UIImage imageNamed:THEME_TABBAR_SELECTION_IMAGE]];
+    if (kPriorToiOS7)
+    {
+        [_mainTabbar.tabBar setBackgroundImage:[UIImage imageNamed:THEME_TABBAR_BACKGROUND] ];
+        [_mainTabbar.tabBar setTintColor:[UIColor UIColorFromHex:0xe5ddd1]];
+        [_mainTabbar.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+        [_mainTabbar.tabBar setSelectionIndicatorImage:[UIImage imageNamed:THEME_TABBAR_SELECTION_IMAGE]];
+    }
+    else
+    {
+        [_mainTabbar.tabBar setBackgroundColor:[UIColor UIColorFromHex:0x402621]];
+        //[_mainTabbar.tabBar setTintColor:[UIColor UIColorFromHex:0xe5ddd1]];
+        [_mainTabbar.tabBar setTintColor:[UIColor whiteColor]];
+        [_mainTabbar.tabBar setBarTintColor:[UIColor UIColorFromHex:0x402621]];
+    
+        [_mainTabbar.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+        [_mainTabbar.tabBar setSelectionIndicatorImage:nil];
+    }
     
     //---- Navigation Bar ---- //
     // navigation bar
     UINavigationBar *nav = [UINavigationBar appearance];
-    [nav setBackgroundImage:[UIImage imageNamed:THEME_NAVBAR_BACKGROUND] forBarMetrics:UIBarMetricsDefault];
+    
+    if (kPriorToiOS7)
+    {
+        [nav setBackgroundImage:[UIImage imageNamed:THEME_NAVBAR_BACKGROUND] forBarMetrics:UIBarMetricsDefault];
+    }else
+    {
+        [nav setTintColor:[UIColor UIColorFromHex:0x673F32]];
+        [nav setBarTintColor:[UIColor UIColorFromHex:0xf1eedd]];
+    }
     
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor colorWithRed:68.0/255.0 green:41.0/255.0 blue:33.0/255.0 alpha:1.0],
       UITextAttributeTextColor,
-      [UIColor whiteColor],
-      UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, 1)],
-      UITextAttributeTextShadowOffset,
       nil]];
     
     

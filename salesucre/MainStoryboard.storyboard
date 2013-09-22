@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="TmS-1r-qyj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TmS-1r-qyj">
     <dependencies>
-        <deployment version="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment version="1536" defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -10,7 +10,6 @@
             <objects>
                 <tabBarController storyboardIdentifier="mainTabbar" definesPresentationContext="YES" id="TmS-1r-qyj" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7u6-8y-iul">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -32,7 +31,6 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="T7J-HZ-Rr3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Menu" image="menu-icon-unselected.png" id="8S0-u9-jOj"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Fk-up-Oi6">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
@@ -49,12 +47,16 @@
         <scene sceneID="wHr-bM-g9I">
             <objects>
                 <viewController id="seJ-fY-mWg" customClass="SSMenuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Az-KE-NvF"/>
+                        <viewControllerLayoutGuide type="bottom" id="4GM-DU-E7m"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fQM-aH-b1N">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IuI-SO-c8E">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IuI-SO-c8E">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -64,9 +66,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IuI-SO-c8E" firstAttribute="top" secondItem="0Az-KE-NvF" secondAttribute="bottom" id="1qw-Ly-8Xk"/>
+                            <constraint firstAttribute="trailing" secondItem="IuI-SO-c8E" secondAttribute="trailing" id="CGc-2s-Vvf"/>
+                            <constraint firstItem="4GM-DU-E7m" firstAttribute="top" secondItem="IuI-SO-c8E" secondAttribute="bottom" id="Kpy-vB-deu"/>
+                            <constraint firstItem="IuI-SO-c8E" firstAttribute="leading" secondItem="fQM-aH-b1N" secondAttribute="leading" id="fjP-a9-2z7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nvx-ZM-ZNk"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="IuI-SO-c8E" id="HTw-jS-zR3"/>
                         <outlet property="view" destination="fQM-aH-b1N" id="p6r-KU-Amr"/>
@@ -82,7 +89,6 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="DLz-EU-dZM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Branches" image="branches-icon-unselected.png" id="gkO-yd-dgo"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w1X-fD-hM9">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
@@ -99,12 +105,16 @@
         <scene sceneID="M6y-mh-SXs">
             <objects>
                 <viewController id="eJ3-Vi-fYU" customClass="SSBranchesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sce-sn-tIh"/>
+                        <viewControllerLayoutGuide type="bottom" id="ahT-ui-Keh"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JCg-89-2S3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IVA-Tc-A83">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IVA-Tc-A83">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="517"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -114,9 +124,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IVA-Tc-A83" secondAttribute="trailing" id="2w4-4B-WQK"/>
+                            <constraint firstItem="IVA-Tc-A83" firstAttribute="leading" secondItem="JCg-89-2S3" secondAttribute="leading" id="6de-gU-bK4"/>
+                            <constraint firstItem="IVA-Tc-A83" firstAttribute="top" secondItem="JCg-89-2S3" secondAttribute="top" id="Lwr-TA-s8y"/>
+                            <constraint firstItem="ahT-ui-Keh" firstAttribute="top" secondItem="IVA-Tc-A83" secondAttribute="bottom" constant="2" id="r3v-fE-DWl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vbQ-tJ-0wN"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="IVA-Tc-A83" id="5oO-jn-LaF"/>
                         <outlet property="view" destination="JCg-89-2S3" id="CbC-uX-2pn"/>
@@ -148,12 +163,16 @@
         <scene sceneID="qQX-og-wsm">
             <objects>
                 <viewController id="Xyl-90-vAl" customClass="SSNotificationsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MeV-Br-yDd"/>
+                        <viewControllerLayoutGuide type="bottom" id="THt-xe-8cA"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="y28-Ha-QeR">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8Pj-1O-aQC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Pj-1O-aQC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -165,7 +184,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="IKP-Qp-btP"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="8Pj-1O-aQC" id="Vmu-p6-EAS"/>
                         <outlet property="view" destination="y28-Ha-QeR" id="D35-lT-dRy"/>
@@ -180,7 +198,6 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="vXS-Ul-Vub" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="More" image="settings-icon-unselected.png" id="wOW-jU-oaD"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGu-uj-LZy">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.63137257099999999" green="0.44705885649999999" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
@@ -197,19 +214,22 @@
         <scene sceneID="Dtg-fU-MbV">
             <objects>
                 <viewController id="WdK-GT-xCx" customClass="SSMoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mww-LH-kWj"/>
+                        <viewControllerLayoutGuide type="bottom" id="sS9-8c-A5X"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yxa-cM-Z6r">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Cn9-QG-G8j" customClass="MGScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cn9-QG-G8j" customClass="MGScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="L07-ba-yTT"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="scroller" destination="Cn9-QG-G8j" id="eLm-6Q-lQh"/>
                     </connections>
@@ -222,15 +242,19 @@
         <scene sceneID="PPM-oL-l5D">
             <objects>
                 <viewController id="JeA-MP-roa" customClass="SSBranchDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ReK-gV-g2s"/>
+                        <viewControllerLayoutGuide type="bottom" id="bTy-ot-Qye"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JiE-RV-ka5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="kAq-L7-G0V">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="252"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kAq-L7-G0V">
+                                <rect key="frame" x="0.0" y="65" width="320" height="195"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d92-vS-l4M">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d92-vS-l4M">
                                 <rect key="frame" x="267" y="266" width="40" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -243,7 +267,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="Ojf-jI-81Y">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojf-jI-81Y">
                                 <rect key="frame" x="9" y="266" width="216" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -252,9 +276,11 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kAq-L7-G0V" firstAttribute="top" secondItem="ReK-gV-g2s" secondAttribute="bottom" constant="1" id="4TW-pH-8u3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cHw-DO-umD"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="callButton" destination="d92-vS-l4M" id="OC3-Xw-OgS"/>
                         <outlet property="map" destination="kAq-L7-G0V" id="ksL-cA-Ln3"/>
@@ -270,12 +296,16 @@
         <scene sceneID="QjY-lE-bZW">
             <objects>
                 <viewController id="PxE-PJ-mDH" customClass="SSProductListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tu5-hy-l2N"/>
+                        <viewControllerLayoutGuide type="bottom" id="ltq-TB-fXz"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mT2-Ll-51P">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DJY-Pv-sI4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-Pv-sI4">
+                                <rect key="frame" x="0.0" y="66" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -285,9 +315,11 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DJY-Pv-sI4" firstAttribute="top" secondItem="Tu5-hy-l2N" secondAttribute="bottom" constant="2" id="FLa-9C-dp1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6si-5m-73B"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="DJY-Pv-sI4" id="Usl-Mk-umc"/>
                         <outlet property="view" destination="mT2-Ll-51P" id="Ba5-Hk-eNA"/>
@@ -296,27 +328,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNX-WT-gJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1198" y="-115"/>
+            <point key="canvasLocation" x="1199" y="-157"/>
         </scene>
         <!--Product Details View Controller-->
         <scene sceneID="rlS-1Q-gC7">
             <objects>
                 <viewController id="Gws-DC-FhV" customClass="SSProductDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pPj-xE-VMG"/>
+                        <viewControllerLayoutGuide type="bottom" id="OXX-FA-2GY"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sa3-Vc-Nf2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="Qvc-dS-Lsw" customClass="KIImagePager">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qvc-dS-Lsw" customClass="KIImagePager">
+                                <rect key="frame" x="0.0" y="64" width="320" height="170"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cyan="0.10000000000000001" magenta="0.10000000000000001" yellow="0.14999999999999999" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="7j0-o3-gx9"/>
+                                    <constraint firstAttribute="width" constant="320" id="lgg-gu-Szo"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="Gws-DC-FhV" id="Pxe-cz-BZU"/>
                                     <outlet property="delegate" destination="Gws-DC-FhV" id="ccd-r8-1wg"/>
                                 </connections>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" id="V20-VQ-Dif">
-                                <rect key="frame" x="20" y="245" width="281" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V20-VQ-Dif">
+                                <rect key="frame" x="19" y="327" width="281" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
@@ -324,13 +364,13 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="price-tag.png" id="krr-Xv-xb6">
-                                <rect key="frame" x="245" y="182" width="51" height="39"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="price-tag.png" translatesAutoresizingMaskIntoConstraints="NO" id="krr-Xv-xb6">
+                                <rect key="frame" x="244" y="257" width="48" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SSZ-2q-HM8">
-                                <rect key="frame" x="10" y="186" width="32" height="32"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSZ-2q-HM8">
+                                <rect key="frame" x="15" y="254" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -342,12 +382,20 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="35N-1k-tQJ">
-                                <rect key="frame" x="55" y="186" width="32" height="32"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Y1W-Nv-uSR">
+                                <rect key="frame" x="262" y="255" width="31" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button" image="twitter-icon.png">
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35N-1k-tQJ">
+                                <rect key="frame" x="55" y="254" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="twitter-icon.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -355,20 +403,21 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" id="Y1W-Nv-uSR">
-                                <rect key="frame" x="265" y="195" width="31" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="35N-1k-tQJ" firstAttribute="top" secondItem="pPj-xE-VMG" secondAttribute="bottom" constant="190" id="9Kr-37-oC1"/>
+                            <constraint firstItem="Qvc-dS-Lsw" firstAttribute="top" secondItem="pPj-xE-VMG" secondAttribute="bottom" constant="1" id="CaJ-oH-URa"/>
+                            <constraint firstItem="Y1W-Nv-uSR" firstAttribute="top" secondItem="pPj-xE-VMG" secondAttribute="bottom" constant="191" id="Q77-d2-Fa7"/>
+                            <constraint firstItem="SSZ-2q-HM8" firstAttribute="top" secondItem="pPj-xE-VMG" secondAttribute="bottom" constant="190" id="eby-zG-21j"/>
+                            <constraint firstItem="SSZ-2q-HM8" firstAttribute="leading" secondItem="Sa3-Vc-Nf2" secondAttribute="leading" constant="15" id="qUW-vs-A8p"/>
+                            <constraint firstItem="35N-1k-tQJ" firstAttribute="leading" secondItem="Sa3-Vc-Nf2" secondAttribute="leading" constant="55" id="uXH-De-tTf"/>
+                            <constraint firstAttribute="trailing" secondItem="krr-Xv-xb6" secondAttribute="trailing" constant="28" id="vEg-Jc-KdR"/>
+                            <constraint firstItem="krr-Xv-xb6" firstAttribute="top" secondItem="pPj-xE-VMG" secondAttribute="bottom" constant="193" id="xNv-bv-WJV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BLv-ph-uHe"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="facebookButton" destination="SSZ-2q-HM8" id="JhD-Kj-RWa"/>
                         <outlet property="imagePager" destination="Qvc-dS-Lsw" id="6Gp-sH-RSw"/>
@@ -387,13 +436,14 @@
     <resources>
         <image name="branches-icon-unselected.png" width="30" height="30"/>
         <image name="call-icon.png" width="34" height="32"/>
-        <image name="facebook-icon.png" width="32" height="32"/>
+        <image name="facebook-icon.png" width="30" height="30"/>
         <image name="menu-icon-unselected.png" width="30" height="30"/>
         <image name="notifications-icon-unselected.png" width="30" height="30"/>
-        <image name="price-tag.png" width="40" height="31"/>
+        <image name="price-tag.png" width="42" height="21"/>
         <image name="settings-icon-unselected.png" width="30" height="30"/>
-        <image name="twitter-icon.png" width="32" height="32"/>
+        <image name="twitter-icon.png" width="30" height="30"/>
     </resources>
+    <color key="tintColor" red="0.70240752551020402" green="0.30314586686564082" blue="0.039153914924140956" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
