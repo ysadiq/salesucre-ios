@@ -83,10 +83,6 @@
 		DDABA67B17C94815003EE5C0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA67A17C94815003EE5C0 /* AdSupport.framework */; };
 		DDABA67D17C94835003EE5C0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA67C17C94835003EE5C0 /* Security.framework */; };
 		DDABA68117C94874003EE5C0 /* libFlurry_4.2.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */; };
-		DDAE4FC2175955F600475327 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC0175955F600475327 /* facebook-icon.png */; };
-		DDAE4FC3175955F600475327 /* facebook-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC1175955F600475327 /* facebook-icon@2x.png */; };
-		DDAE4FC6175955FD00475327 /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC4175955FD00475327 /* twitter-icon.png */; };
-		DDAE4FC7175955FD00475327 /* twitter-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC5175955FD00475327 /* twitter-icon@2x.png */; };
 		DDAE4FCA17595B8100475327 /* price-tag.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC817595B8100475327 /* price-tag.png */; };
 		DDAE4FCB17595B8100475327 /* price-tag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FC917595B8100475327 /* price-tag@2x.png */; };
 		DDAE4FCE1759609D00475327 /* call-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAE4FCC1759609D00475327 /* call-icon.png */; };
@@ -209,10 +205,6 @@
 		DDABA67C17C94835003EE5C0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DDABA67F17C94874003EE5C0 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		DDABA68017C94874003EE5C0 /* libFlurry_4.2.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_4.2.3.a; sourceTree = "<group>"; };
-		DDAE4FC0175955F600475327 /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
-		DDAE4FC1175955F600475327 /* facebook-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon@2x.png"; sourceTree = "<group>"; };
-		DDAE4FC4175955FD00475327 /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
-		DDAE4FC5175955FD00475327 /* twitter-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon@2x.png"; sourceTree = "<group>"; };
 		DDAE4FC817595B8100475327 /* price-tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-tag.png"; sourceTree = "<group>"; };
 		DDAE4FC917595B8100475327 /* price-tag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price-tag@2x.png"; sourceTree = "<group>"; };
 		DDAE4FCC1759609D00475327 /* call-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-icon.png"; sourceTree = "<group>"; };
@@ -472,10 +464,6 @@
 				DD1723FB174CDB18005EB25A /* app-background@2x.png */,
 				DD9184C1174CC03000441245 /* gallery-placeholder.png */,
 				DD9184C2174CC03000441245 /* gallery-placeholder@2x.png */,
-				DDAE4FC0175955F600475327 /* facebook-icon.png */,
-				DDAE4FC1175955F600475327 /* facebook-icon@2x.png */,
-				DDAE4FC4175955FD00475327 /* twitter-icon.png */,
-				DDAE4FC5175955FD00475327 /* twitter-icon@2x.png */,
 				DDAE4FC817595B8100475327 /* price-tag.png */,
 				DDAE4FC917595B8100475327 /* price-tag@2x.png */,
 				DDAE4FCC1759609D00475327 /* call-icon.png */,
@@ -608,10 +596,6 @@
 				DD3F794617539AEB001530B1 /* list-arrow.png in Resources */,
 				DD3F794717539AEB001530B1 /* list-arrow@2x.png in Resources */,
 				DD3F794917539D2E001530B1 /* GestaSemiCond-Medium.ttf in Resources */,
-				DDAE4FC2175955F600475327 /* facebook-icon.png in Resources */,
-				DDAE4FC3175955F600475327 /* facebook-icon@2x.png in Resources */,
-				DDAE4FC6175955FD00475327 /* twitter-icon.png in Resources */,
-				DDAE4FC7175955FD00475327 /* twitter-icon@2x.png in Resources */,
 				DDAE4FCA17595B8100475327 /* price-tag.png in Resources */,
 				DDAE4FCB17595B8100475327 /* price-tag@2x.png in Resources */,
 				DDAE4FCE1759609D00475327 /* call-icon.png in Resources */,
@@ -760,7 +744,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -785,7 +769,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "A9CB561E-BD84-431B-9309-A9790C81C6DC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
